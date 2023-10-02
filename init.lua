@@ -18,5 +18,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins from lua/plugins/*.lua files
-require("lazy").setup("plugins", {})
+require("lazy").setup("plugins", {
+  change_detection = {
+    notify = false,
+  },
+})
 
