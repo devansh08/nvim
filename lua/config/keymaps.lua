@@ -22,6 +22,10 @@ local leader_keymaps = {
   ["<leader>qq"] = ":qa<CR>",
 
   ["<leader>ll"] = ":Lazy<CR>",
+
+  ["<leader>gp"] = ":lua require('gitsigns').preview_hunk()<CR>",
+  ["<leader>gj"] = ":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
+  ["<leader>gk"] = ":lua require('gitsigns').prev_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
 }
 
 local normal_keymaps = {
