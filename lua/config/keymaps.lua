@@ -20,6 +20,8 @@ local leader_keymaps = {
   ["<leader>e"] = ":Lexplore 20<CR>",
 
   ["<leader>qq"] = ":qa<CR>",
+
+  ["<leader>ll"] = ":Lazy<CR>",
 }
 
 local normal_keymaps = {
