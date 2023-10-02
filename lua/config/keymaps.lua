@@ -50,6 +50,8 @@ local normal_keymaps = {
   ["xx"] = "dd",
   ["d"] = '"_d',
   ["dd"] = '"_dd',
+
+  ["vv"] = "V",
 }
 
 local visual_keymaps = {
