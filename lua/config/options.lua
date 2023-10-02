@@ -36,3 +36,16 @@ local options = {
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+vim.opt.iskeyword:remove({ "-", "_" })
+vim.opt.whichwrap:append({
+	["<"] = true,
+	[">"] = true,
+	["["] = true,
+	["]"] = true,
+})
+
+vim.cmd([[ command! Q q ]])
+vim.cmd([[ command! W w ]])
+vim.cmd([[ command! Wq wq ]])
+
