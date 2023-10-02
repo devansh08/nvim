@@ -29,6 +29,9 @@ return {
 					types = {},
 					operators = {},
 				},
+        integrations = {
+          nvimtree = true,
+        },
 			})
 
 			vim.cmd([[ colorscheme catppuccin ]])
