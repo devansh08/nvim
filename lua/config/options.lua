@@ -49,3 +49,5 @@ vim.cmd([[ command! Q q ]])
 vim.cmd([[ command! W w ]])
 vim.cmd([[ command! Wq wq ]])
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

@@ -17,7 +17,7 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 local leader_keymaps = {
-  ["<leader>e"] = ":Lexplore 20<CR>",
+  ["<leader>e"] = ":NvimTreeToggle<CR>",
 
   ["<leader>qq"] = ":qa<CR>",
 
