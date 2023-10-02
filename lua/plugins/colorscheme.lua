@@ -2,7 +2,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false,
+    tag = "stable",
 		pritority = 1000,
 		config = function()
 			local flavour = "macchiato"
