@@ -48,8 +48,6 @@ local normal_keymaps = {
   ["xx"] = "dd",
   ["d"] = '"_d',
   ["dd"] = '"_dd',
-
-  ["p"] = '"_dP',
 }
 
 local visual_keymaps = {
