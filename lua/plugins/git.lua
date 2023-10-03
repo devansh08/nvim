@@ -62,5 +62,10 @@ return {
       },
     },
   },
+  {
+    "tpope/vim-fugitive",
+    branch = "master",
+    cond = vim.fn.isdirectory('.git') == 1,
+  },
 }
 
