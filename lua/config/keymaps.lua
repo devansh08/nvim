@@ -1,3 +1,6 @@
+local utils = require('utils')
+local lua_fn = utils.lua_fn
+
 -- 'silent' prevents any output messages
 local opts = { noremap = true, silent = true }
 local cmd_opts = { noremap = true }
@@ -24,8 +27,16 @@ local leader_keymaps = {
   ["<leader>ll"] = ":Lazy<CR>",
 
   ["<leader>gp"] = ":lua require('gitsigns').preview_hunk()<CR>",
-  ["<leader>gj"] = ":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
-  ["<leader>gk"] = ":lua require('gitsigns').prev_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
+  ["<leader>ga"] = ":lua require('gitsigns').stage_hunk()<CR>",
+  ["<leader>gr"] = ":lua require('gitsigns').reset_hunk()<CR>",
+  ["<leader>gu"] = ":lua require('gitsigns').undo_stage_hunk()<cr>",
+  ["<leader>g<down>"] = ":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<cr>",
+  ["<leader>g<Up>"] = ":lua require('gitsigns').prev_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
+}
+
+local visual_leader_keymaps = {
+  ["<leader>ga"] = lua_fn(function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
+  ["<leader>gr"] = lua_fn(function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
 }
 
 local normal_keymaps = {
@@ -104,6 +115,7 @@ local cmd_expr_keymaps = {
 }
 
 set_keymaps("n", leader_keymaps, opts)
+set_keymaps("v", visual_leader_keymaps, opts)
 
 set_keymaps("n", normal_keymaps, opts)
 set_keymaps("v", visual_keymaps, opts)
