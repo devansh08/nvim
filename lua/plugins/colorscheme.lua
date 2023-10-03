@@ -31,6 +31,7 @@ return {
 				},
         integrations = {
           nvimtree = true,
+          gitsigns = true,
         },
 			})
 
