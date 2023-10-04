@@ -29,6 +29,9 @@ return {
           layout_strategy = 'horizontal',
           layout_config = {
             scroll_speed = 1,
+            height = 0.8,
+            width = 0.9,
+            preview_width = 0.5,
           },
           path_display = {
             shorten = {
