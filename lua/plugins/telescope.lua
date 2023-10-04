@@ -44,12 +44,16 @@ return {
             n = {
               ["<C-Up>"] = actions.preview_scrolling_up,
               ["<C-Down>"] = actions.preview_scrolling_down,
+              ["<C-Left>"] = actions.preview_scrolling_left,
+              ["<C-Right>"] = actions.preview_scrolling_right,
 
               ["<C-c>"] = actions.close,
             },
             i = {
               ["<C-Up>"] = actions.preview_scrolling_up,
               ["<C-Down>"] = actions.preview_scrolling_down,
+              ["<C-Left>"] = actions.preview_scrolling_left,
+              ["<C-Right>"] = actions.preview_scrolling_right,
 
               ["<C-c>"] = actions.close,
             },
