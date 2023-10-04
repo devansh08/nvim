@@ -26,6 +26,10 @@ return {
 
       telescope.setup({
         defaults = {
+          layout_strategy = 'horizontal',
+          layout_config = {
+            scroll_speed = 1,
+          },
           path_display = {
             shorten = {
               len = 1,
