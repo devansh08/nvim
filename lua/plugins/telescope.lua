@@ -1,7 +1,7 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    branch = "master",
+    tag = "*",
     dependencies = {
       {
         "nvim-telescope/telescope-ui-select.nvim",
