@@ -32,6 +32,7 @@ return {
         integrations = {
           nvimtree = true,
           gitsigns = true,
+          telescope = true,
         },
 			})
 
