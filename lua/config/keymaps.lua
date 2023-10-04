@@ -36,13 +36,23 @@ local leader_keymaps = {
   ["<leader>ga"] = ":lua require('gitsigns').stage_hunk()<CR>",
   ["<leader>gr"] = ":lua require('gitsigns').reset_hunk()<CR>",
   ["<leader>gu"] = ":lua require('gitsigns').undo_stage_hunk()<cr>",
-  ["<leader>g<down>"] = ":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<cr>",
+  ["<leader>g<Down>"] = ":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<cr>",
   ["<leader>g<Up>"] = ":lua require('gitsigns').prev_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
+  ["<leader>gl"] = ":Telescope git_commits<CR>",
+  ["<leader>gbl"] = ":Telescope git_bcommits<CR>",
+  ["<leader>gsl"] = ":Telescope git_stash<CR>",
+
+  ["<leader>ff"] = ":Telescope find_files<CR>",
+  ["<leader>fg"] = ":Telescope live_grep<CR>",
+  ["<leader>fk"] = ":Telescope keymaps<CR>",
+  ["<leader>fj"] = ":Telescope jumplist<CR>",
+  ["<leader>fb"] = ":Telescope buffers<CR>",
 }
 
 local visual_leader_keymaps = {
   ["<leader>ga"] = lua_fn(function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
   ["<leader>gr"] = lua_fn(function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
+  ["<leader>gbl"] = ":lua require('telescope.builtin').git_bcommits_range({ from = vim.fn.line('.'), to = vim.fn.line('v') })<CR>",
 }
 
 local normal_keymaps = {
