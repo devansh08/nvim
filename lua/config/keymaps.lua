@@ -42,12 +42,19 @@ local leader_keymaps = {
   ["<leader>gl"] = ":Telescope git_commits<CR>",
   ["<leader>gbl"] = ":Telescope git_bcommits<CR>",
   ["<leader>gsl"] = ":Telescope git_stash<CR>",
+  ["<leader>gg"] = ":9TermExec cmd='lazygit && exit' direction=float name='lazygit'<CR>",
 
   ["<leader>ff"] = ":Telescope find_files<CR>",
   ["<leader>fg"] = ":Telescope live_grep<CR>",
   ["<leader>fk"] = ":Telescope keymaps<CR>",
   ["<leader>fj"] = ":Telescope jumplist<CR>",
   ["<leader>fb"] = ":Telescope buffers<CR>",
+
+  ["<leader>tt"] = ":TermSelect<CR>",
+  ["<leader>t1"] = ":1ToggleTerm direction=float<CR>",
+  ["<leader>t2"] = ":2ToggleTerm direction=float<CR>",
+  ["<leader>t3"] = ":3ToggleTerm direction=float<CR>",
+  ["<leader>th"] = ":4ToggleTerm direction=horizontal<CR>",
 }
 
 local visual_leader_keymaps = {
