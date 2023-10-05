@@ -98,6 +98,7 @@ return {
 		extensions = {
 			"lazy",
 			"nvim-tree",
+      "toggleterm",
 		},
 	},
 }
