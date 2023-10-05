@@ -33,6 +33,7 @@ local leader_keymaps = {
   ["<leader>gpl"] = ":Git pull<CR>",
   ["<leader>gph"] = ":lua if vim.fn.input('Push changes ? ') == 'y' then vim.cmd(':redraw'); vim.cmd(':Git push') else vim.cmd(':redraw'); print('Push aborted') end<CR>",
   ["<leader>gp"] = ":lua require('gitsigns').preview_hunk()<CR>",
+  ["<leader>gA"] = ":lua require('gitsigns').stage_buffer()<CR>",
   ["<leader>ga"] = ":lua require('gitsigns').stage_hunk()<CR>",
   ["<leader>gr"] = ":lua require('gitsigns').reset_hunk()<CR>",
   ["<leader>gu"] = ":lua require('gitsigns').undo_stage_hunk()<cr>",
