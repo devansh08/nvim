@@ -34,6 +34,9 @@ return {
           gitsigns = true,
           telescope = true,
           mason = true,
+          treesitter = true,
+					treesitter_context = true,
+					rainbow_delimiters = true,
 					native_lsp = {
 						enabled = true,
 						virtual_text = {
