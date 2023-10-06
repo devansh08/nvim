@@ -31,6 +31,10 @@ local options = {
 
 	termguicolors = true,
 
+  -- For tree-sitter folding
+	foldmethod = "expr",
+	foldexpr = "vim.treesitter.foldexpr()",
+	foldenable = true,
 }
 
 for k, v in pairs(options) do
