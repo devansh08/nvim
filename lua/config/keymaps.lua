@@ -99,6 +99,8 @@ local normal_keymaps = {
   ["dd"] = '"_dd',
 
   ["vv"] = "V",
+
+  ["<C-_>"] = ":lua require('Comment.api').toggle.linewise.current()<CR>", -- <C-_> maps to Ctrl+ForwardSlash
 }
 
 local visual_keymaps = {
@@ -118,6 +120,8 @@ local visual_keymaps = {
   ["dd"] = '"_dd',
 
   ["p"] = '"_dP',
+
+  ["<C-_>"] = ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", -- <C-_> maps to Ctrl+ForwardSlash
 }
 
 local insert_keymaps = {
@@ -133,6 +137,8 @@ local insert_keymaps = {
   ["<S-Right>"] = "<Esc>v<Right>",
   ["<S-Up>"] = "<Esc>v<Up>",
   ["<S-Down>"] = "<Esc>v<Down>",
+
+  ["<C-_>"] = "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", -- <C-_> maps to Ctrl+ForwardSlash
 }
 
 local cmd_keymaps = {

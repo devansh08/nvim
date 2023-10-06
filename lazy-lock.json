@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "2c3a3a3e4fb503bf39efb61290ecfa8aae95f5eb" },
   "catppuccin": { "branch": "main", "commit": "18267654c665310c665d3b7c6bc43d5f5ea5e410" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },

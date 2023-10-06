@@ -35,5 +35,22 @@ return {
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
+  {
+    "numToStr/Comment.nvim",
+    branch = "master",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      padding = true,
+      sticky = true,
+      ignore = nil,
+      mappings = {
+        basic = false,
+        extra = false,
+      },
+      -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      post_hook = nil,
+    },
+  }
 }
 
