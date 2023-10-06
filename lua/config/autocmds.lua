@@ -54,3 +54,57 @@ vim.api.nvim_create_autocmd("WinLeave", {
   group = vim.api.nvim_create_augroup("SwitchAwayFromNvimTreeBuffer", { clear = true }),
 })
 
+
+-- Setup LSP keymaps when LSP is attached to buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    local keymap = vim.api.nvim_buf_set_keymap
+
+    local keymaps = {
+      -- Displays hover information about the symbol under the cursor
+      ["h"] = "<cmd>lua vim.lsp.buf.hover()<cr>",
+
+      -- Jump to definition
+      ["df"] = "<cmd>lua vim.lsp.buf.definition()<cr>",
+
+      -- Jump to declaration
+      ["dc"] = "<cmd>lua vim.lsp.buf.declaration()<cr>",
+
+      -- Lists all the implementations for the symbol under the cursor
+      ["i"] = "<cmd>lua vim.lsp.buf.implementation()<cr>",
+
+      -- Jumps to the definition of the type symbol
+      ["t"] = "<cmd>lua vim.lsp.buf.type_definition()<cr>",
+
+      -- Lists all the references
+      ["R"] = "<cmd>lua vim.lsp.buf.references()<cr>",
+
+      -- Displays a function's signature information
+      ["s"] = "<cmd>lua vim.lsp.buf.signature_help()<cr>",
+
+      -- Renames all references to the symbol under the cursor
+      ["r"] = "<cmd>lua vim.lsp.buf.rename()<cr>",
+
+      -- Selects a code action available at the current cursor position
+      ["c"] = "<cmd>lua vim.lsp.buf.code_action()<cr>",
+
+      -- Format code in buffer
+      ["f"] = "<cmd>lua vim.lsp.buf.format()<cr>:w<cr>",
+
+      -- Show diagnostics in a floating window
+      ["g"] = "<cmd>lua vim.diagnostic.open_float()<cr>",
+
+      -- Move to the previous diagnostic
+      ["p"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+
+      -- Move to the next diagnostic
+      ["n"] = "<cmd>lua vim.diagnostic.goto_next()<cr>",
+    }
+
+    for k, v in pairs(keymaps) do
+      keymap(0, "n", "<leader>l" .. k, v, { noremap = true })
+    end
+  end,
+  group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
+})
+

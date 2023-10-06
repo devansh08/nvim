@@ -47,6 +47,15 @@ return {
 				branch = "main",
 				lazy = true,
 			},
+			{
+				"hrsh7th/cmp-nvim-lsp",
+				branch = "main",
+			},
+      {
+				"hrsh7th/cmp-nvim-lsp-signature-help",
+				lazy = true,
+				branch = "main",
+			},
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -102,9 +111,11 @@ return {
 				},
 				sources = {
 					{ name = "nvim_lua" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
+          { name = "nvim_lsp_signature_help" },
 				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
@@ -112,9 +123,11 @@ return {
 						mode = "symbol",
 						menu = {
 							nvim_lua = "[NeoVim Lua]",
+							nvim_lsp = "[LSP]",
 							buffer = "[Buffer]",
 							path = "[Path]",
 							luasnip = "[LuaSnip]",
+              nvim_lsp_signature_help = "[Signature]",
 						},
 					}),
 				},

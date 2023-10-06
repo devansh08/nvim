@@ -26,6 +26,8 @@ local leader_keymaps = {
 
   ["<leader>ll"] = ":Lazy<CR>",
 
+  ["<leader>mm"] = ":Mason<CR>",
+
   ["<leader>gs"] = ":Git<CR>",
   ["<leader>gc"] = ":Git commit<CR>",
   ["<leader>gd"] = ":Git diff<CR>",
@@ -55,6 +57,12 @@ local leader_keymaps = {
   ["<leader>t2"] = ":2ToggleTerm direction=float<CR>",
   ["<leader>t3"] = ":3ToggleTerm direction=float<CR>",
   ["<leader>th"] = ":4ToggleTerm direction=horizontal<CR>",
+
+  ["<leader>fr"] = ":Telescope lsp_references<CR>",
+  ["<leader>fi"] = ":Telescope lsp_implementations<CR>",
+  ["<leader>fd"] = ":Telescope lsp_definitions<CR>",
+  ["<leader>fe"] = ":Telescope diagnostics<CR>",
+  ["<leader>fc"] = ":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
 }
 
 local visual_leader_keymaps = {

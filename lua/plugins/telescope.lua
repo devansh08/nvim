@@ -107,7 +107,26 @@ return {
               "-L",
             },
           },
-
+          lsp_references = {
+						jump_type = "never",
+						show_line = false,
+						mappings = custom_keymaps,
+					},
+					lsp_implementations = {
+						jump_type = "never",
+						reuse_win = true,
+						show_line = false,
+						mappings = custom_keymaps,
+					},
+					lsp_definitions = {
+						jump_type = "never",
+						reuse_win = true,
+						show_line = false,
+						mappings = custom_keymaps,
+					},
+					diagnostics = {
+						mappings = custom_keymaps,
+					},
         },
         extensions = {
           ["ui-select"] = {},

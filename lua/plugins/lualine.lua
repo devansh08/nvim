@@ -25,6 +25,10 @@ return {
 			lualine_b = {
 				"branch",
 				"diff",
+        {
+					"diagnostics",
+					update_in_insert = true,
+				},
 			},
 			lualine_c = { "filename" },
 			lualine_x = { "filetype" },
