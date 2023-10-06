@@ -27,3 +27,4 @@ require("lazy").setup("plugins", {
   },
 })
 
+require("lsp").setup()
