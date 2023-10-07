@@ -63,12 +63,22 @@ local leader_keymaps = {
   ["<leader>fd"] = ":Telescope lsp_definitions<CR>",
   ["<leader>fe"] = ":Telescope diagnostics<CR>",
   ["<leader>fc"] = ":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
+
+  ["<leader>jo"] = ":lua require('jdtls').organize_imports()<CR>",
+  ["<leader>jv"] = ":lua require('jdtls').extract_variable()<CR>",
+  ["<leader>jc"] = ":lua require('jdtls').extract_constant()<CR>",
+  ["<leader>jm"] = ":lua require('jdtls').extract_method()<CR>",
 }
 
 local visual_leader_keymaps = {
   ["<leader>ga"] = lua_fn(function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
   ["<leader>gr"] = lua_fn(function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end),
   ["<leader>gbl"] = ":lua require('telescope.builtin').git_bcommits_range({ from = vim.fn.line('.'), to = vim.fn.line('v') })<CR>",
+
+  ["<leader>jo"] = ":lua require('jdtls').organize_imports()<CR>",
+  ["<leader>jv"] = ":lua require('jdtls').extract_variable()<CR>",
+  ["<leader>jc"] = ":lua require('jdtls').extract_constant()<CR>",
+  ["<leader>jm"] = ":lua require('jdtls').extract_method()<CR>",
 }
 
 local normal_keymaps = {
