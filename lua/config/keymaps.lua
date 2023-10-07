@@ -127,7 +127,7 @@ local visual_keymaps = {
 
   ["xx"] = "dd",
   ["d"] = '"_d',
-  ["dd"] = '"_dd',
+  ["dd"] = '"_d',
 
   ["p"] = '"_dP',
 
