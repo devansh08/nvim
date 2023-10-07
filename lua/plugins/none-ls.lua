@@ -21,6 +21,7 @@ return {
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.ruff,
         null_ls.builtins.diagnostics.tsc,
+				null_ls.builtins.diagnostics.fish,
 
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.google_java_format,
@@ -41,5 +42,7 @@ return {
       end,
     })
   end,
+				null_ls.builtins.formatting.fish_indent,
+				null_ls.builtins.formatting.jq,
 }
 
