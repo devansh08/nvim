@@ -68,6 +68,7 @@ local leader_keymaps = {
   ["<leader>jv"] = ":lua require('jdtls').extract_variable()<CR>",
   ["<leader>jc"] = ":lua require('jdtls').extract_constant()<CR>",
   ["<leader>jm"] = ":lua require('jdtls').extract_method()<CR>",
+	["<leader>ww"] = ":lua vim.g.no_format = true<CR>:w<CR>",
 }
 
 local visual_leader_keymaps = {

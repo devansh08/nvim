@@ -44,5 +44,10 @@ return {
   end,
 				null_ls.builtins.formatting.fish_indent,
 				null_ls.builtins.formatting.jq,
+							if vim.g.no_format ~= true then
+								vim.lsp.buf.format({ async = false })
+							else
+								vim.g.no_format = false
+							end
 }
 
