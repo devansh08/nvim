@@ -49,7 +49,7 @@ return {
 					}
 				end,
 			},
-      {
+			{
 				"windwp/nvim-ts-autotag",
 				branch = "main",
 				lazy = true,
@@ -76,7 +76,7 @@ return {
 			local opts = {
 				ensure_installed = {
 					"bash",
-          "c",
+					"c",
 					"css",
 					"dockerfile",
 					"fish",
@@ -115,4 +115,3 @@ return {
 		end,
 	},
 }
-

@@ -1,5 +1,5 @@
 return {
-  -- LSP Server package manager
+	-- LSP Server package manager
 	{
 		"williamboman/mason.nvim",
 		tag = "stable",
@@ -13,25 +13,25 @@ return {
 						package_uninstalled = "✗",
 					},
 				},
-        --log_level = vim.log.levels.TRACE,
+				--log_level = vim.log.levels.TRACE,
 			}
 
 			require("mason").setup(opts)
 
-      -- Long names
+			-- Long names
 			local ensure_installed = {
 				"black",
-        "dockerfile-language-server",
+				"dockerfile-language-server",
 				"eslint_d",
 				"google-java-format",
 				"jdtls",
 				"json-lsp",
 				"lua-language-server",
 				"prettierd",
-        "pyright",
-        "ruff",
+				"pyright",
+				"ruff",
 				"stylua",
-        "taplo",
+				"taplo",
 				"typescript-language-server",
 			}
 
@@ -53,4 +53,3 @@ return {
 		end,
 	},
 }
-

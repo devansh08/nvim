@@ -8,7 +8,7 @@ return {
 			{
 				-- Mason extension to use with nvim-lspconfig
 				"williamboman/mason-lspconfig.nvim",
-        tag = "stable",
+				tag = "stable",
 				config = function()
 					-- lua/lsp/init.lua
 					local lsp_defaults = require("lsp.init")
@@ -56,7 +56,7 @@ return {
 								capabilities = lsp_defaults.capabilities,
 							}
 
-              -- Short names
+							-- Short names
 							local _ok, server_opts = pcall(require, "lsp.settings." .. server)
 							if _ok then
 								opts = vim.tbl_deep_extend("force", server_opts, opts)
@@ -69,4 +69,3 @@ return {
 		},
 	},
 }
-

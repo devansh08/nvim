@@ -4,7 +4,7 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-	 		theme = "catppuccin",
+			theme = "catppuccin",
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			disabled_filetypes = {
@@ -25,7 +25,7 @@ return {
 			lualine_b = {
 				"branch",
 				"diff",
-        {
+				{
 					"diagnostics",
 					update_in_insert = true,
 				},
@@ -47,7 +47,7 @@ return {
 			lualine_a = {
 				{
 					"tabs",
-          max_length = vim.o.columns,
+					max_length = vim.o.columns,
 					mode = 1,
 					fmt = function(name, context)
 						-- Show + if buffer is modified in tab
@@ -58,7 +58,6 @@ return {
 
 						return name .. (mod == 1 and " " or "")
 					end,
-
 				},
 			},
 			lualine_b = {},
@@ -84,7 +83,7 @@ return {
 			lualine_z = { "searchcount" },
 		},
 		inactive_winbar = {
-      lualine_a = {},
+			lualine_a = {},
 			lualine_b = {
 				{
 					"filename",
@@ -98,12 +97,11 @@ return {
 			lualine_x = {},
 			lualine_y = {},
 			lualine_z = {},
-    },
+		},
 		extensions = {
 			"lazy",
 			"nvim-tree",
-      "toggleterm",
+			"toggleterm",
 		},
 	},
 }
-

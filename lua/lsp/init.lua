@@ -55,7 +55,7 @@ M.on_attach = function(client)
 	if client.server_capabilities.documentHighlightProvider then
 		local lsp_augroup = vim.api.nvim_create_augroup("LspDocHighlight", { clear = true })
 
-    vim.api.nvim_create_autocmd("CursorHold", {
+		vim.api.nvim_create_autocmd("CursorHold", {
 			callback = function()
 				vim.lsp.buf.document_highlight()
 			end,
@@ -63,7 +63,7 @@ M.on_attach = function(client)
 			buffer = 0,
 		})
 
-    vim.api.nvim_create_autocmd("CursorMoved", {
+		vim.api.nvim_create_autocmd("CursorMoved", {
 			callback = function()
 				vim.lsp.buf.clear_references()
 			end,
@@ -75,10 +75,9 @@ end
 
 local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not status then
-  print("Error: require cmp_nvim_lsp failed")
-  return M
+	print("Error: require cmp_nvim_lsp failed")
+	return M
 end
 M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 return M
-

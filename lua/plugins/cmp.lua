@@ -51,7 +51,7 @@ return {
 				"hrsh7th/cmp-nvim-lsp",
 				branch = "main",
 			},
-      {
+			{
 				"hrsh7th/cmp-nvim-lsp-signature-help",
 				lazy = true,
 				branch = "main",
@@ -115,7 +115,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
-          { name = "nvim_lsp_signature_help" },
+					{ name = "nvim_lsp_signature_help" },
 				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
@@ -127,7 +127,7 @@ return {
 							buffer = "[Buffer]",
 							path = "[Path]",
 							luasnip = "[LuaSnip]",
-              nvim_lsp_signature_help = "[Signature]",
+							nvim_lsp_signature_help = "[Signature]",
 						},
 					}),
 				},
@@ -139,4 +139,3 @@ return {
 		end,
 	},
 }
-

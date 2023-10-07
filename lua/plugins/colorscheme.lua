@@ -2,12 +2,12 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-    tag = "stable",
+		tag = "stable",
 		pritority = 1000,
 		config = function()
 			local flavour = "macchiato"
 
-      require("catppuccin").setup({
+			require("catppuccin").setup({
 				flavour = flavour,
 				background = {
 					dark = flavour,
@@ -29,12 +29,12 @@ return {
 					types = {},
 					operators = {},
 				},
-        integrations = {
-          nvimtree = true,
-          gitsigns = true,
-          telescope = true,
-          mason = true,
-          treesitter = true,
+				integrations = {
+					nvimtree = true,
+					gitsigns = true,
+					telescope = true,
+					mason = true,
+					treesitter = true,
 					treesitter_context = true,
 					rainbow_delimiters = true,
 					native_lsp = {
@@ -55,11 +55,10 @@ return {
 							background = true,
 						},
 					},
-        },
+				},
 			})
 
 			vim.cmd([[ colorscheme catppuccin ]])
 		end,
 	},
 }
-
