@@ -18,7 +18,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins from lua/plugins/*.lua files
-require("lazy").setup("plugins", {
+require("lazy").setup({
+  spec = {
+    { import = "plugins"},
+    { import = "plugins.languages"},
+  },
   ui = {
     border = "single",
   },
