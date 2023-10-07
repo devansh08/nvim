@@ -129,7 +129,9 @@ return {
 					},
         },
         extensions = {
-          ["ui-select"] = {},
+          ["ui-select"] = {
+            require("telescope.themes").get_cursor {}
+          },
         },
       })
 
