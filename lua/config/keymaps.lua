@@ -130,7 +130,7 @@ local visual_keymaps = {
 	["<S-Up>"] = "<Up>",
 	["<S-Down>"] = "<Down>",
 
-	["xx"] = "dd",
+	["xx"] = "d",
 	["d"] = '"_d',
 	["dd"] = '"_d',
 
