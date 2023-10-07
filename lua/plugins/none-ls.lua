@@ -7,6 +7,23 @@ return {
 		local null_ls = require("null-ls")
 
 		null_ls.setup({
+			border = "rounded",
+			diagnostics_format = "[#{c}] #{m}",
+			on_attach = function(client, bufnr)
+				if client.supports_method("textDocument/formatting") then
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						callback = function()
+							if vim.g.no_format ~= true then
+								vim.lsp.buf.format({ async = false })
+							else
+								vim.g.no_format = false
+							end
+						end,
+						group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),
+					})
+				end
+			end,
 			sources = {
 				null_ls.builtins.code_actions.eslint_d,
 				null_ls.builtins.code_actions.gitsigns.with({
@@ -31,21 +48,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.taplo,
 			},
-			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						callback = function()
-							if vim.g.no_format ~= true then
-								vim.lsp.buf.format({ async = false })
-							else
-								vim.g.no_format = false
-							end
-						end,
-						group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),
-					})
-				end
-			end,
+      update_in_insert = true,
 		})
 	end,
 }
