@@ -14,7 +14,7 @@ return {
 			hide_numbers = true,
 			direction = "float",
 			float_opts = {
-				border = "single",
+				border = "rounded",
 				width = 200,
 				height = 40,
 			},

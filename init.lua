@@ -24,7 +24,7 @@ require("lazy").setup({
 		{ import = "plugins.languages" },
 	},
 	ui = {
-		border = "single",
+		border = "rounded",
 	},
 	change_detection = {
 		notify = false,
