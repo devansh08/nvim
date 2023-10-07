@@ -89,7 +89,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       ["c"] = "<cmd>lua vim.lsp.buf.code_action()<cr>",
 
       -- Format code in buffer
-      ["f"] = "<cmd>lua vim.lsp.buf.format()<cr>:w<cr>",
+      ["f"] = "<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>",
 
       -- Show diagnostics in a floating window
       ["g"] = "<cmd>lua vim.diagnostic.open_float()<cr>",
