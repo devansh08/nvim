@@ -121,11 +121,14 @@ local normal_keymaps = {
 	["vv"] = "V",
 
 	["<C-_>"] = ":lua require('Comment.api').toggle.linewise.current()<CR>", -- <C-_> maps to Ctrl+ForwardSlash
+
+	["<Tab>"] = ">>",
+	["<S-Tab>"] = "<<",
 }
 
 local visual_keymaps = {
-	[">"] = ">gv",
-	["<"] = "<gv",
+	["<Tab>"] = ">gv",
+	["<S-Tab>"] = "<gv",
 
 	["<C-Left>"] = "b",
 	["<C-Right>"] = "w",
