@@ -1,6 +1,9 @@
 local options = {
 	number = true,
+	relativenumber = true,
 	cursorline = true,
+
+	signcolumn = "yes",
 
 	mouse = "a",
 	clipboard = "unnamedplus",
