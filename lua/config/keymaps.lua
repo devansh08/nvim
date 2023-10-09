@@ -69,6 +69,11 @@ local leader_keymaps = {
 	["<leader>jv"] = ":lua require('jdtls').extract_variable()<CR>",
 	["<leader>jc"] = ":lua require('jdtls').extract_constant()<CR>",
 	["<leader>jm"] = ":lua require('jdtls').extract_method()<CR>",
+
+	["<leader>xx"] = ":TroubleToggle<CR>",
+	["<leader>xw"] = ":TroubleToggle workspace_diagnostics<CR>",
+	["<leader>xd"] = ":TroubleToggle document_diagnostics<CR>",
+	["<leader>xl"] = ":TroubleToggle lsp_references<CR>",
 }
 
 local visual_leader_keymaps = {
