@@ -21,6 +21,9 @@ return {
 			-- Long names
 			local ensure_installed = {
 				"black",
+				"clang-format",
+				"clangd",
+				"cpplint",
 				"dockerfile-language-server",
 				"eslint_d",
 				"google-java-format",

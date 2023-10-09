@@ -35,12 +35,14 @@ return {
 					},
 				}),
 
+				null_ls.builtins.diagnostics.cpplint,
 				null_ls.builtins.diagnostics.eslint_d,
 				null_ls.builtins.diagnostics.fish,
 				null_ls.builtins.diagnostics.ruff,
 				null_ls.builtins.diagnostics.tsc,
 
 				null_ls.builtins.formatting.black,
+				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.fish_indent,
 				null_ls.builtins.formatting.google_java_format,
 				null_ls.builtins.formatting.jq,
@@ -48,7 +50,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.taplo,
 			},
-      update_in_insert = true,
+			update_in_insert = true,
 		})
 	end,
 }
