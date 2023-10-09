@@ -122,6 +122,8 @@ local normal_keymaps = {
 
 	["<C-_>"] = ":lua require('Comment.api').toggle.linewise.current()<CR>", -- <C-_> maps to Ctrl+ForwardSlash
 
+	["gx"] = ":silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>",
+
 	["<Tab>"] = ">>",
 	["<S-Tab>"] = "<<",
 }
