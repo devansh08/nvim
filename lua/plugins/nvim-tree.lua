@@ -173,6 +173,7 @@ return {
 				no_buffer = false,
 				custom = {
 					"^.git$",
+					".null-ls*",
 				},
 			},
 			actions = {
