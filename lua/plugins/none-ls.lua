@@ -20,7 +20,7 @@ return {
 								vim.g.no_format = false
 							end
 						end,
-						group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true }),
+						group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = false }),
 					})
 				end
 			end,
