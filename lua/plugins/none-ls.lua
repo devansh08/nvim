@@ -25,7 +25,11 @@ return {
 				end
 			end,
 			sources = {
-				null_ls.builtins.code_actions.eslint_d,
+				null_ls.builtins.code_actions.eslint_d.with({
+					condition = function(utils)
+						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
+					end,
+				}),
 				null_ls.builtins.code_actions.gitsigns.with({
 					config = {
 						-- Remove specific actions from suggestions
@@ -36,7 +40,11 @@ return {
 				}),
 
 				null_ls.builtins.diagnostics.cpplint,
-				null_ls.builtins.diagnostics.eslint_d,
+				null_ls.builtins.diagnostics.eslint_d.with({
+					condition = function(utils)
+						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
+					end,
+				}),
 				null_ls.builtins.diagnostics.fish,
 				null_ls.builtins.diagnostics.ruff,
 				null_ls.builtins.diagnostics.tsc,
@@ -46,7 +54,11 @@ return {
 				null_ls.builtins.formatting.fish_indent,
 				null_ls.builtins.formatting.google_java_format,
 				null_ls.builtins.formatting.jq,
-				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.prettierd.with({
+					condition = function(utils)
+						return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
+					end,
+				}),
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.taplo,
 			},
