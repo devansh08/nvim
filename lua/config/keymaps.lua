@@ -74,6 +74,12 @@ local leader_keymaps = {
 	["<leader>xw"] = ":TroubleToggle workspace_diagnostics<CR>",
 	["<leader>xd"] = ":TroubleToggle document_diagnostics<CR>",
 	["<leader>xl"] = ":TroubleToggle lsp_references<CR>",
+
+	["<leader>rr"] = ":lua require('telescope').extensions.refactoring.refactors()<CR>",
+	["<leader>ri"] = ":Refactor inline_var<CR>",
+	["<leader>rif"] = ":Refactor inline_func<CR>",
+	["<leader>rb"] = ":Refactor extract_block<CR>",
+	["<leader>rbf"] = ":Refactor extract_block_to_file<CR>",
 }
 
 local visual_leader_keymaps = {
@@ -89,6 +95,12 @@ local visual_leader_keymaps = {
 	["<leader>jv"] = ":lua require('jdtls').extract_variable()<CR>",
 	["<leader>jc"] = ":lua require('jdtls').extract_constant()<CR>",
 	["<leader>jm"] = ":lua require('jdtls').extract_method()<CR>",
+
+	["<leader>rr"] = ":lua require('telescope').extensions.refactoring.refactors()<CR>",
+	["<leader>re"] = ":Refactor extract<CR>",
+	["<leader>rf"] = ":Refactor extract_to_file<CR>",
+	["<leader>rv"] = ":Refactor extract_var<CR>",
+	["<leader>ri"] = ":Refactor inline_var<CR>",
 }
 
 local normal_keymaps = {

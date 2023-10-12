@@ -52,4 +52,32 @@ return {
 			post_hook = nil,
 		},
 	},
+	{
+		"ThePrimeagen/refactoring.nvim",
+		branch = "master",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {
+			prompt_func_return_type = {
+				go = false,
+				java = true,
+				cpp = false,
+				c = true,
+				h = false,
+				hpp = false,
+				cxx = false,
+			},
+			prompt_func_param_type = {
+				go = false,
+				java = true,
+				cpp = false,
+				c = true,
+				h = false,
+				hpp = false,
+				cxx = false,
+			},
+			printf_statements = {},
+			print_var_statements = {},
+		},
+	},
 }
