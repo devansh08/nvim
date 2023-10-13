@@ -30,14 +30,6 @@ return {
 						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
 					end,
 				}),
-				null_ls.builtins.code_actions.gitsigns.with({
-					config = {
-						-- Remove specific actions from suggestions
-						filter_actions = function(title)
-							return title:lower():match("blame") == nil
-						end,
-					},
-				}),
 
 				null_ls.builtins.diagnostics.cpplint,
 				null_ls.builtins.diagnostics.eslint_d.with({
