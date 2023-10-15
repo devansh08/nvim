@@ -34,6 +34,8 @@ local options = {
 
 	termguicolors = true,
 
+	cmdheight = 0,
+
 	-- For tree-sitter folding
 	foldmethod = "expr",
 	foldexpr = "vim.treesitter.foldexpr()",
