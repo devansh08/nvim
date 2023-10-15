@@ -57,6 +57,10 @@ return {
 							updateBuildConfiguration = "interactive",
 							runtimes = {
 								{
+									name = "JavaSE-17",
+									path = JDK_PATH,
+								},
+								{
 									name = "JavaSE-21",
 									path = JDK_PATH,
 								},
