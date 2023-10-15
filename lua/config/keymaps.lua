@@ -167,6 +167,9 @@ local insert_keymaps = {
 
 	["<C-z>"] = "<Esc>ui",
 
+	["<C-Up>"] = "<Esc>10ki",
+	["<C-Down>"] = "<Esc>10ji",
+
 	["<C-S-Left>"] = "<Esc>vb",
 	["<C-S-Right>"] = "<Esc><Right>vw",
 
