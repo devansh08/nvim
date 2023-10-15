@@ -113,8 +113,8 @@ local normal_keymaps = {
 
 	["<C-Left>"] = "b",
 	["<C-Right>"] = "w",
-	["<C-Up>"] = "<C-b>",
-	["<C-Down>"] = "<C-f>",
+	["<C-Up>"] = "10k",
+	["<C-Down>"] = "10j",
 
 	["<S-Left>"] = "v<Left>",
 	["<S-Right>"] = "v<Right>",
