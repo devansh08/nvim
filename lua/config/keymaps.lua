@@ -146,6 +146,8 @@ local visual_keymaps = {
 
 	["<C-Left>"] = "b",
 	["<C-Right>"] = "w",
+	["<C-Up>"] = "10k",
+	["<C-Down>"] = "10j",
 
 	["<S-Left>"] = "<Left>",
 	["<S-Right>"] = "<Right>",
