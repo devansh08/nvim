@@ -80,4 +80,8 @@ return {
 			print_var_statements = {},
 		},
 	},
+	{
+		"tpope/vim-abolish",
+		branch = "master",
+	},
 }
