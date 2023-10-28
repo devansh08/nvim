@@ -5,6 +5,7 @@ local RIGHT_JUMP = "e"
 
 local utils = require("utils")
 local lua_fn = utils.lua_fn
+local set_keymaps = utils.set_keymaps
 
 -- 'silent' prevents any output messages
 local opts = { noremap = true, silent = true }
@@ -12,16 +13,8 @@ local cmd_opts = { noremap = true }
 -- 'expr' tells vim to get the command from output of a function/expression
 local cmd_expr_opts = { noremap = true, expr = true }
 
-local keymap = vim.api.nvim_set_keymap
-local function set_keymaps(mode, keymaps, keymap_opts)
-	for k, v in pairs(keymaps) do
-		keymap_opts["desc"] = v[2]
-		vim.api.nvim_set_keymap(mode, k, v[1], keymap_opts)
-	end
-end
-
 -- Set Space to no-op so it can be remapped to Leader
-keymap("", "<Space>", "<Nop>", opts)
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 -- Set Space as Map Leader <leader>
 vim.g.mapleader = " "
 
@@ -198,6 +191,11 @@ local visual_keymaps = {
 	["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
 	["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
 	["<C-Down>"] = { LINE_JUMP .. "j", "Jump " .. LINE_JUMP .. " Lines Down" },
+
+	["<S-Left>"] = { "<Left>", "Select Left" },
+	["<S-Right>"] = { "<Right>", "Select Right" },
+	["<S-Up>"] = { "<Up>", "Select Up" },
+	["<S-Down>"] = { "<Down>", "Select Down" },
 
 	["xx"] = { "d", "Delete Selected Lines and Copy" },
 	["d"] = { '"_d', "Delete Selected Text without Copy" },
