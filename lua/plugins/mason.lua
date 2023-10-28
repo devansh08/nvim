@@ -6,6 +6,9 @@ return {
 		build = ":MasonUpdate",
 		config = function()
 			local opts = {
+				pip = {
+					install_args = { "--timeout", "999" },
+				},
 				ui = {
 					icons = {
 						package_installed = "✓",
