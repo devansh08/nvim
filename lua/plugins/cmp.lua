@@ -63,6 +63,7 @@ return {
 			local lspkind = require("lspkind")
 
 			cmp.setup({
+				preselect = cmp.PreselectMode.None,
 				snippet = {
 					expand = function(args)
 						-- Use LuaSnip as Snippet Engine for nvim-cmp
