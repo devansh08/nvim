@@ -71,10 +71,12 @@ return {
 					end,
 				},
 				mapping = {
-					["<Up>"] = cmp.mapping.select_prev_item(),
-					["<Down>"] = cmp.mapping.select_next_item(),
-					["<C-Up>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-					["<C-Down>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+					["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+					["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+					["<C-Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 5 }),
+					["<C-Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 5 }),
+					["<S-Up>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+					["<S-Down>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 
 					-- Open completion menu
 					["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s" }),
