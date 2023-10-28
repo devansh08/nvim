@@ -174,6 +174,7 @@ return {
 				custom = {
 					"^.git$",
 					".null-ls*",
+					"*.class",
 				},
 			},
 			actions = {
