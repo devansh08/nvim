@@ -238,6 +238,10 @@ local cmd_expr_keymaps = {
 	["<Right>"] = { "wildmenumode() ? '<Down>' : '<Right>'", "" },
 }
 
+local term_keymaps = {
+	["<Esc>"] = { [[<C-\><C-n>]], "Terminal: Enter Normal Mode" },
+}
+
 set_keymaps("n", leader_keymaps, opts)
 set_keymaps("v", visual_leader_keymaps, opts)
 
@@ -246,3 +250,4 @@ set_keymaps("v", visual_keymaps, opts)
 set_keymaps("i", insert_keymaps, opts)
 set_keymaps("c", cmd_keymaps, cmd_opts)
 set_keymaps("c", cmd_expr_keymaps, cmd_expr_opts)
+set_keymaps("t", term_keymaps, opts, true)
