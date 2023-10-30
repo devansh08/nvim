@@ -248,7 +248,7 @@ local cmd_expr_keymaps = {
 }
 
 local term_keymaps = {
-	["<Esc>"] = { [[<C-\><C-n>]], "Terminal: Enter Normal Mode" },
+	[ [[<C-\>]] ] = { [[<C-\><C-n>]], "Terminal: Enter Normal Mode" },
 }
 
 set_keymaps("n", leader_keymaps, opts)
