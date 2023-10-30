@@ -17,10 +17,14 @@ function M.lua_fn(fn)
 	return string.format("<cmd>lua require('%s').apply_function(%s)<CR>", module_name, register_fn(fn))
 end
 
-function M.set_keymaps(mode, keymaps, keymap_opts)
+function M.set_keymaps(mode, keymaps, keymap_opts, buffer_local)
 	for k, v in pairs(keymaps) do
 		keymap_opts["desc"] = v[2]
-		vim.api.nvim_set_keymap(mode, k, v[1], keymap_opts)
+		if buffer_local then
+			vim.api.nvim_buf_set_keymap(mode, k, v[1], keymap_opts)
+		else
+			vim.api.nvim_set_keymap(mode, k, v[1], keymap_opts)
+		end
 	end
 end
 
