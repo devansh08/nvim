@@ -21,7 +21,7 @@ function M.set_keymaps(mode, keymaps, keymap_opts, buffer_local)
 	for k, v in pairs(keymaps) do
 		keymap_opts["desc"] = v[2]
 		if buffer_local then
-			vim.api.nvim_buf_set_keymap(mode, k, v[1], keymap_opts)
+			vim.api.nvim_buf_set_keymap(0, mode, k, v[1], keymap_opts)
 		else
 			vim.api.nvim_set_keymap(mode, k, v[1], keymap_opts)
 		end
