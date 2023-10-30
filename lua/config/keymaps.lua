@@ -181,6 +181,9 @@ local normal_keymaps = {
 
 	["<Tab>"] = { ">>", "Indent Current Line to Right" },
 	["<S-Tab>"] = { "<<", "Indent Current Line to Left" },
+
+	["<A-S-Up>"] = { ":m .-2<CR>==", "Move Current Line Up" },
+	["<A-S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
 }
 
 local visual_keymaps = {
@@ -205,6 +208,9 @@ local visual_keymaps = {
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
 	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment Selected Lines" }, -- <C-_> maps to Ctrl+ForwardSlash
+
+	["<A-S-Up>"] = { ":m '<-2<CR>gv=gv", "Move Selected Line Up" },
+	["<A-S-Down>"] = { ":m '>+1<CR>gv=gv", "Move Selected Line Down" },
 }
 
 local insert_keymaps = {
@@ -225,6 +231,9 @@ local insert_keymaps = {
 	["<S-Down>"] = { "<Esc>v<Down>", "Select Down" },
 
 	["<C-_>"] = { "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
+
+	["<A-S-Up>"] = { "<Esc>:m .-2<CR>==gi", "Move Current Line Up" },
+	["<A-S-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move Current Line Down" },
 }
 
 local cmd_keymaps = {
