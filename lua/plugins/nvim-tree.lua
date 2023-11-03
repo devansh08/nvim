@@ -63,64 +63,83 @@ return {
 					vim.keymap.set("n", k, v, opt)
 				end
 
-				keymap("<C-]>", api.tree.change_root_to_node, opts("CD"))
-				keymap("<C-k>", api.node.show_info_popup, opts("Info"))
-				keymap("<C-r>", api.fs.rename_sub, opts("Rename: Omit Filename"))
+				keymap("-", api.tree.change_root_to_parent, opts("Tree: Change Root Directory to Parent"))
+				keymap("<C-]>", api.tree.change_root_to_node, opts("Tree: Change Root Directory to Current Node"))
+				keymap("<2-LeftMouse>", api.node.open.edit, opts("Tree: Open"))
+				keymap(
+					"<2-RightMouse>",
+					api.tree.change_root_to_node,
+					opts("Tree: Change Root Directory to Current Node")
+				)
+				keymap("<BS>", api.node.navigate.parent_close, opts("Tree: Close Directory"))
+
 				keymap("<CR>", function()
 					if vim.fn.tabpagewinnr(vim.fn.tabpagenr(), "$") == 1 then
 						api.node.open.edit()
 					else
 						api.node.open.tab_drop()
 					end
-				end, opts("Open: New Tab"))
-				keymap("<C-t>", api.node.open.edit, opts("Open"))
-				keymap("<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
-				keymap("<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
-				keymap("<BS>", api.node.navigate.parent_close, opts("Close Directory"))
-				keymap("<Tab>", api.node.open.preview, opts("Open Preview"))
-				keymap(">", api.node.navigate.sibling.next, opts("Next Sibling"))
-				keymap("<", api.node.navigate.sibling.prev, opts("Previous Sibling"))
-				keymap(".", api.node.run.cmd, opts("Run Command"))
-				keymap("-", api.tree.change_root_to_parent, opts("Up"))
-				keymap("a", api.fs.create, opts("Create"))
-				keymap("bd", api.marks.bulk.delete, opts("Delete Bookmarked"))
-				keymap("bmv", api.marks.bulk.move, opts("Move Bookmarked"))
-				keymap("B", api.tree.toggle_no_buffer_filter, opts("Toggle No Buffer"))
-				keymap("c", api.fs.copy.node, opts("Copy"))
-				keymap("C", api.tree.toggle_git_clean_filter, opts("Toggle Git Clean"))
-				keymap("[c", api.node.navigate.git.prev, opts("Prev Git"))
-				keymap("]c", api.node.navigate.git.next, opts("Next Git"))
-				keymap("d", api.fs.remove, opts("Delete"))
-				keymap("D", api.fs.trash, opts("Trash"))
-				keymap("E", api.tree.expand_all, opts("Expand All"))
-				keymap("e", api.fs.rename_basename, opts("Rename: Basename"))
-				keymap("]e", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
-				keymap("[e", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
-				keymap("F", api.live_filter.clear, opts("Clean Filter"))
-				keymap("f", api.live_filter.start, opts("Filter"))
-				keymap("g?", api.tree.toggle_help, opts("Help"))
-				keymap("gy", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
-				keymap("H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
-				keymap("I", api.tree.toggle_gitignore_filter, opts("Toggle Git Ignore"))
-				keymap("J", api.node.navigate.sibling.last, opts("Last Sibling"))
-				keymap("K", api.node.navigate.sibling.first, opts("First Sibling"))
-				keymap("m", api.marks.toggle, opts("Toggle Bookmark"))
-				keymap("o", api.node.open.edit, opts("Open"))
-				keymap("O", api.node.open.no_window_picker, opts("Open: No Window Picker"))
-				keymap("p", api.fs.paste, opts("Paste"))
-				keymap("P", api.node.navigate.parent, opts("Parent Directory"))
-				keymap("q", api.tree.close, opts("Close"))
-				keymap("r", api.fs.rename, opts("Rename"))
-				keymap("R", api.tree.reload, opts("Refresh"))
-				keymap("s", api.node.run.system, opts("Run System"))
-				keymap("S", api.tree.search_node, opts("Search"))
-				keymap("U", api.tree.toggle_custom_filter, opts("Toggle Hidden"))
-				keymap("W", api.tree.collapse_all, opts("Collapse"))
-				keymap("x", api.fs.cut, opts("Cut"))
-				keymap("y", api.fs.copy.filename, opts("Copy Name"))
-				keymap("Y", api.fs.copy.relative_path, opts("Copy Relative Path"))
-				keymap("<2-LeftMouse>", api.node.open.edit, opts("Open"))
-				keymap("<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
+				end, opts("Tree: Open in New Tab"))
+				keymap("<o>", api.node.open.edit, opts("Tree: Open in Current Buffer"))
+				keymap("<C-v>", api.node.open.vertical, opts("Tree: Open in Vertical Split"))
+				keymap("<C-x>", api.node.open.horizontal, opts("Tree: Open in Horizontal Split"))
+				keymap("O", api.node.open.no_window_picker, opts("Tree: Open without Window Picker"))
+
+				keymap("<C-k>", api.node.show_info_popup, opts("Tree: Show Info"))
+				keymap("<Tab>", api.node.open.preview, opts("Tree: Open Preview"))
+				keymap(".", api.node.run.cmd, opts("Tree: Run Ex Command"))
+
+				keymap("<C-r>", api.fs.rename_sub, opts("Tree: Rename without Filename"))
+				keymap("e", api.fs.rename_basename, opts("Tree: Rename with only Filename"))
+				keymap("r", api.fs.rename, opts("Tree: Rename"))
+
+				keymap(">", api.node.navigate.sibling.next, opts("Tree: Jump to Next Sibling"))
+				keymap("<", api.node.navigate.sibling.prev, opts("Tree: Jump to Previous Sibling"))
+				keymap("J", api.node.navigate.sibling.last, opts("Tree: Jump to Last Sibling"))
+				keymap("K", api.node.navigate.sibling.first, opts("Tree: Jump to First Sibling"))
+				keymap("[c", api.node.navigate.git.prev, opts("Tree: Jump to Previous Dirty Git File"))
+				keymap("]c", api.node.navigate.git.next, opts("Tree: Jump to Next Dirty Git File"))
+				keymap("]e", api.node.navigate.diagnostics.next, opts("Tree: Jump to Next File with Diagnostics"))
+				keymap("[e", api.node.navigate.diagnostics.prev, opts("Tree: Jump to Previous File with Diagnostic"))
+				keymap("P", api.node.navigate.parent, opts("Tree: Jump to Parent Directory"))
+
+				keymap("a", api.fs.create, opts("Tree: Create New File/Dir"))
+
+				keymap("m", api.marks.toggle, opts("Tree: Toggle Bookmark"))
+				keymap("bd", api.marks.bulk.delete, opts("Tree: Delete Bookmarked"))
+				keymap("bmv", api.marks.bulk.move, opts("Tree: Move Bookmarked"))
+
+				keymap("B", api.tree.toggle_no_buffer_filter, opts("Tree: Toggle Show Only Open Files in Buffers"))
+				keymap("C", api.tree.toggle_git_clean_filter, opts("Tree: Toggle Show Only Git Clean Files"))
+				keymap("H", api.tree.toggle_hidden_filter, opts("Tree: Toggle Dotfiles"))
+				keymap("I", api.tree.toggle_gitignore_filter, opts("Tree: Toggle Git Ignore"))
+				keymap("U", api.tree.toggle_custom_filter, opts("Tree: Toggle Hidden"))
+
+				keymap("x", api.fs.cut, opts("Tree: Cut"))
+				keymap("c", api.fs.copy.node, opts("Tree: Copy"))
+				keymap("d", api.fs.remove, opts("Tree: Delete"))
+				keymap("D", api.fs.trash, opts("Tree: Send to Trash"))
+				keymap("p", api.fs.paste, opts("Tree: Paste"))
+
+				keymap("E", api.tree.expand_all, opts("Tree: Expand All"))
+				keymap("W", api.tree.collapse_all, opts("Tree: Collapse All"))
+
+				keymap("F", api.live_filter.clear, opts("Tree: Clear Filter"))
+				keymap("f", api.live_filter.start, opts("Tree: Filter"))
+
+				keymap("g?", api.tree.toggle_help, opts("Tree: Help"))
+
+				keymap("gy", api.fs.copy.absolute_path, opts("Tree: Copy Absolute Path"))
+				keymap("Y", api.fs.copy.relative_path, opts("Tree: Copy Relative Path"))
+				keymap("y", api.fs.copy.filename, opts("Tree: Copy Name"))
+
+				keymap("q", api.tree.close, opts("Tree: Close"))
+
+				keymap("R", api.tree.reload, opts("Tree: Refresh"))
+
+				keymap("s", api.node.run.system, opts("Tree: Open with System App"))
+
+				keymap("S", api.tree.search_node, opts("Tree: Search"))
 			end,
 			select_prompts = true,
 			view = {
