@@ -1,3 +1,6 @@
+local utils = require("utils")
+local set_keymaps = utils.set_keymaps
+
 -- Reload currently edited config (lua/config/*.lua) file
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "**/lua/config/*.lua",
@@ -11,8 +14,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	callback = function()
-		vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<C-]>", { noremap = true })
-		vim.api.nvim_buf_set_keymap(0, "n", "<BS>", "<C-T>", { noremap = true })
+		local keymaps = {
+			["<CR>"] = { "<C-]>", "Help: Jump Forward to Tag under Cursor" },
+			["<BS>"] = { "<C-T>", "Help: Jump Back to Previous Tag" },
+		}
+
+		set_keymaps("n", keymaps, { noremap = true }, true)
 	end,
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
@@ -57,52 +64,54 @@ vim.api.nvim_create_autocmd("WinLeave", {
 -- Setup LSP keymaps when LSP is attached to buffer
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function()
-		local keymap = vim.api.nvim_buf_set_keymap
-
 		local keymaps = {
 			-- Displays hover information about the symbol under the cursor
-			["h"] = "<cmd>lua vim.lsp.buf.hover()<cr>",
+			["<leader>lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: Show Hover Info" },
 
 			-- Jump to definition
-			["df"] = "<cmd>lua vim.lsp.buf.definition()<cr>",
+			["<leader>ldf"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP: Jump to Definition" },
 
 			-- Jump to declaration
-			["dc"] = "<cmd>lua vim.lsp.buf.declaration()<cr>",
+			["<leader>ldc"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP: Jump to Declaration" },
 
 			-- Lists all the implementations for the symbol under the cursor
-			["i"] = "<cmd>lua vim.lsp.buf.implementation()<cr>",
+			["<leader>li"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP: List Implementations" },
 
 			-- Jumps to the definition of the type symbol
-			["t"] = "<cmd>lua vim.lsp.buf.type_definition()<cr>",
+			["<leader>lt"] = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "LSP: Jump to Type Definition" },
 
 			-- Lists all the references
-			["R"] = "<cmd>lua vim.lsp.buf.references()<cr>",
+			["<leader>lR"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP: List References" },
 
 			-- Displays a function's signature information
-			["s"] = "<cmd>lua vim.lsp.buf.signature_help()<cr>",
+			["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP: Show Signature Info" },
 
 			-- Renames all references to the symbol under the cursor
-			["r"] = "<cmd>lua vim.lsp.buf.rename()<cr>",
+			["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "LSP: Rename References" },
 
 			-- Selects a code action available at the current cursor position
-			["c"] = "<cmd>lua vim.lsp.buf.code_action()<cr>",
+			["<leader>lc"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "LSP: Show Code Actions" },
 
 			-- Format code in buffer
-			["f"] = "<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>",
+			["<leader>lf"] = {
+				"<cmd>lua vim.lsp.buf.format({ async = false })<cr>:w<cr>",
+				"LSP: Format Code in Buffer",
+			},
 
 			-- Show diagnostics in a floating window
-			["g"] = "<cmd>lua vim.diagnostic.open_float()<cr>",
+			["<leader>lg"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "LSP: Show Diagnostics for Current Line" },
 
 			-- Move to the previous diagnostic
-			["p"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+			["<leader>lp"] = {
+				"<cmd>lua vim.diagnostic.goto_prev()<cr>",
+				"LSP: Jump to Previous Line with Diagnostics",
+			},
 
 			-- Move to the next diagnostic
-			["n"] = "<cmd>lua vim.diagnostic.goto_next()<cr>",
+			["<leader>ln"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "LSP: Jump to Next Line with Diagnostics" },
 		}
 
-		for k, v in pairs(keymaps) do
-			keymap(0, "n", "<leader>l" .. k, v, { noremap = true })
-		end
+		set_keymaps("n", keymaps, { noremap = true }, true)
 	end,
 	group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
 })
