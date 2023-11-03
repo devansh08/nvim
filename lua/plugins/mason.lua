@@ -34,6 +34,7 @@ return {
 				"jdtls",
 				"json-lsp",
 				"lua-language-server",
+				"marksman",
 				"prettierd",
 				"pyright",
 				"ruff",
