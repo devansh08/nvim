@@ -25,6 +25,7 @@ return {
 			-- Long names
 			local ensure_installed = {
 				"black",
+				"bash-language-server",
 				"clang-format",
 				"clangd",
 				"cpplint",
@@ -38,6 +39,7 @@ return {
 				"prettierd",
 				"pyright",
 				"ruff",
+				"shfmt",
 				"stylua",
 				"taplo",
 				"typescript-language-server",

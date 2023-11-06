@@ -51,6 +51,7 @@ return {
 						return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
 					end,
 				}),
+				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.taplo,
 			},
