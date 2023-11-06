@@ -31,7 +31,14 @@ return {
 					end,
 				}),
 
-				null_ls.builtins.diagnostics.cpplint,
+				null_ls.builtins.diagnostics.cpplint.with({
+					filter = function(diagnostic)
+						if vim.bo.filetype == "c" and string.find(diagnostic.message, "Using C%-style cast") ~= nil then
+							return false
+						end
+						return true
+					end,
+				}),
 				null_ls.builtins.diagnostics.eslint_d.with({
 					condition = function(utils)
 						return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
