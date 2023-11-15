@@ -121,6 +121,7 @@ return {
 					"json",
 					"json5",
 					"jsonc",
+					"kotlin",
 					"lua",
 					"markdown",
 					"python",
