@@ -154,6 +154,9 @@ local normal_keymaps = {
 	["<C-S-Left>"] = { "v" .. LEFT_JUMP, "Select Left by Word" },
 	["<C-S-Right>"] = { "v" .. RIGHT_JUMP, "Select Right by Word" },
 
+	["<C-S-Up>"] = { "gT", "Go to Previous Tab" },
+	["<C-S-Down>"] = { "gt", "Go to Next Tab" },
+
 	["<C-Left>"] = { LEFT_JUMP, "Jump Left by Word" },
 	["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
 	["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
@@ -184,6 +187,8 @@ local normal_keymaps = {
 
 	["<A-S-Up>"] = { ":m .-2<CR>==", "Move Current Line Up" },
 	["<A-S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
+
+	["<C-p>"] = { "o<Esc>p==", "Paste in Next Line" },
 }
 
 local visual_keymaps = {
