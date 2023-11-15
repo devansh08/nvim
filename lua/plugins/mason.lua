@@ -24,6 +24,7 @@ return {
 
 			-- Long names
 			local ensure_installed = {
+				"angular-language-server",
 				"black",
 				"bash-language-server",
 				"clang-format",
@@ -32,17 +33,22 @@ return {
 				"dockerfile-language-server",
 				"eslint_d",
 				"google-java-format",
+				"gopls",
 				"jdtls",
 				"json-lsp",
+				"kotlin-language-server",
+				"ktlint",
 				"lua-language-server",
 				"marksman",
 				"prettierd",
 				"pyright",
+				"revive",
 				"ruff",
 				"shfmt",
 				"stylua",
 				"taplo",
 				"typescript-language-server",
+				"yaml-language-server",
 			}
 
 			local Package = require("mason-core.package")
