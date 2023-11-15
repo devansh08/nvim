@@ -55,6 +55,11 @@ return {
 							background = true,
 						},
 					},
+					indent_blankline = {
+						enabled = true,
+						scope_color = "",
+						colored_indent_levels = false,
+					},
 				},
 			})
 
