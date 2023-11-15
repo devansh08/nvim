@@ -194,7 +194,8 @@ return {
 					"^.git$",
 					".null-ls*",
 					"*.class",
-					"a.out",
+					"*.out",
+					"*.jar",
 				},
 			},
 			actions = {
