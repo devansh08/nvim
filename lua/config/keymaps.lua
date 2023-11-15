@@ -1,5 +1,6 @@
 -- Constants
 local LINE_JUMP = 5
+local SPLIT_RESIZE = 2
 local LEFT_JUMP = "b"
 local RIGHT_JUMP = "e"
 
@@ -189,6 +190,11 @@ local normal_keymaps = {
 	["<A-S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
 
 	["<C-p>"] = { "o<Esc>p==", "Paste in Next Line" },
+
+	["<C-h>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Reduce Split Width by " .. SPLIT_RESIZE },
+	["<C-l>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
+	["<C-j>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Reduce Split Height by " .. SPLIT_RESIZE },
+	["<C-k>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
 }
 
 local visual_keymaps = {
