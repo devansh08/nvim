@@ -45,14 +45,18 @@ return {
 					end,
 				}),
 				null_ls.builtins.diagnostics.fish,
+				null_ls.builtins.diagnostics.ktlint,
+				null_ls.builtins.diagnostics.revive,
 				null_ls.builtins.diagnostics.ruff,
 				null_ls.builtins.diagnostics.tsc,
 
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.fish_indent,
+				null_ls.builtins.formatting.goimports,
 				null_ls.builtins.formatting.google_java_format,
 				null_ls.builtins.formatting.jq,
+				null_ls.builtins.formatting.ktlint,
 				null_ls.builtins.formatting.prettierd.with({
 					condition = function(utils)
 						return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
