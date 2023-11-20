@@ -101,11 +101,6 @@ return {
 					require("nvim-treesitter.configs").setup(opts)
 				end,
 			},
-			{
-				"JoosepAlviste/nvim-ts-context-commentstring",
-				branch = "main",
-				lazy = true,
-			},
 		},
 		config = function()
 			local opts = {
@@ -149,5 +144,10 @@ return {
 
 			require("nvim-treesitter.configs").setup(opts)
 		end,
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		branch = "main",
+		lazy = true,
 	},
 }
