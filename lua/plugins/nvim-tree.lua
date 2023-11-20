@@ -80,7 +80,7 @@ return {
 						api.node.open.tab_drop()
 					end
 				end, opts("Tree: Open in New Tab"))
-				keymap("<o>", api.node.open.edit, opts("Tree: Open in Current Buffer"))
+				keymap("<C-t>", api.node.open.edit, opts("Tree: Open in Current Buffer"))
 				keymap("<C-v>", api.node.open.vertical, opts("Tree: Open in Vertical Split"))
 				keymap("<C-x>", api.node.open.horizontal, opts("Tree: Open in Horizontal Split"))
 				keymap("O", api.node.open.no_window_picker, opts("Tree: Open without Window Picker"))
