@@ -61,6 +61,15 @@ return {
 						colored_indent_levels = false,
 					},
 				},
+				highlight_overrides = {
+					macchiato = function(macchiato)
+						return {
+							LspReferenceRead = { bg = macchiato.surface2 },
+							LspReferenceWrite = { bg = macchiato.surface2 },
+							LspReferenceText = { bg = macchiato.surface2 },
+						}
+					end,
+				},
 			})
 
 			vim.cmd([[ colorscheme catppuccin ]])
