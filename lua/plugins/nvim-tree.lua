@@ -144,7 +144,7 @@ return {
 			select_prompts = true,
 			view = {
 				cursorline = true,
-				width = 35,
+				width = 30,
 				side = "left",
 				number = false,
 				signcolumn = "yes",
