@@ -7,6 +7,7 @@ local RIGHT_JUMP = "e"
 local utils = require("utils")
 local lua_fn = utils.lua_fn
 local set_keymaps = utils.set_keymaps
+local get_visual_selection = utils.get_visual_selection
 
 -- 'silent' prevents any output messages
 local opts = { noremap = true, silent = true }
@@ -145,6 +146,13 @@ local visual_leader_keymaps = {
 	["<leader>rf"] = { ":Refactor extract_to_file<CR>", "Refactoring: Extract Selected Code to File" },
 	["<leader>rv"] = { ":Refactor extract_var<CR>", "Refactoring: Extract Selected Code to Variable" },
 	["<leader>ri"] = { ":Refactor inline_var<CR>", "Refactoring: Extract Selected Code to Inline Variable" },
+
+	["<leader>fg"] = {
+		lua_fn(function()
+			require("telescope.builtin").live_grep({ default_text = get_visual_selection() })
+		end),
+		"Telescope: Grep Selected Text in Project",
+	},
 }
 
 local normal_keymaps = {
