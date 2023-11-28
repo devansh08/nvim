@@ -226,7 +226,10 @@ local visual_keymaps = {
 
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
-	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", "Comment Selected Lines" }, -- <C-_> maps to Ctrl+ForwardSlash
+	["<C-_>"] = {
+		":lua require('Comment.api').toggle.linewise(vim.fn.visualmode(), { ignore = '^$' })<CR>",
+		"Comment Selected Lines",
+	}, -- <C-_> maps to Ctrl+ForwardSlash
 
 	["<A-S-Up>"] = { ":m '<-2<CR>gv=gv", "Move Selected Line Up" },
 	["<A-S-Down>"] = { ":m '>+1<CR>gv=gv", "Move Selected Line Down" },
