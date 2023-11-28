@@ -44,25 +44,29 @@ return {
 					diagnostics = {
 						{
 							"cpplint",
-							filter = function(diagnostic)
-								if
-									vim.bo.filetype == "c"
-									and string.find(diagnostic.message, "Using C%-style cast") ~= nil
-								then
-									return false
-								end
-								return true
-							end,
-							condition = function(utils)
-								return not utils.root_has_file(".ignore-diag")
-							end,
+							{
+								filter = function(diagnostic)
+									if
+										vim.bo.filetype == "c"
+										and string.find(diagnostic.message, "Using C%-style cast") ~= nil
+									then
+										return false
+									end
+									return true
+								end,
+								condition = function(utils)
+									return not utils.root_has_file(".ignore-diag")
+								end,
+							},
 						},
 						{
 							"eslint_d",
-							condition = function(utils)
-								return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
-									and not utils.root_has_file(".ignore-diag")
-							end,
+							{
+								condition = function(utils)
+									return utils.root_has_file({ ".eslintrc.js", ".eslintrc.json" })
+										and not utils.root_has_file(".ignore-diag")
+								end,
+							},
 						},
 						{ "fish" },
 						{ "ktlint" },
@@ -70,10 +74,14 @@ return {
 						{ "ruff" },
 						{
 							"tsc",
-							condition = function(utils)
-								return utils.root_has_file({ "package.json", "package-lock.json" })
-									and not utils.root_has_file(".ignore-diag")
-							end,
+							{
+								condition = function(utils)
+									return (
+										utils.root_has_file({ "package.json", "package-lock.json" })
+										or utils.root_has_file({ "package.json", "bun.lockb" })
+									) and not utils.root_has_file(".ignore-diag")
+								end,
+							},
 						},
 					},
 				},
@@ -88,10 +96,12 @@ return {
 						{ "ktlint" },
 						{
 							"prettierd",
-							condition = function(utils)
-								return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
-									and not utils.root_has_file(".ignore-fmt")
-							end,
+							{
+								condition = function(utils)
+									return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
+										and not utils.root_has_file(".ignore-fmt")
+								end,
+							},
 						},
 						{ "shfmt" },
 						{ "stylua" },
