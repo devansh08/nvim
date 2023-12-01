@@ -12,6 +12,7 @@ return {
 		config = function()
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
+			local actions_set = require("telescope.actions.set")
 
 			local custom_keymaps = {
 				i = {
@@ -50,8 +51,12 @@ return {
 							["<C-c>"] = actions.close,
 						},
 						i = {
-							["<C-Up>"] = actions.preview_scrolling_up,
-							["<C-Down>"] = actions.preview_scrolling_down,
+							["<C-Up>"] = function(bufnr)
+								actions_set.shift_selection(bufnr, -3)
+							end,
+							["<C-Down>"] = function(bufnr)
+								actions_set.shift_selection(bufnr, 3)
+							end,
 							["<C-Left>"] = actions.preview_scrolling_left,
 							["<C-Right>"] = actions.preview_scrolling_right,
 
