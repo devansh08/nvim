@@ -78,6 +78,7 @@ if not status then
 	print("Error: require cmp_nvim_lsp failed")
 	return M
 end
-M.capabilities = cmp_nvim_lsp.default_capabilities()
+M.capabilities =
+	vim.tbl_deep_extend("force", cmp_nvim_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
 
 return M
