@@ -43,6 +43,7 @@ return {
 				"prettierd",
 				"revive",
 				"ruff",
+				"ruff-lsp",
 				"shfmt",
 				"stylua",
 				"taplo",
