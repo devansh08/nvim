@@ -46,6 +46,7 @@ M.setup = function()
 		virtual_text = {
 			spacing = 5,
 			severity_limit = "Warning",
+			source = true,
 		},
 	})
 end
