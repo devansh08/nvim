@@ -25,7 +25,6 @@ return {
 			-- Long names
 			local ensure_installed = {
 				"angular-language-server",
-				"black",
 				"bash-language-server",
 				"clang-format",
 				"clangd",

@@ -87,7 +87,6 @@ return {
 				},
 				{
 					formatting = {
-						{ "black" },
 						{ "clang_format" },
 						{ "fish_indent" },
 						{ "goimports" },
@@ -103,6 +102,7 @@ return {
 								end,
 							},
 						},
+						{ "ruff" },
 						{ "shfmt" },
 						{ "stylua" },
 						{ "taplo" },
