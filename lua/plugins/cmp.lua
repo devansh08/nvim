@@ -7,8 +7,9 @@ return {
 		dependencies = {
 			{
 				"L3MON4D3/LuaSnip",
-				branch = "master",
+				version = "*",
 				lazy = true,
+				build = "make install_jsregexp",
 				dependencies = {
 					{
 						"rafamadriz/friendly-snippets",
