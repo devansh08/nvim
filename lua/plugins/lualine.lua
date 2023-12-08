@@ -1,6 +1,27 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	branch = "master",
+	dependencies = {
+		{
+			"SmiteshP/nvim-navic",
+			branch = "master",
+			opts = {
+				highlight = true,
+				depth_limit = 0,
+				depth_limit_indicator = "…",
+				lazy_update_context = false,
+				safe_output = true,
+				click = false,
+				lsp = {
+					auto_attach = true,
+					preference = {
+						"jedi_language_server",
+						"ruff_lsp",
+					},
+				},
+			},
+		},
+	},
 	opts = {
 		options = {
 			icons_enabled = true,
@@ -77,7 +98,7 @@ return {
 					symbols = {},
 				},
 			},
-			lualine_c = {},
+			lualine_c = { "navic" },
 			lualine_x = {},
 			lualine_y = { "selectioncount" },
 			lualine_z = { "searchcount" },

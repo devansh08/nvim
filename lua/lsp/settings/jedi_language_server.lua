@@ -75,7 +75,7 @@ return {
 			extraPaths = {},
 			symbols = {
 				ignoreFolders = { ".nox", ".tox", ".venv", "__pycache__", "venv" },
-				maxSymbols = 20,
+				maxSymbols = 0,
 			},
 		},
 	},

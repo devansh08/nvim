@@ -60,6 +60,9 @@ return {
 						scope_color = "",
 						colored_indent_levels = false,
 					},
+					navic = {
+						enabled = true,
+					},
 				},
 				highlight_overrides = {
 					macchiato = function(macchiato)
