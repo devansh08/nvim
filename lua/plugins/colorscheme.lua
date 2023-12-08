@@ -65,11 +65,11 @@ return {
 					},
 				},
 				highlight_overrides = {
-					macchiato = function(macchiato)
+					[flavour] = function(f)
 						return {
-							LspReferenceRead = { bg = macchiato.surface2 },
-							LspReferenceWrite = { bg = macchiato.surface2 },
-							LspReferenceText = { bg = macchiato.surface2 },
+							LspReferenceRead = { bg = f.surface2 },
+							LspReferenceWrite = { bg = f.surface2 },
+							LspReferenceText = { bg = f.surface2 },
 						}
 					end,
 				},
