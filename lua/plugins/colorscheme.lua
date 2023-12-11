@@ -5,7 +5,7 @@ return {
 		tag = "stable",
 		pritority = 1000,
 		config = function()
-			local flavour = "macchiato"
+			local flavour = "mocha"
 
 			require("catppuccin").setup({
 				flavour = flavour,
