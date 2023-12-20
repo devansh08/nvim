@@ -8,6 +8,11 @@ return {
 				branch = "master",
 				lazy = true,
 			},
+			{
+				"nvim-telescope/telescope-dap.nvim",
+				branch = "master",
+				lazy = true,
+			},
 		},
 		config = function()
 			local telescope = require("telescope")
@@ -142,6 +147,7 @@ return {
 
 			telescope.load_extension("ui-select")
 			telescope.load_extension("refactoring")
+			telescope.load_extension("dap")
 		end,
 	},
 }

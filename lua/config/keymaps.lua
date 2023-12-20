@@ -101,6 +101,38 @@ local leader_keymaps = {
 	["<leader>rif"] = { ":Refactor inline_func<CR>", "Refactoring: Extract to Inline Function" },
 	["<leader>rb"] = { ":Refactor extract_block<CR>", "Refactoring: Extract Code Block" },
 	["<leader>rbf"] = { ":Refactor extract_block_to_file<CR>", "Refactoring: Extract Code Block to File" },
+
+	["<leader>dd"] = {
+		":lua require('dap').continue({ new = true })<CR>",
+		"DAP: Start New Debug Session",
+	},
+	["<leader>dr"] = {
+		":lua require('dap').restart()<CR>",
+		"DAP: Restart Debug Session",
+	},
+	["<leader>ds"] = {
+		":lua require('dap').terminate()<CR>",
+		"DAP: Terminate Debug Session",
+	},
+	["<leader>dc"] = {
+		":lua require('dap').clear_breakpoints()<CR>",
+		"DAP: Clear Breakpoints",
+	},
+	["<leader>dl"] = {
+		":lua require('dap').run_to_cursor()<CR>",
+		"DAP: Run till Current Line",
+	},
+	["<leader>db"] = {
+		":lua require('dap').toggle_breakpoint()<CR>",
+		"DAP: Toggle Breakpoint",
+	},
+	["<leader>dv"] = { ":DapVirtualTextToggle<CR>", "DAP: Toggle Virtual Text" },
+
+	["<leader>dtc"] = { ":Telescope dap commands<CR>", "DAP: Telescope - List Commands" },
+	["<leader>dtC"] = { ":Telescope dap configurations<CR>", "DAP: Telescope - List Configurations" },
+	["<leader>dtv"] = { ":Telescope dap variables<CR>", "DAP: Telescope - List Variables" },
+	["<leader>dtb"] = { ":Telescope dap list_breakpoints<CR>", "DAP: Telescope - List Breakpoints" },
+	["<leader>dtf"] = { ":Telescope dap frames<CR>", "DAP: Telescope - List Frames" },
 }
 
 local visual_leader_keymaps = {
@@ -203,6 +235,11 @@ local normal_keymaps = {
 	["<C-l>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
 	["<C-j>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Reduce Split Height by " .. SPLIT_RESIZE },
 	["<C-k>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
+
+	["<C-n>"] = { ":lua require('dap').continue()<CR>", "DAP: Continue Execution" },
+	["<C-m>"] = { ":lua require('dap').step_over()<CR>", "DAP: Step Over" },
+	["<A-.>"] = { ":lua require('dap').step_into()<CR>", "DAP: Step Into" },
+	["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 }
 
 local visual_keymaps = {
