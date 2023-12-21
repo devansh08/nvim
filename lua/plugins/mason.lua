@@ -22,36 +22,39 @@ return {
 
 			require("mason").setup(opts)
 
+			local utils = require("utils")
+			local check_executable = utils.check_executable
+
 			-- Long names
-			local ensure_installed = {
-				"angular-language-server",
-				"bash-language-server",
-				"clang-format",
-				"clangd",
-				"cpplint",
-				"debugpy",
-				"dockerfile-language-server",
-				"eslint_d",
-				"google-java-format",
-				"gopls",
-				"jdtls",
-				"jedi-language-server",
-				"js-debug-adapter",
-				"json-lsp",
-				"kotlin-language-server",
-				"ktlint",
-				"lua-language-server",
-				"marksman",
-				"prettierd",
-				"revive",
-				"ruff",
-				"ruff-lsp",
-				"shfmt",
-				"stylua",
-				"taplo",
-				"typescript-language-server",
-				"yaml-language-server",
-			}
+			local ensure_installed = check_executable({
+				["angular-language-server"] = { { "node", "npm" }, { "bun" } },
+				["bash-language-server"] = { { "bash" } },
+				["clang-format"] = { { "gcc" }, { "g++" } },
+				["clangd"] = { { "gcc" }, { "g++" } },
+				["cpplint"] = { { "g++" } },
+				["debugpy"] = { { "python", "pip" } },
+				["dockerfile-language-server"] = { { "docker" }, { "pulumi" } },
+				["eslint_d"] = { { "node", "npm" }, { "bun" } },
+				["google-java-format"] = { { "java" } },
+				["gopls"] = { { "go" } },
+				["jdtls"] = { { "java" } },
+				["jedi-language-server"] = { { "python", "pip" } },
+				["js-debug-adapter"] = { { "node", "npm" }, { "bun" } },
+				["json-lsp"] = {},
+				["kotlin-language-server"] = { { "kotlin", "kotlinc" } },
+				["ktlint"] = { { "kotlin", "kotlinc" } },
+				["lua-language-server"] = { { "lua" } },
+				["marksman"] = {},
+				["prettierd"] = { { "node", "npm" }, { "bun" } },
+				["revive"] = { { "go" } },
+				["ruff"] = { { "python", "pip" } },
+				["ruff-lsp"] = { { "python", "pip" } },
+				["shfmt"] = { { "bash" } },
+				["stylua"] = { { "lua" } },
+				["taplo"] = {},
+				["typescript-language-server"] = { { "node", "npm" }, { "bun" } },
+				["yaml-language-server"] = {},
+			})
 
 			local Package = require("mason-core.package")
 			local registry = require("mason-registry")

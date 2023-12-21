@@ -84,4 +84,30 @@ function M.get_visual_selection()
 	return vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})[1]
 end
 
+function M.check_executable(t)
+	local list = {}
+
+	for key, execs in pairs(t) do
+		if #execs == 0 then
+			table.insert(list, key)
+		end
+
+		for _, group in pairs(execs) do
+			local flag = true
+			for _, v in pairs(group) do
+				if vim.fn.executable(v) ~= 1 then
+					flag = false
+				end
+			end
+
+			if flag then
+				table.insert(list, key)
+				break
+			end
+		end
+	end
+
+	return list
+end
+
 return M
