@@ -10,7 +10,6 @@ List of packages required on Linux for this config:
 - `gzip`
 - `tar`
 - `bash`
-- `go`
 - `node`
 - `npm` (`neovim` package)
 - `python`
@@ -18,8 +17,11 @@ List of packages required on Linux for this config:
 - `java`
 - `javac`
 - `gcc`
+- `g++`
 - `fish` (Fish shell specific)
 - `jq`
 - `wl-copy` (Wayland specific)
 - `rg`
 - `fd`
+- `make`
+- `gcc-libs`
