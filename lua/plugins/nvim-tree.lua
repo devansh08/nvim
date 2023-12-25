@@ -2,13 +2,6 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		branch = "master",
-		dependencies = {
-			{
-				"nvim-tree/nvim-web-devicons",
-				branch = "master",
-				lazy = true,
-			},
-		},
 		opts = {
 			disable_netrw = true,
 			auto_reload_on_write = true,
