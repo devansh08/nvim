@@ -10,18 +10,15 @@ return {
 				version = "*",
 				lazy = true,
 				config = function()
-					local dap, dapui, nvim_tree_api = require("dap"), require("dapui"), require("nvim-tree.api")
+					local dap, dapui = require("dap"), require("dapui")
 
 					dap.listeners.after.event_initialized["dapui_config"] = function()
-						-- nvim_tree_api.close()
 						dapui.open()
 					end
 					dap.listeners.before.event_terminated["dapui_config"] = function()
-						-- nvim_tree_api.open({ find_file = true })
 						dapui.close()
 					end
 					dap.listeners.before.event_exited["dapui_config"] = function()
-						-- nvim_tree_api.open({ find_file = true })
 						dapui.close()
 					end
 
