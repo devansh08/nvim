@@ -231,9 +231,9 @@ local normal_keymaps = {
 
 	["<C-p>"] = { "o<Esc>p==", "Paste in Next Line" },
 
-	["<C-h>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Reduce Split Width by " .. SPLIT_RESIZE },
+	["<C-h>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Width by " .. SPLIT_RESIZE },
 	["<C-l>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
-	["<C-j>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Reduce Split Height by " .. SPLIT_RESIZE },
+	["<C-j>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Height by " .. SPLIT_RESIZE },
 	["<C-k>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
 
 	["<C-n>"] = { ":lua require('dap').continue()<CR>", "DAP: Continue Execution" },
