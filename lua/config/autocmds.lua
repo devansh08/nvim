@@ -1,5 +1,4 @@
-local utils = require("utils")
-local set_keymaps = utils.set_keymaps
+local set_keymaps = require("utils").set_keymaps
 
 -- Reload currently edited config (lua/config/*.lua) file
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -24,6 +23,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
 
+local nvim_tree_augroup = vim.api.nvim_create_augroup("NvimTree", { clear = true })
+
 -- Auto open nvim-tree on startup
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function(data)
@@ -44,7 +45,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			nvim_tree_api.toggle({ focus = false, find_file = true })
 		end
 	end,
-	group = vim.api.nvim_create_augroup("AutoStartNvimTree", { clear = true }),
+	group = nvim_tree_augroup,
 })
 
 -- Auto switch to file buffer when changing windows or close nvim-tree buffer if it is the last buffer
@@ -58,7 +59,7 @@ vim.api.nvim_create_autocmd("WinLeave", {
 			end
 		end
 	end,
-	group = vim.api.nvim_create_augroup("SwitchAwayFromNvimTreeBuffer", { clear = true }),
+	group = nvim_tree_augroup,
 })
 
 -- Setup LSP keymaps when LSP is attached to buffer
