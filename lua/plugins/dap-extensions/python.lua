@@ -4,10 +4,11 @@ return {
 	lazy = true,
 	ft = { "python" },
 	config = function()
-		local HOME = os.getenv("HOME")
 		local dap_python = require("dap-python")
 
-		dap_python.setup(HOME .. "/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
+		local constants = require("constants")
+
+		dap_python.setup(constants.MASON_PACKAGES .. "/debugpy/venv/bin/python")
 
 		local utils = require("utils")
 		local set_keymaps = utils.set_keymaps

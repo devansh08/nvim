@@ -5,15 +5,16 @@ return {
 	ft = { "javascript", "typescript" },
 	config = function()
 		local dap = require("dap")
-		local HOME = os.getenv("HOME")
+
+		local constants = require("constants")
 
 		require("dap-vscode-js").setup({
 			node_path = "node",
-			log_file_path = HOME .. "/.cache/nvim/dap-vscode-js.log",
+			log_file_path = constants.NVIM_CACHE .. "/dap-vscode-js.log",
 			log_file_level = vim.log.levels.WARN,
 			log_console_level = vim.log.levels.ERROR,
-			debugger_path = HOME .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug-adapter",
-			debugger_cmd = { HOME .. "/.local/share/nvim/mason/packages/js-debug-adapter/js-debug-adapter" },
+			debugger_path = constants.MASON_PACKAGES .. "/js-debug-adapter/js-debug-adapter",
+			debugger_cmd = { constants.MASON_PACKAGES .. "/js-debug-adapter/js-debug-adapter" },
 			adapters = { "pwa-node", "node-terminal" },
 		})
 

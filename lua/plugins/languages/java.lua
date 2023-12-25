@@ -8,9 +8,10 @@ return {
 			local jdtls = require("jdtls")
 			local jdtls_setup = require("jdtls.setup")
 
-			local HOME = os.getenv("HOME")
+			local constants = require("constants")
+
 			local JDK_PATH = os.getenv("JAVA_HOME") .. "/"
-			local WORKSPACE_PATH = HOME .. "/.local/share/nvim/jdtls-workspace/"
+			local WORKSPACE_PATH = constants.NVIM_LOCAL .. "/jdtls-workspace/"
 			local PROJECT_NAME = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 			local WORKSPACE_DIR = WORKSPACE_PATH .. PROJECT_NAME
 			local OS_CONFIG = "linux"
@@ -36,13 +37,11 @@ return {
 					"java.base/java.util=ALL-UNNAMED",
 					"--add-opens",
 					"java.base/java.lang=ALL-UNNAMED",
-					"-javaagent:" .. HOME .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
+					"-javaagent:" .. constants.MASON_PACKAGES .. "/jdtls/lombok.jar",
 					"-jar",
-					vim.fn.glob(
-						HOME .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
-					),
+					vim.fn.glob(constants.MASON_PACKAGES .. "/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
 					"-configuration",
-					HOME .. "/.local/share/nvim/mason/packages/jdtls/config_" .. OS_CONFIG,
+					constants.MASON_PACKAGES .. "/jdtls/config_" .. OS_CONFIG,
 					"-data",
 					WORKSPACE_DIR,
 				},
