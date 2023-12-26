@@ -4,11 +4,6 @@ return {
 		branch = "master",
 		dependencies = {
 			{
-				"nvim-telescope/telescope-ui-select.nvim",
-				branch = "master",
-				lazy = true,
-			},
-			{
 				"nvim-telescope/telescope-dap.nvim",
 				branch = "master",
 				lazy = true,
@@ -141,16 +136,12 @@ return {
 					},
 				},
 				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown(),
-					},
 					["session-lens"] = {
 						require("telescope.themes").get_dropdown(),
 					},
 				},
 			})
 
-			telescope.load_extension("ui-select")
 			telescope.load_extension("refactoring")
 			telescope.load_extension("dap")
 			telescope.load_extension("session-lens")
