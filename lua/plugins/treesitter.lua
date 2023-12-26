@@ -131,6 +131,7 @@ return {
 					["tsx"] = { { "node", "npm" }, { "bun" } },
 					["typescript"] = { { "node", "npm" }, { "bun" } },
 					["vim"] = {},
+					["vimdoc"] = {},
 					["yaml"] = {},
 				}),
 				highlight = {
