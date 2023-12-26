@@ -23,31 +23,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
 
-local nvim_tree_augroup = vim.api.nvim_create_augroup("NvimTree", { clear = true })
-
--- Auto open nvim-tree on startup
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function(data)
-		local real_file = vim.fn.filereadable(data.file) == 1
-		local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-		if not real_file and not no_name then
-			return
-		end
-
-		local status, nvim_tree_api = pcall(require, "nvim-tree.api")
-		if not status then
-			print("Error: require nvim-tree.api failed")
-			return
-		end
-
-		if nvim_tree_api.toggle ~= nil then
-			nvim_tree_api.toggle({ focus = false, find_file = true })
-		end
-	end,
-	group = nvim_tree_augroup,
-})
-
 -- Auto switch to file buffer when changing windows or close nvim-tree buffer if it is the last buffer
 vim.api.nvim_create_autocmd("WinLeave", {
 	callback = function()
@@ -59,7 +34,7 @@ vim.api.nvim_create_autocmd("WinLeave", {
 			end
 		end
 	end,
-	group = nvim_tree_augroup,
+	group = vim.api.nvim_create_augroup("NvimTree", { clear = true }),
 })
 
 -- Setup LSP keymaps when LSP is attached to buffer
