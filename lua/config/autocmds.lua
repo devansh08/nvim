@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("WinLeave", {
 			end
 		end
 	end,
-	group = vim.api.nvim_create_augroup("NvimTree", { clear = true }),
+	group = vim.api.nvim_create_augroup("AutoSwitchNvimTreeBuffer", { clear = true }),
 })
 
 -- Setup LSP keymaps when LSP is attached to buffer
