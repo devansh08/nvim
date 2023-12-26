@@ -34,10 +34,12 @@ return {
 				defaults = {
 					layout_strategy = "horizontal",
 					layout_config = {
-						scroll_speed = 1,
-						height = 0.8,
-						width = 0.9,
-						preview_width = 0.5,
+						horizontal = {
+							scroll_speed = 1,
+							height = 0.8,
+							width = 0.9,
+							preview_width = 0.5,
+						},
 					},
 					path_display = {
 						shorten = {
@@ -140,7 +142,7 @@ return {
 				},
 				extensions = {
 					["ui-select"] = {
-						require("telescope.themes").get_cursor({}),
+						require("telescope.themes").get_dropdown(),
 					},
 				},
 			})
