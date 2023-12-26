@@ -133,6 +133,11 @@ local leader_keymaps = {
 	["<leader>dtv"] = { ":Telescope dap variables<CR>", "DAP: Telescope - List Variables" },
 	["<leader>dtb"] = { ":Telescope dap list_breakpoints<CR>", "DAP: Telescope - List Breakpoints" },
 	["<leader>dtf"] = { ":Telescope dap frames<CR>", "DAP: Telescope - List Frames" },
+
+	["<leader>ss"] = { ":SessionSave<CR>", "AutoSession: Save Session" },
+	["<leader>sl"] = { ":SessionRestore<CR>", "AutoSession: Load Session" },
+	["<leader>sd"] = { ":SessionDelete<CR>", "AutoSession: Delete Session" },
+	["<leader>st"] = { ":Telescope session-lens<CR>", "AutoSession: List Sessions using Telescope" },
 }
 
 local visual_leader_keymaps = {

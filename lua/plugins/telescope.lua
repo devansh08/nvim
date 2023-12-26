@@ -144,12 +144,16 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown(),
 					},
+					["session-lens"] = {
+						require("telescope.themes").get_dropdown(),
+					},
 				},
 			})
 
 			telescope.load_extension("ui-select")
 			telescope.load_extension("refactoring")
 			telescope.load_extension("dap")
+			telescope.load_extension("session-lens")
 		end,
 	},
 }
