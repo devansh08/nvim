@@ -1,7 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		branch = "main",
+		version = "*",
 		cond = vim.fn.isdirectory(".git") == 1,
 		opts = {
 			signs = {

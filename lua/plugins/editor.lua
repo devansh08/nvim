@@ -1,10 +1,8 @@
 return {
 	{
-		-- Depends on cmp and treesitter
 		"windwp/nvim-autopairs",
 		branch = "master",
 		lazy = true,
-		event = "InsertEnter",
 		config = function()
 			local opts = {
 				disable_filetype = { "TelescopePrompt" },

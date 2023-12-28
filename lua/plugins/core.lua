@@ -2,10 +2,18 @@ return {
 	{
 		"folke/lazy.nvim",
 		tag = "stable",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 	{
 		"rmagatti/auto-session",
 		branch = "main",
+		priority = 1001,
+		dependencies = {
+			"nvim-tree/nvim-tree.lua",
+			"nvim-lua/plenary.nvim",
+		},
 		config = function()
 			local constants = require("constants")
 

@@ -1,62 +1,73 @@
 return {
 	{
+		"rafamadriz/friendly-snippets",
+		branch = "main",
+		lazy = true,
+	},
+	{
+		"saadparwaiz1/cmp_luasnip",
+		branch = "master",
+		lazy = true,
+	},
+	{
+		"L3MON4D3/LuaSnip",
+		version = "*",
+		lazy = true,
+		build = "make install_jsregexp",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			"saadparwaiz1/cmp_luasnip",
+		},
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load({
+				paths = vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
+			})
+		end,
+	},
+	{
+		"onsails/lspkind.nvim",
+		branch = "master",
+		lazy = true,
+	},
+	{
+		"hrsh7th/cmp-buffer",
+		branch = "main",
+		lazy = true,
+	},
+	{
+		"hrsh7th/cmp-path",
+		branch = "main",
+		lazy = true,
+	},
+	{
+		"hrsh7th/cmp-nvim-lua",
+		branch = "main",
+		lazy = true,
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		branch = "main",
+		lazy = true,
+	},
+	{
+		"hrsh7th/cmp-nvim-lsp-signature-help",
+		lazy = true,
+		branch = "main",
+	},
+	{
 		"hrsh7th/nvim-cmp",
 		branch = "main",
 		lazy = true,
 		event = "InsertEnter",
 		dependencies = {
-			{
-				"L3MON4D3/LuaSnip",
-				version = "*",
-				lazy = true,
-				build = "make install_jsregexp",
-				dependencies = {
-					{
-						"rafamadriz/friendly-snippets",
-						branch = "main",
-						lazy = true,
-					},
-					{
-						"saadparwaiz1/cmp_luasnip",
-						branch = "master",
-						lazy = true,
-					},
-				},
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load({
-						paths = vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
-					})
-				end,
-			},
-			{
-				"onsails/lspkind.nvim",
-				branch = "master",
-				lazy = true,
-			},
-			{
-				"hrsh7th/cmp-buffer",
-				branch = "main",
-				lazy = true,
-			},
-			{
-				"hrsh7th/cmp-path",
-				branch = "main",
-				lazy = true,
-			},
-			{
-				"hrsh7th/cmp-nvim-lua",
-				branch = "main",
-				lazy = true,
-			},
-			{
-				"hrsh7th/cmp-nvim-lsp",
-				branch = "main",
-			},
-			{
-				"hrsh7th/cmp-nvim-lsp-signature-help",
-				lazy = true,
-				branch = "main",
-			},
+			"L3MON4D3/LuaSnip",
+			"onsails/lspkind.nvim",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"windwp/nvim-autopairs",
 		},
 		config = function()
 			local cmp = require("cmp")

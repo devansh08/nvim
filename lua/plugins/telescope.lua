@@ -1,13 +1,14 @@
 return {
 	{
+		"nvim-telescope/telescope-dap.nvim",
+		branch = "master",
+		lazy = true,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
 		branch = "master",
 		dependencies = {
-			{
-				"nvim-telescope/telescope-dap.nvim",
-				branch = "master",
-				lazy = true,
-			},
+			"nvim-telescope/telescope-dap.nvim",
 		},
 		config = function()
 			local telescope = require("telescope")
