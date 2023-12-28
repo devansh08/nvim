@@ -16,6 +16,8 @@ return {
 						package_uninstalled = "✗",
 					},
 					border = "rounded",
+					width = 0.8,
+					height = 0.8,
 				},
 				--log_level = vim.log.levels.TRACE,
 			}
