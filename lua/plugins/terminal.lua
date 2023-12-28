@@ -15,8 +15,8 @@ return {
 			direction = "float",
 			float_opts = {
 				border = "rounded",
-				width = 200,
-				height = 40,
+				width = 180,
+				height = 36,
 			},
 			close_on_exit = true,
 			auto_scroll = true,
