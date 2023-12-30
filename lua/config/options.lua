@@ -36,10 +36,10 @@ local options = {
 
 	cmdheight = 0,
 
-	-- For tree-sitter folding
-	foldmethod = "expr",
-	foldexpr = "vim.treesitter.foldexpr()",
 	foldenable = true,
+	foldcolumn = "1",
+	foldlevel = 99,
+	foldlevelstart = 99,
 }
 
 for k, v in pairs(options) do

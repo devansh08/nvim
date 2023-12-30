@@ -138,6 +138,10 @@ local leader_keymaps = {
 	["<leader>sl"] = { ":SessionRestore<CR>", "AutoSession: Load Session" },
 	["<leader>sd"] = { ":SessionDelete<CR>", "AutoSession: Delete Session" },
 	["<leader>st"] = { ":Telescope session-lens<CR>", "AutoSession: List Sessions using Telescope" },
+
+	["<leader>zo"] = { ":lua require('ufo').openAllFolds()<CR>", "Ufo: Open All Folds" },
+	["<leader>zc"] = { ":lua require('ufo').closeAllFolds()<CR>", "Ufo: Close All Folds" },
+	["<leader>zp"] = { ":lua require('ufo').peekFoldedLinesUnderCursor(true)<CR>", "Ufo: Preview Folds" },
 }
 
 local visual_leader_keymaps = {

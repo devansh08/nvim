@@ -79,7 +79,12 @@ if not status then
 	print("Error: require cmp_nvim_lsp failed")
 	return M
 end
-M.capabilities =
-	vim.tbl_deep_extend("force", cmp_nvim_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+	dynamicRegistration = false,
+	lineFoldingOnly = true,
+}
+M.capabilities = vim.tbl_deep_extend("force", cmp_nvim_lsp.default_capabilities(), capabilities)
 
 return M

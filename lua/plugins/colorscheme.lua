@@ -63,6 +63,7 @@ return {
 					navic = {
 						enabled = true,
 					},
+					ufo = true,
 				},
 				highlight_overrides = {
 					[flavour] = function(f)
