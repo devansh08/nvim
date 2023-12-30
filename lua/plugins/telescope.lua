@@ -30,8 +30,8 @@ return {
 				defaults = {
 					layout_strategy = "horizontal",
 					layout_config = {
+						scroll_speed = 1,
 						horizontal = {
-							scroll_speed = 1,
 							height = 0.8,
 							width = 0.9,
 							preview_width = 0.5,
@@ -46,8 +46,14 @@ return {
 					dynamic_preview_title = true,
 					mappings = {
 						n = {
-							["<C-Up>"] = actions.preview_scrolling_up,
-							["<C-Down>"] = actions.preview_scrolling_down,
+							["<C-Up>"] = function(bufnr)
+								actions_set.shift_selection(bufnr, -3)
+							end,
+							["<C-Down>"] = function(bufnr)
+								actions_set.shift_selection(bufnr, 3)
+							end,
+							["<C-S-Up>"] = actions.preview_scrolling_up,
+							["<C-S-Down>"] = actions.preview_scrolling_down,
 							["<C-Left>"] = actions.preview_scrolling_left,
 							["<C-Right>"] = actions.preview_scrolling_right,
 
@@ -60,6 +66,8 @@ return {
 							["<C-Down>"] = function(bufnr)
 								actions_set.shift_selection(bufnr, 3)
 							end,
+							["<C-S-Up>"] = actions.preview_scrolling_up,
+							["<C-S-Down>"] = actions.preview_scrolling_down,
 							["<C-Left>"] = actions.preview_scrolling_left,
 							["<C-Right>"] = actions.preview_scrolling_right,
 
