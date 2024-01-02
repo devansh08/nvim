@@ -62,6 +62,10 @@ local leader_keymaps = {
 
 	["<leader>ff"] = { ":Telescope find_files<CR>", "Telescope: Find Files in Project" },
 	["<leader>fg"] = { ":Telescope live_grep<CR>", "Telescope: Grep in Project" },
+	["<leader>fG"] = {
+		":lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cword>') })<CR>",
+		"Telescope: Grep Word under Cursor in Project",
+	},
 	["<leader>fk"] = { ":Telescope keymaps<CR>", "Telescope: Keymaps" },
 	["<leader>fj"] = { ":Telescope jumplist<CR>", "Telescope: Jumplist" },
 	["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
