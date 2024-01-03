@@ -34,8 +34,6 @@ local options = {
 
 	termguicolors = true,
 
-	cmdheight = 0,
-
 	foldenable = true,
 	foldcolumn = "1",
 	foldlevel = 99,
