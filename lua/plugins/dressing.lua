@@ -37,9 +37,6 @@ return {
 							["<Down>"] = "HistoryNext",
 						},
 					},
-					-- override = function(conf)
-					-- 	return conf
-					-- end,
 					get_config = nil,
 				},
 				select = {
@@ -67,17 +64,28 @@ return {
 							["<C-c>"] = "Close",
 							["<CR>"] = "Confirm",
 						},
-						-- override = function(conf)
-						-- 	return conf
-						-- end,
 					},
+					get_config = function(opts)
+						local string_starts_with = require("utils").string_starts_with
+						local kind = opts.kind
+
+						if kind ~= nil and string_starts_with(kind, "nvimtree") then
+							return {
+								backend = { "telescope" },
+								telescope = require("telescope.themes").get_cursor({
+									layout_config = {
+										width = 0.2,
+									},
+								}),
+							}
+						else
+							return {
+								backend = { "telescope" },
+								telescope = require("telescope.themes").get_dropdown(),
+							}
+						end
+					end,
 					format_item_override = {},
-					-- get_config = function(opts)
-					-- 	print(vim.inspect(opts))
-					-- 	return {
-					-- 		backend = "telescope",
-					-- 	}
-					-- end,
 				},
 			})
 		end,

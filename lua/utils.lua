@@ -110,4 +110,8 @@ function M.check_executable(t)
 	return list
 end
 
+function M.string_starts_with(str, pat)
+	return str:sub(1, #pat) == pat
+end
+
 return M
