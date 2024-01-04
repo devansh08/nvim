@@ -82,4 +82,25 @@ return {
 		"tpope/vim-abolish",
 		branch = "master",
 	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		branch = "master",
+		lazy = true,
+		ft = { "css", "scss", "html" },
+		config = function()
+			require("colorizer").setup({
+				filetypes = { "css", "scss", "html" },
+				user_default_options = {
+					css = true,
+					css_fn = true,
+					mode = "background",
+					tailwind = true,
+					sass = { enable = true, parsers = { "css" } },
+					virtualtext = "■",
+					always_update = true,
+				},
+				buftypes = {},
+			})
+		end,
+	},
 }
