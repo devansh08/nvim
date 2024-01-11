@@ -79,6 +79,7 @@ local leader_keymaps = {
 	["<leader>fr"] = { ":Telescope lsp_references<CR>", "Telescope: List LSP References" },
 	["<leader>fi"] = { ":Telescope lsp_implementations<CR>", "Telescope: List LSP Implementations" },
 	["<leader>fd"] = { ":Telescope lsp_definitions<CR>", "Telescope: List LSP Definitions" },
+	["<leader>fs"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List LSP Document Symbols" },
 	["<leader>fe"] = { ":Telescope diagnostics<CR>", "Telescope: List Diagnostics in Project" },
 	["<leader>fc"] = {
 		":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
