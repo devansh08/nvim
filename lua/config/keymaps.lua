@@ -231,6 +231,8 @@ local normal_keymaps = {
 	["d"] = { '"_d', "Delete Character without Copy" },
 	["dd"] = { '"_dd', "Delete Lines without Copy" },
 
+	["cw"] = { '"_cw', "Change Word without Copy" },
+
 	["vv"] = { "V", "Select Current Line" },
 
 	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
@@ -274,6 +276,8 @@ local visual_keymaps = {
 	["d"] = { '"_d', "Delete Selected Text without Copy" },
 	["dd"] = { '"_d', "Delete Selected Lines without Copy" },
 	["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
+
+	["c"] = { '"_c', "Change Selected Text without Copy" },
 
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
