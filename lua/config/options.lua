@@ -34,6 +34,9 @@ local options = {
 
 	termguicolors = true,
 
+	showmode = false,
+	shortmess = "filnxtToOFmrwsWcCS",
+
 	foldenable = true,
 	foldcolumn = "1",
 	foldlevel = 99,
