@@ -94,15 +94,7 @@ return {
 							{ "google_java_format" },
 							{ "jq" },
 							{ "ktlint" },
-							{
-								"prettierd",
-								{
-									condition = function(utils)
-										return utils.root_has_file({ ".prettierrc", ".prettierrc.json" })
-											and not utils.root_has_file(".ignore-fmt")
-									end,
-								},
-							},
+							{ "prettierd" },
 							{ "ruff" },
 							{ "shfmt" },
 							{ "stylua" },
