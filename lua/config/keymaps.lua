@@ -9,11 +9,10 @@ local lua_fn = utils.lua_fn
 local set_keymaps = utils.set_keymaps
 local get_visual_selection = utils.get_visual_selection
 
--- 'silent' prevents any output messages
-local opts = { noremap = true, silent = true }
-local cmd_opts = { noremap = true }
--- 'expr' tells vim to get the command from output of a function/expression
-local cmd_expr_opts = { noremap = true, expr = true }
+local constants = require("constants")
+local opts = constants.OPTS
+local cmd_opts = constants.CMD_OPTS
+local cmd_expr_opts = constants.CMD_EXPR_OPTS
 
 -- Set Space to no-op so it can be remapped to Leader
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)

@@ -1,5 +1,8 @@
 local set_keymaps = require("utils").set_keymaps
 
+local constants = require("constants")
+local cmd_opts = constants.CMD_OPTS
+
 -- Reload currently edited config (lua/config/*.lua) file
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "**/lua/config/*.lua",
@@ -18,7 +21,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			["<BS>"] = { "<C-T>", "Help: Jump Back to Previous Tag" },
 		}
 
-		set_keymaps("n", keymaps, { noremap = true }, true)
+		set_keymaps("n", keymaps, cmd_opts, true)
 	end,
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
@@ -87,7 +90,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			["<leader>ln"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "LSP: Jump to Next Line with Diagnostics" },
 		}
 
-		set_keymaps("n", keymaps, { noremap = true }, true)
+		set_keymaps("n", keymaps, cmd_opts, true)
 	end,
 	group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
 })
