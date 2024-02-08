@@ -255,6 +255,9 @@ local normal_keymaps = {
 	["<C-m>"] = { ":lua require('dap').step_over()<CR>", "DAP: Step Over" },
 	["<A-.>"] = { ":lua require('dap').step_into()<CR>", "DAP: Step Into" },
 	["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
+
+	["<A-w>"] = { "<C-w>w", "Go to Next Window" },
+	["<A-p>"] = { "<C-w>w", "Go to Next Window" },
 }
 
 local visual_keymaps = {
