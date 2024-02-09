@@ -231,6 +231,7 @@ local normal_keymaps = {
 	["dd"] = { '"_dd', "Delete Lines without Copy" },
 
 	["cw"] = { '"_cw', "Change Word without Copy" },
+	["ci"] = { '"_ci', "Change In Word without Copy" },
 
 	["vv"] = { "V", "Select Current Line" },
 
@@ -280,6 +281,7 @@ local visual_keymaps = {
 	["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
 
 	["c"] = { '"_c', "Change Selected Text without Copy" },
+	["ci"] = { '"_ci', "Change In Selected Text without Copy" },
 
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
