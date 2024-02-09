@@ -43,6 +43,7 @@
   "refactoring.nvim": { "branch": "master", "commit": "fb4990a0546c59136930ea624b8640d07957f281" },
   "telescope-dap.nvim": { "branch": "master", "commit": "8c88d9716c91eaef1cdea13cb9390d8ef447dbfe" },
   "telescope.nvim": { "branch": "master", "commit": "236083884cfe6c874e03e6cb4e7cb08809c1333c" },
+  "template-string.nvim": { "branch": "main", "commit": "419bfb2e4d5f0e6ddd0d4435f85b69da0d88d524" },
   "toggleterm.nvim": { "branch": "main", "commit": "cbd041d91b90cd3c02df03fe6133208888f8e008" },
   "trouble.nvim": { "branch": "main", "commit": "f1168feada93c0154ede4d1fe9183bf69bac54ea" },
   "vim-abolish": { "branch": "master", "commit": "dcbfe065297d31823561ba787f51056c147aa682" },
