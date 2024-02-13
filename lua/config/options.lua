@@ -5,7 +5,7 @@ local options = {
 
 	signcolumn = "yes",
 
-	mouse = "a",
+	mouse = "",
 	clipboard = "unnamedplus",
 
 	splitbelow = true,
