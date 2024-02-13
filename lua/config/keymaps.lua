@@ -210,6 +210,8 @@ local normal_keymaps = {
 
 	["<C-S-Up>"] = { "gT", "Go to Previous Tab" },
 	["<C-S-Down>"] = { "gt", "Go to Next Tab" },
+	["<C-S-A-Up>"] = { ":tabmove -1<CR>", "Move Tab to Left" },
+	["<C-S-A-Down>"] = { ":tabmove +1<CR>", "Move Tab to Right" },
 
 	["<C-Left>"] = { LEFT_JUMP, "Jump Left by Word" },
 	["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
