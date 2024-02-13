@@ -94,3 +94,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 	group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
 })
+
+-- Setup Enter to open highlighted quickfix entry
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "qf",
+	callback = function()
+		local keymaps = {
+			["<CR>"] = { ":.cc<CR>", "Quickfix: Open Current Entry" },
+		}
+
+		set_keymaps("n", keymaps, cmd_opts, true)
+	end,
+	group = vim.api.nvim_create_augroup("QuickFixKeyFix", { clear = true }),
+})
