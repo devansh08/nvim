@@ -127,4 +127,18 @@ return {
 			})
 		end,
 	},
+	{
+		"yorickpeterse/nvim-pqf",
+		branch = "main",
+		opts = {
+			signs = {
+				error = "",
+				warning = "",
+				info = "",
+				hint = "",
+			},
+			show_multiple_lines = false,
+			max_filename_length = 0,
+		},
+	},
 }
