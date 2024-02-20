@@ -73,17 +73,6 @@ return {
 							{ "ktlint" },
 							{ "revive" },
 							{ "ruff" },
-							{
-								"tsc",
-								{
-									condition = function(utils)
-										return (
-											utils.root_has_file({ "package.json", "package-lock.json" })
-											or utils.root_has_file({ "package.json", "bun.lockb" })
-										) and not utils.root_has_file(".ignore-diag")
-									end,
-								},
-							},
 						},
 					},
 					{
