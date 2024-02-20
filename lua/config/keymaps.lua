@@ -237,7 +237,7 @@ local normal_keymaps = {
 	["<A-Down>"] = { "<C-W><C-J>", "Jump to Down Buffer" },
 
 	["xx"] = { "dd", "Delete Lines and Copy" },
-	["d"] = { '"_d', "Delete Character without Copy" },
+	["d"] = { '""d', "Character without Copy" },
 	["dd"] = { '"_dd', "Delete Lines without Copy" },
 
 	["cw"] = { '"_cw', "Change Word without Copy" },
@@ -286,7 +286,7 @@ local visual_keymaps = {
 	["<S-Down>"] = { "<Down>", "Select Down" },
 
 	["xx"] = { "d", "Delete Selected Lines and Copy" },
-	["d"] = { '"_d', "Delete Selected Text without Copy" },
+	["d"] = { '""d', "Delete Selected Text without Copy" },
 	["dd"] = { '"_d', "Delete Selected Lines without Copy" },
 	["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
 
