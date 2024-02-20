@@ -155,4 +155,70 @@ return {
 			max_filename_length = 0,
 		},
 	},
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local harpoon = require("harpoon")
+
+			harpoon:setup({
+				["default"] = {
+					select = function(list_item, list, options)
+						local filename = string.gsub(list_item.value, "%s+", "\\ ")
+						if options ~= nil then
+							if options.split then
+								vim.cmd("split " .. filename)
+							elseif options.vsplit then
+								vim.cmd("vsplit " .. filename)
+							end
+						else
+							vim.cmd("tab :drop " .. filename)
+						end
+					end,
+				},
+			})
+
+			vim.keymap.set("n", "<leader>ha", function()
+				harpoon:list():append()
+			end, { noremap = true, silent = true, desc = "Harpoon: Add File to List" })
+			vim.keymap.set("n", "<C-o>", function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end, { noremap = true, silent = true, desc = "Harpoon: Toggle Quick Menu" })
+			vim.keymap.set("n", "<leader>h<Right>", function()
+				harpoon:list():next()
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to Next File in List" })
+			vim.keymap.set("n", "<leader>h<Left>", function()
+				harpoon:list():prev()
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to Prev File in List" })
+			vim.keymap.set("n", "<A-a>", function()
+				harpoon:list():select(1)
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to File 1 in List" })
+			vim.keymap.set("n", "<A-s>", function()
+				harpoon:list():select(2)
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to File 2 in List" })
+			vim.keymap.set("n", "<A-d>", function()
+				harpoon:list():select(3)
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to File 3 in List" })
+			vim.keymap.set("n", "<A-f>", function()
+				harpoon:list():select(4)
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to File 4 in List" })
+			vim.keymap.set("n", "<A-g>", function()
+				harpoon:list():select(5)
+			end, { noremap = true, silent = true, desc = "Harpoon: Jump to File 5 in List" })
+
+			harpoon:extend({
+				UI_CREATE = function(cx)
+					vim.cmd([[ call feedkeys("\<Esc>", "n") ]])
+					vim.keymap.set("n", "<C-v>", function()
+						harpoon.ui:select_menu_item({ vsplit = true })
+					end, { buffer = cx.bufnr })
+
+					vim.keymap.set("n", "<C-x>", function()
+						harpoon.ui:select_menu_item({ split = true })
+					end, { buffer = cx.bufnr })
+				end,
+			})
+		end,
+	},
 }
