@@ -59,6 +59,14 @@ local leader_keymaps = {
 		"Terminal(Git): Open LazyGit",
 	},
 
+	["<leader>co"] = { ":GitConflictChooseOurs<CR>", "GitConflict: Choose Current (Ours) Changes" },
+	["<leader>ct"] = { ":GitConflictChooseTheirs<CR>", "GitConflict: Choose Incoming (Theirs) Changes" },
+	["<leader>cb"] = { ":GitConflictChooseBoth<CR>", "GitConflict: Choose Both Changes" },
+	["<leader>cn"] = { ":GitConflictChooseNone<CR>", "GitConflict: Choose None of the Changes" },
+	["<leader>cq"] = { ":GitConflictListQf<CR>", "GitConflict: Send Conflicts to QuickFix List" },
+	["<leader>c<Up>"] = { ":GitConflictPrevConflict<CR>", "GitConflict: Jump to Previous Conflict" },
+	["<leader>c<Down>"] = { ":GitConflictNextConflict<CR>", "GitConflict: Jump to Next Conflict" },
+
 	["<leader>ff"] = { ":Telescope find_files<CR>", "Telescope: Find Files in Project" },
 	["<leader>fg"] = { ":Telescope live_grep<CR>", "Telescope: Grep in Project" },
 	["<leader>fG"] = {
