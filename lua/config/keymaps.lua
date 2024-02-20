@@ -296,7 +296,7 @@ local visual_keymaps = {
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
 	["<C-_>"] = {
-		":lua require('Comment.api').toggle.linewise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
+		":lua require('Comment.api').toggle.blockwise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
 		"Comment Selected Lines",
 	}, -- <C-_> maps to Ctrl+ForwardSlash
 
