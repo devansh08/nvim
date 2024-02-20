@@ -7,6 +7,8 @@ return {
 			local opts = {
 				enable = true,
 				line_numbers = true,
+				max_lines = 5,
+				trim_scope = "outer",
 			}
 
 			require("treesitter-context").setup(opts)
