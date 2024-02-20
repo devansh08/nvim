@@ -72,18 +72,6 @@ function M.add_null_ls_source(null_ls, sources)
 	return setup
 end
 
-function M.get_visual_selection()
-	local visual_pos = vim.fn.getpos("v")
-	local ls = visual_pos[2]
-	local cs = visual_pos[3]
-
-	local cursor_pos = vim.fn.getpos(".")
-	local le = cursor_pos[2]
-	local ce = cursor_pos[3]
-
-	return vim.api.nvim_buf_get_text(0, ls - 1, cs - 1, le - 1, ce, {})[1]
-end
-
 function M.check_executable(t)
 	local list = {}
 

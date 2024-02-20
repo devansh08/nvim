@@ -7,7 +7,6 @@ local RIGHT_JUMP = "e"
 local utils = require("utils")
 local lua_fn = utils.lua_fn
 local set_keymaps = utils.set_keymaps
-local get_visual_selection = utils.get_visual_selection
 
 local constants = require("constants")
 local opts = constants.OPTS
@@ -202,7 +201,7 @@ local visual_leader_keymaps = {
 
 	["<leader>fg"] = {
 		lua_fn(function()
-			require("telescope.builtin").live_grep({ default_text = get_visual_selection() })
+			require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
 		end),
 		"Telescope: Grep Selected Text in Project",
 	},
