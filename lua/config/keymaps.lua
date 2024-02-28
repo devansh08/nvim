@@ -155,6 +155,11 @@ local leader_keymaps = {
 	["<leader>zo"] = { ":lua require('ufo').openAllFolds()<CR>", "Ufo: Open All Folds" },
 	["<leader>zc"] = { ":lua require('ufo').closeAllFolds()<CR>", "Ufo: Close All Folds" },
 	["<leader>zp"] = { ":lua require('ufo').peekFoldedLinesUnderCursor(true)<CR>", "Ufo: Preview Folds" },
+
+	["<leader>lS"] = {
+		":lua require('lsp_signature').toggle_float_win()<CR>",
+		"LSP Signature: Manual Toggle Floating Window",
+	},
 }
 
 local visual_leader_keymaps = {

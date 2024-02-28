@@ -50,11 +50,6 @@ return {
 		lazy = true,
 	},
 	{
-		"hrsh7th/cmp-nvim-lsp-signature-help",
-		lazy = true,
-		branch = "main",
-	},
-	{
 		"hrsh7th/nvim-cmp",
 		branch = "main",
 		lazy = true,
@@ -66,7 +61,6 @@ return {
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lua",
 			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"windwp/nvim-autopairs",
 		},
 		config = function()
@@ -150,6 +144,23 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
+			})
+		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		branch = "master",
+		lazy = true,
+		event = "LspAttach",
+		config = function()
+			require("lsp_signature").setup({
+				hint_enable = false,
+				handler_opts = {
+					border = "rounded",
+				},
+				transparency = nil,
+				close_timeout = 1000,
+				auto_close_after = 1000,
 			})
 		end,
 	},
