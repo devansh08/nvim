@@ -2,6 +2,7 @@ local options = {
 	number = true,
 	relativenumber = true,
 	cursorline = true,
+	numberwidth = 4,
 
 	signcolumn = "yes",
 
