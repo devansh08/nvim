@@ -91,6 +91,7 @@ local leader_keymaps = {
 		":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
 		"Telescope: List Diagnostics in Current Buffer",
 	},
+	["<leader>ft"] = { ":TodoTelescope<CR>", "Telescope: List Todo Comments" },
 
 	["<leader>jo"] = { ":lua require('jdtls').organize_imports()<CR>", "JDTLS(Java): Organize Imports" },
 	["<leader>jv"] = { ":lua require('jdtls').extract_variable()<CR>", "JDTLS(Java): Extract to Variable" },
@@ -103,6 +104,7 @@ local leader_keymaps = {
 	["<leader>xr"] = { ":TroubleToggle lsp_references<CR>", "Trouble: List LSP References" },
 	["<leader>xl"] = { ":TroubleToggle lsp_definitions<CR>", "Trouble: List LSP Definitions" },
 	["<leader>xt"] = { ":TroubleToggle lsp_type_definitions<CR>", "Trouble: List LSP Type Definitions" },
+	["<leader>xc"] = { ":TodoTrouble<CR>", "Trouble: List Todo Comments" },
 
 	["<leader>rr"] = {
 		":lua require('telescope').extensions.refactoring.refactors()<CR>",
