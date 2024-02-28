@@ -245,6 +245,7 @@ local normal_keymaps = {
 	["xx"] = { "dd", "Delete Lines and Copy" },
 	["d"] = { '""d', "Character without Copy" },
 	["dd"] = { '"_dd', "Delete Lines without Copy" },
+	["<Del>"] = { '"_d<Right>', "Delete Text without Copy" },
 
 	["cw"] = { '"_cw', "Change Word without Copy" },
 	["ci"] = { '"_ci', "Change In Word without Copy" },
@@ -292,11 +293,11 @@ local visual_keymaps = {
 	["<S-Down>"] = { "<Down>", "Select Down" },
 
 	["xx"] = { "d", "Delete Selected Lines and Copy" },
-	["d"] = { '""d', "Delete Selected Text without Copy" },
+	["D"] = { '""d', "Delete Selected Text without Copy" },
 	["dd"] = { '"_d', "Delete Selected Lines without Copy" },
 	["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
 
-	["c"] = { '"_c', "Change Selected Text without Copy" },
+	["C"] = { '"_c', "Change Selected Text without Copy" },
 	["ci"] = { '"_ci', "Change In Selected Text without Copy" },
 
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
