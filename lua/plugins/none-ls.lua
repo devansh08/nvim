@@ -72,7 +72,6 @@ return {
 							{ "fish" },
 							{ "ktlint" },
 							{ "revive" },
-							{ "ruff" },
 						},
 					},
 					{
@@ -84,7 +83,6 @@ return {
 							{ "jq" },
 							{ "ktlint" },
 							{ "prettierd" },
-							{ "ruff" },
 							{ "shfmt" },
 							{ "stylua" },
 							{ "taplo" },

@@ -72,6 +72,12 @@ M.on_attach = function(client)
 			buffer = 0,
 		})
 	end
+
+	if client.name == "pyright" or client.name == "ruff_lsp" then
+		-- Use jedi for pydocs in hover
+		client.config.capabilities.textDocument.hover = nil
+		client.server_capabilities.hoverProvider = nil
+	end
 end
 
 local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
