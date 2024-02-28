@@ -33,6 +33,7 @@ return {
 				auto_session_root_dir = constants.NVIM_LOCAL .. "/sessions/",
 				auto_session_enabled = true,
 				auto_session_create_enabled = true,
+				auto_session_last_session_dir = "",
 				pre_save_cmds = { close_nvim_tree },
 				post_restore_cmds = { open_nvim_tree },
 				session_lens = {
@@ -43,7 +44,7 @@ return {
 				},
 			})
 
-			vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+			vim.o.sessionoptions = "buffers,curdir,tabpages,winsize,winpos,localoptions"
 		end,
 	},
 }
