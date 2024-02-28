@@ -19,8 +19,6 @@ return {
 							callback = function()
 								if vim.g.no_format ~= true then
 									vim.lsp.buf.format({ async = false })
-								else
-									vim.g.no_format = false
 								end
 							end,
 							group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = false }),
