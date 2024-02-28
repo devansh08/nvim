@@ -15,8 +15,12 @@ return {
 			direction = "float",
 			float_opts = {
 				border = "rounded",
-				width = 180,
-				height = 36,
+				width = function()
+					return math.floor(vim.o.columns * 0.9)
+				end,
+				height = function()
+					return math.floor(vim.o.lines * 0.8)
+				end,
 			},
 			close_on_exit = true,
 			auto_scroll = true,
