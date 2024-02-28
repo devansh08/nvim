@@ -119,8 +119,8 @@ return {
 					end, { "i", "s" }),
 				},
 				sources = {
-					{ name = "nvim_lua" },
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lua" },
 					{ name = "luasnip" },
 					{ name = "buffer" },
 					{ name = "path" },
@@ -131,8 +131,8 @@ return {
 					format = lspkind.cmp_format({
 						mode = "symbol",
 						menu = {
-							nvim_lua = "[NeoVim Lua]",
 							nvim_lsp = "[LSP]",
+							nvim_lua = "[NeoVim Lua]",
 							buffer = "[Buffer]",
 							path = "[Path]",
 							luasnip = "[LuaSnip]",
