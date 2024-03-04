@@ -107,3 +107,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 	group = vim.api.nvim_create_augroup("QuickFixKeyFix", { clear = true }),
 })
+
+-- Run linter (nvim-lint) after write
+vim.api.nvim_create_autocmd("BufWritePost", {
+	callback = function()
+		require("lint").try_lint()
+	end,
+	group = vim.api.nvim_create_augroup("RunLintOnSave", { clear = true }),
+})
