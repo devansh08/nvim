@@ -73,7 +73,7 @@ M.on_attach = function(client)
 		})
 	end
 
-	if client.name == "pyright" or client.name == "ruff_lsp" then
+	if client.name == "pyright" then
 		-- Use jedi for pydocs in hover
 		client.config.capabilities.textDocument.hover = nil
 		client.server_capabilities.hoverProvider = nil
