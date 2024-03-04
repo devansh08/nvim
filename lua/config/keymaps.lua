@@ -22,7 +22,7 @@ local leader_keymaps = {
 	["<leader>e"] = { ":NvimTreeToggle<CR>", "NvimTree: Toggle" },
 
 	["<leader>qq"] = { ":qa<CR>", "Quit All" },
-	["<leader>ww"] = { ":lua vim.g.no_format = true<CR>:w<CR>", "Save without Formatting" },
+	["<leader>ww"] = { ":lua vim.g.disable_autoformat = true<CR>:w<CR>", "Save without Formatting" },
 
 	["<leader>ll"] = { ":Lazy<CR>", "Lazy: Open" },
 
