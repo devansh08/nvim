@@ -115,3 +115,11 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	end,
 	group = vim.api.nvim_create_augroup("RunLintOnSave", { clear = true }),
 })
+
+-- Highlight yanked text temporarily after yanking
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ timeout = 250 })
+	end,
+	group = vim.api.nvim_create_augroup("HighlightOnYank", { clear = true }),
+})
