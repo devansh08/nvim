@@ -132,7 +132,6 @@ return {
 				auto_attach = true,
 				preference = {
 					"jedi_language_server",
-					"ruff_lsp",
 				},
 			},
 		},
