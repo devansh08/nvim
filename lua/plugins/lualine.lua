@@ -32,7 +32,22 @@ return {
 					},
 				},
 				lualine_c = { "filename" },
-				lualine_x = { "filetype" },
+				lualine_x = {
+					"filetype",
+					function()
+						local status, lint = pcall(require, "lint")
+						if not status then
+							return ""
+						end
+
+						local linters = lint._resolve_linter_by_ft(vim.bo.filetype)
+						if #linters == 0 then
+							return ""
+						else
+							return table.concat(linters, "|")
+						end
+					end,
+				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
