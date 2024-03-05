@@ -102,4 +102,18 @@ function M.string_starts_with(str, pat)
 	return str:sub(1, #pat) == pat
 end
 
+function M.file_exists_in_root(file)
+	return vim.fn.findfile(file, vim.loop.cwd()) == file
+end
+
+function M.table_contains(t, key)
+	for _, value in ipairs(t) do
+		if value == key then
+			return true
+		end
+	end
+
+	return false
+end
+
 return M

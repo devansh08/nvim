@@ -111,7 +111,17 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Run linter (nvim-lint) after write
 vim.api.nvim_create_autocmd("BufWritePost", {
 	callback = function()
-		require("lint").try_lint()
+		local ft = vim.bo.filetype
+		local file_exists_in_root = require("utils").file_exists_in_root
+		local table_contains = require("utils").table_contains
+
+		if table_contains({ "javascript", "typescript", "javascriptreact", "typescriptreact" }, ft) then
+			if file_exists_in_root(".eslintrc") or file_exists_in_root(".eslintrc.js") then
+				require("lint").try_lint()
+			end
+		else
+			require("lint").try_lint()
+		end
 	end,
 	group = vim.api.nvim_create_augroup("RunLintOnSave", { clear = true }),
 })
