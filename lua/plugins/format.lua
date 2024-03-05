@@ -16,9 +16,12 @@ return {
 				typescript = { "prettierd" },
 				javascriptreact = { "prettierd" },
 				typescriptreact = { "prettierd" },
+				css = { "prettierd" },
+				scss = { "prettierd" },
 				sh = { "shfmt" },
 				lua = { "stylua" },
 				toml = { "taplo" },
+				python = { "black" },
 			},
 			format_on_save = function()
 				if vim.g.disable_autoformat then
