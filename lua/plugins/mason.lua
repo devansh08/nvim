@@ -31,6 +31,7 @@ return {
 			local ensure_installed = check_executable({
 				["angular-language-server"] = { { "node", "npm" }, { "bun" } },
 				["bash-language-server"] = { { "bash" } },
+				["black"] = { { "python", "pip" } },
 				["clang-format"] = { { "gcc" }, { "g++" } },
 				["clangd"] = { { "gcc" }, { "g++" } },
 				["cpplint"] = { { "g++" } },
@@ -51,6 +52,7 @@ return {
 				["prettierd"] = { { "node", "npm" }, { "bun" } },
 				["pyright"] = { { "python", "pip" } },
 				["revive"] = { { "go" } },
+				["ruff"] = { { "python", "pip" } },
 				["shfmt"] = { { "bash" } },
 				["stylua"] = { { "lua" } },
 				["taplo"] = {},
