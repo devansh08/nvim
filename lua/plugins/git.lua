@@ -2,7 +2,6 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		version = "*",
-		cond = vim.fn.isdirectory(".git") == 1,
 		opts = {
 			signs = {
 				add = { text = "│" },
@@ -66,12 +65,10 @@ return {
 	{
 		"tpope/vim-fugitive",
 		branch = "master",
-		cond = vim.fn.isdirectory(".git") == 1,
 	},
 	{
 		"akinsho/git-conflict.nvim",
 		version = "*",
-		cond = vim.fn.isdirectory(".git") == 1,
 		opts = {
 			default_mappings = false,
 			default_commands = true,
