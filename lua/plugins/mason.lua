@@ -35,6 +35,7 @@ return {
 				["clang-format"] = { { "gcc" }, { "g++" } },
 				["clangd"] = { { "gcc" }, { "g++" } },
 				["cpplint"] = { { "g++" } },
+				["css-lsp"] = {},
 				["debugpy"] = { { "python", "pip" } },
 				["dockerfile-language-server"] = { { "docker" }, { "pulumi" } },
 				["eslint_d"] = { { "node", "npm" }, { "bun" } },
