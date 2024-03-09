@@ -64,6 +64,7 @@ return {
 						enabled = true,
 					},
 					ufo = true,
+					fidget = true,
 				},
 				highlight_overrides = {
 					[flavour] = function(f)
