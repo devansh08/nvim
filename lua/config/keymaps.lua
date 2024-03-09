@@ -160,6 +160,8 @@ local leader_keymaps = {
 		":lua require('lsp_signature').toggle_float_win()<CR>",
 		"LSP Signature: Manual Toggle Floating Window",
 	},
+
+	["<leader>uu"] = { ":UndotreeToggle<CR>", "Undotree: Toggle Undotree" },
 }
 
 local visual_leader_keymaps = {
