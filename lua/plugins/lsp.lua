@@ -76,7 +76,7 @@ return {
 			local opts = {
 				progress = {
 					poll_rate = 0,
-					suppress_on_insert = false,
+					suppress_on_insert = true,
 					ignore_done_already = false,
 					ignore_empty_message = false,
 
