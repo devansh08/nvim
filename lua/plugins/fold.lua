@@ -20,7 +20,7 @@ return {
 				provider_selector = function(_)
 					return { "lsp", "indent" }
 				end,
-				close_fold_kinds = {},
+				close_fold_kinds_for_ft = {},
 				enable_get_fold_virt_text = false,
 				fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
 					local newVirtText = {}
