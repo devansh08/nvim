@@ -3,6 +3,8 @@ return {
 	{
 		"williamboman/mason.nvim",
 		tag = "stable",
+		lazy = true,
+		event = "VeryLazy",
 		build = ":MasonUpdate",
 		config = function()
 			local opts = {

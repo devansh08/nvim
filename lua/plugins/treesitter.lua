@@ -3,6 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter-context",
 		branch = "master",
 		lazy = true,
+		event = "BufReadPost",
 		config = function()
 			local opts = {
 				enable = true,
@@ -18,6 +19,7 @@ return {
 		"hiphish/rainbow-delimiters.nvim",
 		branch = "master",
 		lazy = true,
+		event = "BufReadPost",
 		config = function()
 			local rainbow_delimiters = require("rainbow-delimiters")
 
@@ -47,6 +49,7 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		version = "*",
 		lazy = true,
+		event = "BufReadPost",
 		main = "ibl",
 		config = function()
 			local highlight = {
@@ -82,6 +85,7 @@ return {
 		"windwp/nvim-ts-autotag",
 		branch = "main",
 		lazy = true,
+		event = "BufWritePre",
 		config = function()
 			local opts = {
 				autotag = {
@@ -161,5 +165,6 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		branch = "main",
 		lazy = true,
+		event = "BufWritePre",
 	},
 }

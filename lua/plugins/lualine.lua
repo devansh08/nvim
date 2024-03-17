@@ -121,6 +121,7 @@ return {
 		"SmiteshP/nvim-navic",
 		branch = "master",
 		lazy = true,
+		event = "BufReadPost",
 		opts = {
 			highlight = true,
 			depth_limit = 0,

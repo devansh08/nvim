@@ -8,7 +8,7 @@ return {
 		"kevinhwang91/nvim-ufo",
 		branch = "main",
 		lazy = true,
-		event = { "LspAttach" },
+		cmd = "UfoEnable",
 		dependencies = {
 			"kevinhwang91/promise-async",
 		},

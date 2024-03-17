@@ -2,6 +2,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		version = "*",
+		event = "VeryLazy",
 		opts = {
 			signs = {
 				add = { text = "│" },
@@ -65,10 +66,13 @@ return {
 	{
 		"tpope/vim-fugitive",
 		branch = "master",
+		lazy = "true",
+		event = "VeryLazy",
 	},
 	{
 		"akinsho/git-conflict.nvim",
 		version = "*",
+		event = "VeryLazy",
 		opts = {
 			default_mappings = false,
 			default_commands = true,

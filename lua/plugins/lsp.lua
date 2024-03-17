@@ -4,6 +4,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		tag = "stable",
 		lazy = true,
+		event = "BufReadPost",
 		config = function()
 			-- lua/lsp/init.lua
 			local lsp_defaults = require("lsp.init")
@@ -62,6 +63,8 @@ return {
 		-- NOTE: Server setup directly by nvim-lspconfig needs to be done after mason-lspconfig is done setting up servers
 		"neovim/nvim-lspconfig",
 		branch = "master",
+		lazy = true,
+		event = "VeryLazy",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},

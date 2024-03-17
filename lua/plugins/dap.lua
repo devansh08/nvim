@@ -3,6 +3,7 @@ return {
 		"rcarriga/nvim-dap-ui",
 		version = "*",
 		lazy = true,
+		event = "VeryLazy",
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 

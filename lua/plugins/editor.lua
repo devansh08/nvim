@@ -3,6 +3,7 @@ return {
 		"windwp/nvim-autopairs",
 		branch = "master",
 		lazy = true,
+		event = "BufWritePre",
 		config = function()
 			local opts = {
 				disable_filetype = { "TelescopePrompt" },
@@ -95,6 +96,8 @@ return {
 	{
 		"tpope/vim-abolish",
 		branch = "master",
+		lazy = true,
+		event = "BufReadPre",
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
@@ -144,6 +147,8 @@ return {
 	{
 		"yorickpeterse/nvim-pqf",
 		branch = "main",
+		lazy = true,
+		ft = { "qf" },
 		opts = {
 			signs = {
 				error = "",
