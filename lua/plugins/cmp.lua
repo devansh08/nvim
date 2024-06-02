@@ -153,19 +153,9 @@ return {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
-		branch = "master",
+		version = "*",
 		lazy = true,
 		event = "LspAttach",
-		config = function()
-			require("lsp_signature").setup({
-				hint_enable = false,
-				handler_opts = {
-					border = "rounded",
-				},
-				transparency = nil,
-				close_timeout = 1000,
-				auto_close_after = 1000,
-			})
-		end,
+		config = function() end,
 	},
 }

@@ -4,7 +4,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		tag = "stable",
 		lazy = true,
-		event = "BufReadPost",
+		event = "VeryLazy",
 		config = function()
 			-- lua/lsp/init.lua
 			local lsp_defaults = require("lsp.init")

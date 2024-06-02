@@ -78,6 +78,21 @@ M.on_attach = function(client)
 		client.config.capabilities.textDocument.hover = nil
 		client.server_capabilities.hoverProvider = nil
 	end
+
+	require("lsp_signature").setup({
+		hint_enable = false,
+		hint_prefix = " ",
+		hint_inline = function()
+			return false
+		end,
+		handler_opts = {
+			border = "rounded",
+		},
+		transparency = nil,
+		close_timeout = 1000,
+		fix_pos = false,
+		auto_close_after = 1,
+	})
 end
 
 local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

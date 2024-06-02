@@ -28,6 +28,8 @@ local leader_keymaps = {
 
 	["<leader>mm"] = { ":Mason<CR>", "Mason: Open" },
 
+	["<leader>lss"] = { ":LspStart<CR>", "LSP: Start Server" },
+
 	["<leader>gs"] = { ":Git<CR>", "Fugitive(Git): Open Status" },
 	["<leader>gc"] = { ":Git commit<CR>", "Fugitive(Git): Commit changes" },
 	["<leader>gd"] = { ":Git diff<CR>", "Fugitive(Git): Open Diff" },
