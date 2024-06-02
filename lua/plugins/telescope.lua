@@ -144,16 +144,11 @@ return {
 						mappings = custom_keymaps,
 					},
 				},
-				extensions = {
-					["session-lens"] = {
-						require("telescope.themes").get_dropdown(),
-					},
-				},
+				extensions = {},
 			})
 
 			telescope.load_extension("refactoring")
 			telescope.load_extension("dap")
-			telescope.load_extension("session-lens")
 		end,
 	},
 }
