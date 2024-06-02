@@ -8,15 +8,15 @@ return {
 
 		local constants = require("constants")
 
-		require("dap-vscode-js").setup({
-			node_path = "node",
-			log_file_path = constants.NVIM_CACHE .. "/dap-vscode-js.log",
-			log_file_level = vim.log.levels.WARN,
-			log_console_level = vim.log.levels.ERROR,
-			debugger_path = constants.MASON_PACKAGES .. "/js-debug-adapter/js-debug-adapter",
-			debugger_cmd = { constants.MASON_PACKAGES .. "/js-debug-adapter/js-debug-adapter" },
-			adapters = { "pwa-node", "node-terminal" },
-		})
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			host = "localhost",
+			port = "8888",
+			executable = {
+				command = "node",
+				args = { constants.MASON_PACKAGES .. "/js-debug-adapter/js-debug/src/dapDebugServer.js", 8888 },
+			},
+		}
 
 		for _, language in ipairs({ "typescript", "javascript" }) do
 			dap.configurations[language] = {

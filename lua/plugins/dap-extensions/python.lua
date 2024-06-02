@@ -19,7 +19,7 @@ return {
 			["<leader>dPm"] = { ":lua require('dap-python').test_method()<CR>", "DAP: Python - Test Method" },
 		}, opts, true)
 
-		set_keymaps("n", {
+		set_keymaps("v", {
 			["<leader>dPs"] = { ":lua require('dap-python').debug_selection()<CR>", "DAP: Python - Debug Selection" },
 		}, opts, true)
 	end,
