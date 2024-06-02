@@ -33,7 +33,6 @@ return {
 				},
 				lualine_c = { "filename" },
 				lualine_x = {
-					"filetype",
 					function()
 						local status, lint = pcall(require, "lint")
 						if not status then
@@ -47,6 +46,7 @@ return {
 							return table.concat(linters, "|")
 						end
 					end,
+					"filetype",
 				},
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
