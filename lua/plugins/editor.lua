@@ -232,4 +232,17 @@ return {
 			vim.g.undotree_SplitWidth = 40
 		end,
 	},
+	{
+		"mg979/vim-visual-multi",
+		branch = "master",
+		-- https://github.com/mg979/vim-visual-multi/issues/241#issuecomment-1575139717
+		init = function()
+			vim.g.VM_maps = {
+				["Add Cursor Down"] = "<M-j>",
+				["Add Cursor Up"] = "<M-k>",
+				["Select h"] = "<M-h>",
+				["Select l"] = "<M-l>",
+			}
+		end,
+	},
 }
