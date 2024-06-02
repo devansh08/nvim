@@ -21,6 +21,13 @@ return {
 					},
 					url = "https://json.schemastore.org/webextension.json",
 				},
+				{
+					fileMatch = {
+						".ncurc",
+						".ncurc.json",
+					},
+					url = "https://raw.githubusercontent.com/raineorshine/npm-check-updates/main/src/types/RunOptions.json",
+				},
 			},
 		},
 	},
