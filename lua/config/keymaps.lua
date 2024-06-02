@@ -260,6 +260,9 @@ local normal_keymaps = {
 
 	["gx"] = { ":silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>", "Open Link in Browser" },
 
+	["<C-F>"] = { "<C-O>", "Jump back in jumplist" },
+	["<C-G>"] = { "<C-I>", "Jump forward in jumplist" },
+
 	["<Tab>"] = { ">>", "Indent Current Line to Right" },
 	["<S-Tab>"] = { "<<", "Indent Current Line to Left" },
 
