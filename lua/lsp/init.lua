@@ -45,7 +45,7 @@ M.setup = function()
 		update_in_insert = true,
 		virtual_text = {
 			spacing = 5,
-			severity_limit = "Warning",
+			severity = vim.diagnostic.severity.WARN,
 			source = true,
 		},
 	})
