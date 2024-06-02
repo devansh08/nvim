@@ -109,7 +109,6 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
 			"hiphish/rainbow-delimiters.nvim",
-			"lukas-reineke/indent-blankline.nvim",
 			"windwp/nvim-ts-autotag",
 		},
 		config = function()
