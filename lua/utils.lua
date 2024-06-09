@@ -59,7 +59,7 @@ function M.string_starts_with(str, pat)
 end
 
 function M.file_exists_in_root(file)
-	return vim.fn.findfile(file, vim.loop.cwd()) == file
+	return vim.fn.findfile(file, vim.env.PWD) == file
 end
 
 function M.table_contains(t, key)
