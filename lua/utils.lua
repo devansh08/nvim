@@ -72,4 +72,8 @@ function M.table_contains(t, key)
 	return false
 end
 
+function M.get_visual_selection()
+	return vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })[1]
+end
+
 return M

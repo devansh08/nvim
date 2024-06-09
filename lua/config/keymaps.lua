@@ -212,7 +212,7 @@ local visual_leader_keymaps = {
 
 	["<leader>fg"] = {
 		lua_fn(function()
-			require("telescope.builtin").live_grep({ default_text = vim.fn.expand("<cword>") })
+			require("telescope.builtin").live_grep({ default_text = utils.get_visual_selection() })
 		end),
 		"Telescope: Grep Selected Text in Project",
 	},
