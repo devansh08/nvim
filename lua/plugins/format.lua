@@ -27,6 +27,8 @@ return {
 				if vim.g.disable_autoformat then
 					vim.g.disable_autoformat = false
 					return
+				elseif vim.g.force_disable_autoformat then
+					return
 				end
 				return { timeout_ms = 500, lsp_fallback = true }
 			end,
