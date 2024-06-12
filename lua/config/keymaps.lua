@@ -77,6 +77,8 @@ local leader_keymaps = {
 	["<leader>fk"] = { ":Telescope keymaps<CR>", "Telescope: Keymaps" },
 	["<leader>fj"] = { ":Telescope jumplist<CR>", "Telescope: Jumplist" },
 	["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
+	["<leader>fy"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List Document Symbols" },
+	["<leader>fw"] = { ":Telescope lsp_workspace_symbols<CR>", "Telescope: List Workspace Symbols" },
 
 	["<leader>tt"] = { ":TermSelect<CR>", "Terminal: Select from Open Terminals" },
 	["<leader>t1"] = { ":1ToggleTerm direction=float<CR>", "Terminal: Open Terminal 1 (Floating)" },
