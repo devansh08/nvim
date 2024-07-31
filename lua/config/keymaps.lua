@@ -102,13 +102,11 @@ local leader_keymaps = {
 	["<leader>jc"] = { ":lua require('jdtls').extract_constant()<CR>", "JDTLS(Java): Extract to Constant" },
 	["<leader>jm"] = { ":lua require('jdtls').extract_method()<CR>", "JDTLS(Java): Extract to Method/Function" },
 
-	["<leader>xx"] = { ":TroubleToggle<CR>", "Trouble: Toggle Trouble Buffer" },
-	["<leader>xw"] = { ":TroubleToggle workspace_diagnostics<CR>", "Trouble: List Project Diagnostics" },
-	["<leader>xd"] = { ":TroubleToggle document_diagnostics<CR>", "Trouble: List Buffer Diagnostics" },
-	["<leader>xr"] = { ":TroubleToggle lsp_references<CR>", "Trouble: List LSP References" },
-	["<leader>xl"] = { ":TroubleToggle lsp_definitions<CR>", "Trouble: List LSP Definitions" },
-	["<leader>xt"] = { ":TroubleToggle lsp_type_definitions<CR>", "Trouble: List LSP Type Definitions" },
-	["<leader>xc"] = { ":TodoTrouble<CR>", "Trouble: List Todo Comments" },
+	["<leader>xx"] = { ":Trouble diagnostics toggle<CR>", "Trouble: Toggle Diagnostics" },
+	["<leader>xo"] = { ":Trouble diagnostics open<CR>", "Trouble: Open Diagnostics" },
+	["<leader>xc"] = { ":Trouble diagnostics close<CR>", "Trouble: Close Diagnostics" },
+	["<leader>xb"] = { ":Trouble diagnostics toggle filter.buf=0<CR>", "Trouble: Toggle Diagnostics for Buffer" },
+	["<leader>xs"] = { ":Trouble symbols toggle<CR>", "Trouble: Toggle Symbols" },
 
 	["<leader>rr"] = {
 		":lua require('telescope').extensions.refactoring.refactors()<CR>",

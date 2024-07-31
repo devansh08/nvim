@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Auto switch to file buffer when changing windows or close nvim-tree buffer if it is the last buffer
 vim.api.nvim_create_autocmd("WinLeave", {
 	callback = function()
-		if vim.bo.filetype == "NvimTree" then
+		if vim.bo.filetype == "NvimTree" or vim.bo.filetype == "trouble" then
 			if vim.fn.tabpagewinnr(vim.fn.tabpagenr(), "$") == 1 then
 				vim.cmd("q")
 			else
