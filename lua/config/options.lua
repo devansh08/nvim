@@ -14,7 +14,7 @@ local options = {
 
 	scrolloff = 8,
 	sidescrolloff = 20,
-	wrap = false,
+	wrap = true,
 
 	completeopt = { "menuone", "preview", "noselect" },
 	pumheight = 20,
@@ -42,6 +42,9 @@ local options = {
 	foldcolumn = "1",
 	foldlevel = 99,
 	foldlevelstart = 99,
+
+	cmdheight = 0,
+	conceallevel = 0,
 }
 
 for k, v in pairs(options) do
