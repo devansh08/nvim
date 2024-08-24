@@ -131,6 +131,7 @@ return {
 					["html"] = {},
 					["java"] = { { "java" } },
 					["javascript"] = { { "node", "npm" }, { "bun" } },
+					["jsdoc"] = { { "node", "npm" }, { "bun" } },
 					["json"] = {},
 					["json5"] = {},
 					["jsonc"] = {},
