@@ -37,31 +37,14 @@ local leader_keymaps = {
 
 	["<leader>lss"] = { ":LspStart<CR>", "LSP: Start Server" },
 
-	["<leader>gs"] = { ":Git<CR>", "Fugitive(Git): Open Status" },
-	["<leader>gc"] = { ":Git commit<CR>", "Fugitive(Git): Commit changes" },
-	["<leader>gd"] = { ":Git diff<CR>", "Fugitive(Git): Open Diff" },
-	["<leader>gds"] = { ":Git diff --staged<CR>", "Fugitive(Git): Open Staged Diff" },
-	["<leader>gpl"] = { ":Git pull<CR>", "Fugitive(Git): Pull" },
-	["<leader>gph"] = {
-		":lua if vim.fn.input('Push changes ? ') == 'y' then vim.cmd(':redraw'); vim.cmd(':Git push') else vim.cmd(':redraw'); print('Push aborted') end<CR>",
-		"Fugitive(Git): Push with confirmation",
-	},
-	["<leader>gp"] = { ":lua require('gitsigns').preview_hunk()<CR>", "Gitsigns: Preview Hunk" },
-	["<leader>gA"] = { ":lua require('gitsigns').stage_buffer()<CR>", "Gitsigns: Stage entire Buffer" },
-	["<leader>ga"] = { ":lua require('gitsigns').stage_hunk()<CR>", "Gitsigns: Stage Hunk" },
-	["<leader>gr"] = { ":lua require('gitsigns').reset_hunk()<CR>", "Gitsigns: Reset Hunk" },
-	["<leader>gu"] = { ":lua require('gitsigns').undo_stage_hunk()<cr>", "Gitsigns: Undo Stage Hunk" },
-	["<leader>g<Down>"] = {
-		":lua require('gitsigns').next_hunk({ wrap = false, navigation_message = false, preview = false })<cr>",
-		"Gitsigns: Jump to Next Hunk",
-	},
-	["<leader>g<Up>"] = {
-		":lua require('gitsigns').prev_hunk({ wrap = false, navigation_message = false, preview = false })<CR>",
-		"Gitsigns: Jump to Previous Hunk",
-	},
+	["<leader>gp"] = { ":Gitsigns preview_hunk<CR>", "Gitsigns: Preview Hunk" },
+	["<leader>ga"] = { ":Gitsigns stage_hunk<CR>", "Gitsigns: Stage Hunk" },
+	["<leader>gu"] = { ":Gitsigns undo_stage_hunk<cr>", "Gitsigns: Undo Stage Hunk" },
+	["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
+	["<leader>g<Down>"] = { ":Gitsigns nav_hunk next false<CR>", "Gitsigns: Jump to Next Hunk" },
+	["<leader>g<Up>"] = { ":Gitsigns nav_hunk prev false<CR>", "Gitsigns: Jump to Prev Hunk" },
 	["<leader>gl"] = { ":Telescope git_commits<CR>", "Telescope(Git): Open Git Log" },
 	["<leader>gbl"] = { ":Telescope git_bcommits<CR>", "Telescope(Git): Open Git Log for Current Buffer" },
-	["<leader>gsl"] = { ":Telescope git_stash<CR>", "Telescope(Git): Open Git Stash List" },
 	["<leader>gg"] = {
 		":9TermExec cmd='lazygit && exit' direction=float name='lazygit'<CR>",
 		"Terminal(Git): Open LazyGit",
@@ -77,15 +60,8 @@ local leader_keymaps = {
 
 	["<leader>ff"] = { ":Telescope find_files<CR>", "Telescope: Find Files in Project" },
 	["<leader>fg"] = { ":Telescope live_grep<CR>", "Telescope: Grep in Project" },
-	["<leader>fG"] = {
-		":lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cword>') })<CR>",
-		"Telescope: Grep Word under Cursor in Project",
-	},
 	["<leader>fk"] = { ":Telescope keymaps<CR>", "Telescope: Keymaps" },
-	["<leader>fj"] = { ":Telescope jumplist<CR>", "Telescope: Jumplist" },
-	["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
-	["<leader>fy"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List Document Symbols" },
-	["<leader>fw"] = { ":Telescope lsp_workspace_symbols<CR>", "Telescope: List Workspace Symbols" },
+	["<leader>fh"] = { ":Telescope help_tags<CR>", "Telescope: Help Tags" },
 
 	["<leader>tt"] = { ":TermSelect<CR>", "Terminal: Select from Open Terminals" },
 	["<leader>t1"] = { ":1ToggleTerm direction=float<CR>", "Terminal: Open Terminal 1 (Floating)" },
@@ -97,17 +73,8 @@ local leader_keymaps = {
 	["<leader>fi"] = { ":Telescope lsp_implementations<CR>", "Telescope: List LSP Implementations" },
 	["<leader>fd"] = { ":Telescope lsp_definitions<CR>", "Telescope: List LSP Definitions" },
 	["<leader>fs"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List LSP Document Symbols" },
-	["<leader>fe"] = { ":Telescope diagnostics<CR>", "Telescope: List Diagnostics in Project" },
-	["<leader>fc"] = {
-		":lua require('telescope.builtin').diagnostics({ bufnr = 0 })<CR>",
-		"Telescope: List Diagnostics in Current Buffer",
-	},
+	["<leader>fw"] = { ":Telescope lsp_workspace_symbols<CR>", "Telescope: List LSP Workspace Symbols" },
 	["<leader>ft"] = { ":TodoTelescope<CR>", "Telescope: List Todo Comments" },
-
-	["<leader>jo"] = { ":lua require('jdtls').organize_imports()<CR>", "JDTLS(Java): Organize Imports" },
-	["<leader>jv"] = { ":lua require('jdtls').extract_variable()<CR>", "JDTLS(Java): Extract to Variable" },
-	["<leader>jc"] = { ":lua require('jdtls').extract_constant()<CR>", "JDTLS(Java): Extract to Constant" },
-	["<leader>jm"] = { ":lua require('jdtls').extract_method()<CR>", "JDTLS(Java): Extract to Method/Function" },
 
 	["<leader>xx"] = { ":Trouble diagnostics toggle<CR>", "Trouble: Toggle Diagnostics" },
 	["<leader>xo"] = { ":Trouble diagnostics open<CR>", "Trouble: Open Diagnostics" },
@@ -119,35 +86,13 @@ local leader_keymaps = {
 		":lua require('telescope').extensions.refactoring.refactors()<CR>",
 		"Refactoring: List Refactoring Actions",
 	},
-	["<leader>ri"] = { ":Refactor inline_var<CR>", "Refactoring: Extract to Inline Variable" },
-	["<leader>rif"] = { ":Refactor inline_func<CR>", "Refactoring: Extract to Inline Function" },
-	["<leader>rb"] = { ":Refactor extract_block<CR>", "Refactoring: Extract Code Block" },
-	["<leader>rbf"] = { ":Refactor extract_block_to_file<CR>", "Refactoring: Extract Code Block to File" },
 
-	["<leader>dd"] = {
-		":lua require('dap').continue({ new = true })<CR>",
-		"DAP: Start New Debug Session",
-	},
-	["<leader>dr"] = {
-		":lua require('dap').restart()<CR>",
-		"DAP: Restart Debug Session",
-	},
-	["<leader>ds"] = {
-		":lua require('dap').terminate()<CR>",
-		"DAP: Terminate Debug Session",
-	},
-	["<leader>dc"] = {
-		":lua require('dap').clear_breakpoints()<CR>",
-		"DAP: Clear Breakpoints",
-	},
-	["<leader>dl"] = {
-		":lua require('dap').run_to_cursor()<CR>",
-		"DAP: Run till Current Line",
-	},
-	["<leader>db"] = {
-		":lua require('dap').toggle_breakpoint()<CR>",
-		"DAP: Toggle Breakpoint",
-	},
+	["<leader>dd"] = { ":lua require('dap').continue({ new = true })<CR>", "DAP: Start New Debug Session" },
+	["<leader>dr"] = { ":lua require('dap').restart()<CR>", "DAP: Restart Debug Session" },
+	["<leader>ds"] = { ":lua require('dap').terminate()<CR>", "DAP: Terminate Debug Session" },
+	["<leader>dc"] = { ":lua require('dap').clear_breakpoints()<CR>", "DAP: Clear Breakpoints" },
+	["<leader>dl"] = { ":lua require('dap').run_to_cursor()<CR>", "DAP: Run till Current Line" },
+	["<leader>db"] = { ":lua require('dap').toggle_breakpoint()<CR>", "DAP: Toggle Breakpoint" },
 	["<leader>dv"] = { ":DapVirtualTextToggle<CR>", "DAP: Toggle Virtual Text" },
 
 	["<leader>dtc"] = { ":Telescope dap commands<CR>", "DAP: Telescope - List Commands" },
@@ -249,17 +194,26 @@ local normal_keymaps = {
 	["<A-Up>"] = { "<C-W><C-K>", "Jump to Up Buffer" },
 	["<A-Down>"] = { "<C-W><C-J>", "Jump to Down Buffer" },
 
-	["xx"] = { "dd", "Delete Lines and Copy" },
-	["d"] = { '""d', "Character without Copy" },
-	["dd"] = { '"_dd', "Delete Lines without Copy" },
+	["d"] = { '"_d', "Delete Text without Copy" },
 	["<Del>"] = { '"_d<Right>', "Delete Text without Copy" },
 
-	["cw"] = { '"_cw', "Change Word without Copy" },
-	["ci"] = { '"_ci', "Change In Word without Copy" },
+	["dd"] = { '""dd', "Delete Lines without Copy" },
+	["dw"] = { '""dw', "Delete Lines without Copy" },
+	["di"] = { '""di', "Delete Lines without Copy" },
+	["da"] = { '""da', "Delete Lines without Copy" },
+	["dt"] = { '""dt', "Delete Till without Copy" },
+	["df"] = { '""df', "Delete Till (Inclusive) without Copy" },
+	["dT"] = { '""dT', "Delete Back Till without Copy" },
+	["dF"] = { '""dF', "Delete Back Till (Inclusive) without Copy" },
 
-	["vv"] = { "V", "Select Current Line" },
-
-	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
+	["cc"] = { '""cc', "Change Lines without Copy" },
+	["cw"] = { '""cw', "Change Word without Copy" },
+	["ci"] = { '""ci', "Change In without Copy" },
+	["ca"] = { '""ca', "Change Around without Copy" },
+	["ct"] = { '""ct', "Change Till without Copy" },
+	["cf"] = { '""cf', "Change Till (Inclusive) without Copy" },
+	["cT"] = { '""cT', "Change Back Till without Copy" },
+	["cF"] = { '""cF', "Change Back Till (Inclusive) without Copy" },
 
 	["gx"] = { ":silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>", "Open Link in Browser" },
 
@@ -285,7 +239,6 @@ local normal_keymaps = {
 	["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 
 	["<A-w>"] = { "<C-w>w", "Go to Next Window" },
-	["<A-p>"] = { "<C-w>w", "Go to Next Window" },
 }
 
 local normal_expr_keymaps = {
@@ -307,13 +260,13 @@ local visual_keymaps = {
 	["<S-Up>"] = { "<Up>", "Select Up" },
 	["<S-Down>"] = { "<Down>", "Select Down" },
 
-	["xx"] = { "d", "Delete Selected Lines and Copy" },
-	["D"] = { '""d', "Delete Selected Text without Copy" },
-	["dd"] = { '"_d', "Delete Selected Lines without Copy" },
 	["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
 
-	["C"] = { '"_c', "Change Selected Text without Copy" },
-	["ci"] = { '"_ci', "Change In Selected Text without Copy" },
+	["D"] = { '""D', "Delete Selected Text without Copy" },
+	["dd"] = { '""x', "Delete Selected Text without Copy" },
+
+	["C"] = { '""C', "Change Selected Text without Copy" },
+	["c"] = { '""c', "Change In Selected Text without Copy" },
 
 	["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
@@ -322,8 +275,8 @@ local visual_keymaps = {
 		"Comment Selected Lines",
 	}, -- <C-_> maps to Ctrl+ForwardSlash
 
-	["<A-S-Up>"] = { ":m '<-2<CR>gv=gv", "Move Selected Line Up" },
-	["<A-S-Down>"] = { ":m '>+1<CR>gv=gv", "Move Selected Line Down" },
+	["<A-S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
+	["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
 }
 
 local insert_keymaps = {
