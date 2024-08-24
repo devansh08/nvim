@@ -12,11 +12,16 @@ return {
 			local lspconfig = require("lspconfig")
 			local mason_lspconfig = require("mason-lspconfig")
 
+			local table_extend = require("utils").table_extend
+
 			mason_lspconfig.setup()
 
 			local lsp_server_names = mason_lspconfig.get_installed_servers()
-			local skip_default_config = { "jdtls" }
+			local non_mason_servers = {}
+			local skip_default_config = { "jdtls", "dartls" }
 			local disable_servers = {}
+
+			table_extend(lsp_server_names, non_mason_servers)
 
 			table.sort(lsp_server_names)
 			table.sort(skip_default_config)
