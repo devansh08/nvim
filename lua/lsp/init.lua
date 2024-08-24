@@ -13,12 +13,15 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = true,
 		signs = {
 			active = signs,
 		},
-		update_in_insert = true,
 		underline = true,
+		update_in_insert = true,
+		virtual_text = {
+			spacing = 4,
+			source = true,
+		},
 		severity_sort = true,
 		float = {
 			focusable = false,
@@ -40,15 +43,7 @@ M.setup = function()
 		border = "rounded",
 	})
 
-	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-		underline = true,
-		update_in_insert = true,
-		virtual_text = {
-			spacing = 5,
-			severity = vim.diagnostic.severity.WARN,
-			source = true,
-		},
-	})
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {})
 end
 
 M.on_attach = function(client)
