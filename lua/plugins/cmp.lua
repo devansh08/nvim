@@ -68,7 +68,18 @@ return {
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 
+			local file_exists_in_root = require("utils").file_exists_in_root
+
+			local autocomplete_file_check_list = {
+				"pubspec.yaml",
+				"pubspec.yml",
+			}
+
 			cmp.setup({
+				completion = (
+					(vim.g.enable_auto_completion or file_exists_in_root(autocomplete_file_check_list)) and {}
+					or { autocomplete = false }
+				),
 				preselect = cmp.PreselectMode.None,
 				snippet = {
 					expand = function(args)
