@@ -76,6 +76,9 @@ return {
 					show_exact_scope = false,
 					highlight = highlight,
 				},
+				exclude = {
+					filetypes = { "dart" },
+				},
 			})
 
 			hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
@@ -121,6 +124,7 @@ return {
 					["c"] = { { "gcc" } },
 					["cpp"] = { { "g++" } },
 					["css"] = {},
+					["dart"] = { { "dart" } },
 					["dockerfile"] = { { "docker" }, { "pulumi" } },
 					["fish"] = { { "fish" } },
 					["go"] = { { "go" } },
@@ -148,12 +152,17 @@ return {
 				},
 				indent = {
 					enable = true,
+					-- HACK: https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
+					-- https://github.com/UserNobody14/tree-sitter-dart/issues/60#issuecomment-1867049690
+					disable = { "dart" },
 				},
 				autopairs = {
 					enable = true,
+					disable = { "dart" },
 				},
 				context_commentstring = {
 					enable = true,
+					disable = { "dart" },
 				},
 			}
 

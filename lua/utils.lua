@@ -76,4 +76,10 @@ function M.get_visual_selection()
 	return vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })[1]
 end
 
+function M.table_extend(cur, new)
+	for _, v in ipairs(new) do
+		table.insert(cur, v)
+	end
+end
+
 return M
