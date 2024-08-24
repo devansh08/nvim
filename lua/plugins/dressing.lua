@@ -15,9 +15,9 @@ return {
 					border = "rounded",
 					relative = "cursor",
 					prefer_width = 40,
-					width = nil,
-					max_width = { 140, 0.9 },
-					min_width = { 20, 0.2 },
+					width = 40,
+					max_width = { 140 },
+					min_width = { 40 },
 					buf_options = {},
 					win_options = {
 						wrap = false,
