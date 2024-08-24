@@ -47,6 +47,18 @@ return {
 				lualine_c = { "filename" },
 				lualine_x = {
 					function()
+						local clients = vim.lsp.get_clients()
+						if next(clients) == nil then
+							return ""
+						end
+
+						local names = {}
+						for _, client in pairs(clients) do
+							table.insert(names, client.name)
+						end
+						return "󰒋 " .. table.concat(names, "|")
+					end,
+					function()
 						local status, lint = pcall(require, "lint")
 						if not status then
 							return ""
@@ -56,7 +68,7 @@ return {
 						if #linters == 0 then
 							return ""
 						else
-							return table.concat(linters, "|")
+							return "󰏫 " .. table.concat(linters, "|")
 						end
 					end,
 					"filetype",
