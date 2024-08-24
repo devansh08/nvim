@@ -243,6 +243,15 @@ return {
 				["Select h"] = "<M-h>",
 				["Select l"] = "<M-l>",
 			}
+			vim.g.VM_custom_motions = {
+				["<Left>"] = "h",
+				["<Right>"] = "l",
+				["<Up>"] = "k",
+				["<Down>"] = "j",
+			}
+			vim.g.VM_theme = "sand"
+			vim.g.VM_set_statusline = 1
+			vim.g.VM_silent_exit = 1
 		end,
 	},
 }
