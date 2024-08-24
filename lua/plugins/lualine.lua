@@ -22,7 +22,20 @@ return {
 				},
 			},
 			sections = {
-				lualine_a = { "mode" },
+				lualine_a = {
+					"mode",
+					function()
+						if vim.g.Vm and vim.b.visual_multi == 1 then
+							if vim.g.Vm.extend_mode == 0 then
+								return "CURSOR"
+							else
+								return "EXTEND"
+							end
+						end
+
+						return ""
+					end,
+				},
 				lualine_b = {
 					"branch",
 					"diff",
