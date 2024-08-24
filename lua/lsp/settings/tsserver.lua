@@ -1,3 +1,4 @@
+-- https://github.com/typescript-language-server/typescript-language-server/blob/master/docs/configuration.md#workspacedidchangeconfiguration
 return {
 	settings = {
 		javascript = {
@@ -6,7 +7,7 @@ return {
 				enable = false,
 			},
 			implicitProjectConfig = {
-				checkJs = false,
+				checkJs = true,
 				experimentalDecorators = false,
 			},
 			inlayHints = {
@@ -74,7 +75,7 @@ return {
 		},
 		["js/ts"] = {
 			implicitProjectConfig = {
-				checkJs = false,
+				checkJs = true,
 				experimentalDecorators = false,
 				module = "ESNext",
 				strictFunctionTypes = true,
@@ -202,6 +203,10 @@ return {
 				excludeLibrarySymbols = true,
 				scope = "allOpenProjects",
 			},
+		},
+		implicitProjectConfiguration = {
+			checkJs = true,
+			strictNullChecks = true,
 		},
 	},
 }
