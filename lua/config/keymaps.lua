@@ -19,6 +19,12 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 local leader_keymaps = {
+	["<leader><Esc>"] = { ":noh<CR>", "Remove Highlights" },
+	["<leader>k"] = { ":tabclose<CR>", "Close Tab/Buffer" },
+
+	["<leader><Left>"] = { "^", "Jump to Start of Line" },
+	["<leader><Right>"] = { "$", "Jump to End of Line" },
+
 	["<leader>e"] = { ":NvimTreeToggle<CR>", "NvimTree: Toggle" },
 
 	["<leader>qq"] = { ":qa<CR>", "Quit All" },
@@ -219,10 +225,6 @@ local visual_leader_keymaps = {
 }
 
 local normal_keymaps = {
-	["<Esc><Esc>"] = { ":noh<CR>", "Remove Highlights" },
-
-	["<C-w>"] = { ":tabclose<CR>", "Close Tab/Buffer" },
-
 	["<C-S-Left>"] = { "v" .. LEFT_JUMP, "Select Left by Word" },
 	["<C-S-Right>"] = { "v" .. RIGHT_JUMP, "Select Right by Word" },
 
