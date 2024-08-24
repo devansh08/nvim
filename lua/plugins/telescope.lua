@@ -93,6 +93,12 @@ return {
 					},
 					live_grep = {
 						mappings = custom_keymaps,
+						additional_args = function(_)
+							return {
+								"--hidden",
+								"--ignore-case",
+							}
+						end,
 					},
 					jumplist = {
 						show_line = false,
