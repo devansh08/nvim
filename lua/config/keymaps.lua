@@ -10,6 +10,7 @@ local set_keymaps = utils.set_keymaps
 
 local constants = require("constants")
 local opts = constants.OPTS
+local expr_opts = constants.EXPR_OPTS
 local cmd_opts = constants.CMD_OPTS
 local cmd_expr_opts = constants.CMD_EXPR_OPTS
 
@@ -287,6 +288,11 @@ local normal_keymaps = {
 	["<A-p>"] = { "<C-w>w", "Go to Next Window" },
 }
 
+local normal_expr_keymaps = {
+	["<Down>"] = { "v:count ? 'j' : 'gj'", "Navigate Down in Wrapped Lines" },
+	["<Up>"] = { "v:count ? 'k' : 'gk'", "Navigate Up in Wrapped Lines" },
+}
+
 local visual_keymaps = {
 	["<Tab>"] = { ">gv", "Indent Selected Code to Right" },
 	["<S-Tab>"] = { "<gv", "Indent Selected Code to Left" },
@@ -362,6 +368,7 @@ set_keymaps("n", leader_keymaps, opts)
 set_keymaps("v", visual_leader_keymaps, opts)
 
 set_keymaps("n", normal_keymaps, opts)
+set_keymaps("n", normal_expr_keymaps, expr_opts)
 set_keymaps("v", visual_keymaps, opts)
 set_keymaps("i", insert_keymaps, opts)
 set_keymaps("c", cmd_keymaps, cmd_opts)
