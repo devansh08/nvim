@@ -68,10 +68,17 @@ return {
 				},
 				highlight_overrides = {
 					[flavour] = function(f)
+						local darken = require("catppuccin.utils.colors").darken
+
 						return {
 							LspReferenceRead = { bg = f.surface2 },
 							LspReferenceWrite = { bg = f.surface2 },
 							LspReferenceText = { bg = f.surface2 },
+
+							DiffAdd = { bg = darken(f.green, 0.25, f.base) },
+							DiffChange = { bg = darken(f.blue, 0.15, f.base) },
+							DiffDelete = { bg = darken(f.red, 0.25, f.base) },
+							DiffText = { bg = darken(f.blue, 0.30, f.base) },
 						}
 					end,
 				},
