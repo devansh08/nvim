@@ -162,11 +162,4 @@ return {
 			})
 		end,
 	},
-	{
-		"ray-x/lsp_signature.nvim",
-		version = "*",
-		lazy = true,
-		event = "LspAttach",
-		config = function() end,
-	},
 }

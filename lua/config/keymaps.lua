@@ -106,11 +106,6 @@ local leader_keymaps = {
 	["<leader>sd"] = { ":SessionDelete<CR>", "AutoSession: Delete Session" },
 	["<leader>st"] = { ":Telescope session-lens<CR>", "AutoSession: List Sessions using Telescope" },
 
-	["<leader>lS"] = {
-		":lua require('lsp_signature').toggle_float_win()<CR>",
-		"LSP Signature: Manual Toggle Floating Window",
-	},
-
 	["<leader>uu"] = { ":UndotreeToggle<CR>", "Undotree: Toggle Undotree" },
 
 	["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
