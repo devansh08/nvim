@@ -189,6 +189,8 @@ return {
 					"*.class",
 					"*.out",
 					"*.jar",
+					".out-*",
+					"__pycache__",
 				},
 			},
 			actions = {
