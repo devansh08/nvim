@@ -1,7 +1,6 @@
 local set_keymaps = require("utils").set_keymaps
 
-local constants = require("constants")
-local cmd_opts = constants.CMD_OPTS
+local cmd_opts = require("constants").CMD_OPTS
 
 -- Reload currently edited config (lua/config/*.lua) file
 vim.api.nvim_create_autocmd("BufWritePost", {
@@ -16,12 +15,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	callback = function()
-		local keymaps = {
-			["<CR>"] = { "<C-]>", "Help: Jump Forward to Tag under Cursor" },
-			["<BS>"] = { "<C-T>", "Help: Jump Back to Previous Tag" },
-		}
-
-		set_keymaps("n", keymaps, cmd_opts, true)
 	end,
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
@@ -93,19 +86,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		set_keymaps("n", keymaps, cmd_opts, true)
 	end,
 	group = vim.api.nvim_create_augroup("LspKeymaps", { clear = true }),
-})
-
--- Setup Enter to open highlighted quickfix entry
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "qf",
-	callback = function()
-		local keymaps = {
-			["<CR>"] = { ":.cc<CR>", "Quickfix: Open Current Entry" },
-		}
-
-		set_keymaps("n", keymaps, cmd_opts, true)
-	end,
-	group = vim.api.nvim_create_augroup("QuickFixKeyFix", { clear = true }),
 })
 
 -- Run linter (nvim-lint) after write
