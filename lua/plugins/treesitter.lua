@@ -139,6 +139,7 @@ return {
 					["lua"] = { { "lua" } },
 					["markdown"] = {},
 					["python"] = { { "python", "pip" } },
+					["rust"] = { { "rustc" } },
 					["scss"] = {},
 					["sql"] = { { "mysql" } },
 					["toml"] = {},
@@ -147,6 +148,7 @@ return {
 					["vim"] = {},
 					["vimdoc"] = {},
 					["yaml"] = {},
+					["zig"] = { { "zig" } },
 				}),
 				highlight = {
 					enable = true,
