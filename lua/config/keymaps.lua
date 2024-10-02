@@ -202,6 +202,7 @@ local normal_keymaps = {
 	["cF"] = { '""cF', "Change Back Till (Inclusive) without Copy" },
 
 	["gx"] = { ":silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>", "Open Link in Browser" },
+	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
 
 	["<C-F>"] = { "<C-O>", "Jump back in jumplist" },
 	["<C-G>"] = { "<C-I>", "Jump forward in jumplist" },
