@@ -15,6 +15,23 @@ return {
 			local actions = require("telescope.actions")
 			local actions_set = require("telescope.actions.set")
 
+			local default_keymaps = {
+				["<C-Up>"] = function(bufnr)
+					actions_set.shift_selection(bufnr, -3)
+				end,
+				["<C-Down>"] = function(bufnr)
+					actions_set.shift_selection(bufnr, 3)
+				end,
+				["<C-S-Up>"] = actions.preview_scrolling_up,
+				["<C-S-Down>"] = actions.preview_scrolling_down,
+				["<C-S-Left>"] = actions.preview_scrolling_left,
+				["<C-S-Right>"] = actions.preview_scrolling_right,
+
+				["<S-Up>"] = actions.cycle_history_prev,
+				["<S-Down>"] = actions.cycle_history_next,
+
+				["<C-c>"] = actions.close,
+			}
 			local custom_keymaps = {
 				i = {
 					["<CR>"] = actions.select_tab_drop,
@@ -45,37 +62,8 @@ return {
 					},
 					dynamic_preview_title = true,
 					mappings = {
-						n = {
-							["<C-Up>"] = function(bufnr)
-								actions_set.shift_selection(bufnr, -3)
-							end,
-							["<C-Down>"] = function(bufnr)
-								actions_set.shift_selection(bufnr, 3)
-							end,
-							["<C-S-Up>"] = actions.preview_scrolling_up,
-							["<C-S-Down>"] = actions.preview_scrolling_down,
-							["<C-Left>"] = actions.preview_scrolling_left,
-							["<C-Right>"] = actions.preview_scrolling_right,
-
-							["<C-c>"] = actions.close,
-						},
-						i = {
-							["<C-Up>"] = function(bufnr)
-								actions_set.shift_selection(bufnr, -3)
-							end,
-							["<C-Down>"] = function(bufnr)
-								actions_set.shift_selection(bufnr, 3)
-							end,
-							["<C-S-Up>"] = actions.preview_scrolling_up,
-							["<C-S-Down>"] = actions.preview_scrolling_down,
-							["<C-Left>"] = actions.preview_scrolling_left,
-							["<C-Right>"] = actions.preview_scrolling_right,
-
-							["<S-Up>"] = require("telescope.actions").cycle_history_prev,
-							["<S-Down>"] = require("telescope.actions").cycle_history_next,
-
-							["<C-c>"] = actions.close,
-						},
+						n = default_keymaps,
+						i = default_keymaps,
 					},
 				},
 				pickers = {
