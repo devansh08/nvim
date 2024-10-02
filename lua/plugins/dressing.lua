@@ -10,7 +10,6 @@ return {
 					enabled = true,
 					default_prompt = "Input:",
 					title_pos = "left",
-					insert_only = true,
 					start_in_insert = true,
 					border = "rounded",
 					relative = "cursor",
