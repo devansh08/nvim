@@ -53,7 +53,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		branch = "main",
 		lazy = true,
-		event = "InsertEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"onsails/lspkind.nvim",
