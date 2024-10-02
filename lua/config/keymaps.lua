@@ -263,6 +263,8 @@ local visual_keymaps = {
 
 	["<A-S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
 	["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
+
+	["w"] = { "e", "Jump to End of Word" },
 }
 
 local insert_keymaps = {
