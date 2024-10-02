@@ -88,6 +88,7 @@ return {
 							return {
 								"--hidden",
 								"--ignore-case",
+								"--glob=!**/.git/*",
 							}
 						end,
 					},
