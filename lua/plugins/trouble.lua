@@ -7,7 +7,6 @@ return {
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		---@type trouble.Config
 		opts = {
 			auto_close = false,
 			auto_open = false,
@@ -23,7 +22,6 @@ return {
 			pinned = false,
 			warn_no_results = true,
 			open_no_results = true,
-			---@type trouble.Window.opts
 			win = {
 				type = "split",
 				relative = "win",
@@ -32,7 +30,6 @@ return {
 				},
 				position = "bottom",
 			},
-			---@type trouble.Window.opts
 			preview = {
 				type = "main",
 				scratch = true,
@@ -44,7 +41,6 @@ return {
 				follow = 100,
 				preview = { ms = 100, debounce = true },
 			},
-			---@type table<string, trouble.Action.spec|false>
 			keys = {
 				["?"] = "help",
 				r = "refresh",
@@ -80,14 +76,12 @@ return {
 				zN = "fold_enable",
 				zi = "fold_toggle_enable",
 				gb = {
-					---@type trouble.Action.spec
 					action = function(view)
 						view:filter({ buf = 0 }, { toggle = true })
 					end,
 					desc = "Toggle Current Buffer Filter",
 				},
 				s = {
-					---@type trouble.Action.spec
 					action = function(view)
 						local f = view:get_filter("severity")
 						local severity = ((f and f.filter.severity or 0) + 1) % 5
@@ -100,9 +94,7 @@ return {
 					desc = "Toggle Severity Filter",
 				},
 				["<CR>"] = {
-					---@type trouble.Action.spec
 					action = function(_, ctx)
-						---@type trouble.Action.ctx
 						local c = ctx
 						if c and c.item then
 							vim.cmd(":tab drop " .. c.item.filename)
@@ -111,14 +103,12 @@ return {
 					desc = "Toggle Current Buffer Filter",
 				},
 			},
-			---@type table<string, trouble.Mode>
 			modes = {
 				symbols = {
 					desc = "document symbols",
 					mode = "lsp_document_symbols",
 					focus = false,
 					pinned = true,
-					---@type trouble.Window.opts
 					win = {
 						position = "right",
 						relative = "win",
@@ -150,7 +140,6 @@ return {
 				},
 			},
 			icons = {
-				---@type trouble.Indent.symbols
 				indent = {
 					top = "│ ",
 					middle = "├╴",
