@@ -71,6 +71,9 @@ return {
 							["<C-Left>"] = actions.preview_scrolling_left,
 							["<C-Right>"] = actions.preview_scrolling_right,
 
+							["<S-Up>"] = require("telescope.actions").cycle_history_prev,
+							["<S-Down>"] = require("telescope.actions").cycle_history_next,
+
 							["<C-c>"] = actions.close,
 						},
 					},
