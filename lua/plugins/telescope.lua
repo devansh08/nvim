@@ -106,29 +106,6 @@ return {
 					buffers = {
 						sort_mru = true,
 					},
-					git_commits = {
-						git_command = {
-							"git",
-							"log",
-							"--format=%h %s %d",
-						},
-					},
-					git_bcommits = {
-						git_command = {
-							"git",
-							"log",
-							"--format=%h %s %d",
-						},
-					},
-					git_bcommits_range = {
-						git_command = {
-							"git",
-							"log",
-							"--format=%h %s %d",
-							"--no-patch",
-							"-L",
-						},
-					},
 					lsp_references = {
 						jump_type = "never",
 						show_line = false,
