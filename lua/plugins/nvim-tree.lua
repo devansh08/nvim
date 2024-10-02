@@ -229,10 +229,10 @@ return {
 				},
 			},
 			log = {
-				enable = true,
-				truncate = true,
+				enable = false,
+				truncate = false,
 				types = {
-					all = true,
+					all = false,
 				},
 			},
 		},
