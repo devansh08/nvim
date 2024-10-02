@@ -28,19 +28,26 @@ return {
 			end
 
 			require("auto-session").setup({
+				enabled = true,
+				root_dir = constants.NVIM_LOCAL .. "/sessions/",
+				auto_save = true,
+				auto_restore = true,
+				auto_create = true,
+				allowed_dirs = nil,
+				auto_restore_last_session = false,
+				use_git_branch = true,
+				lazy_support = true,
+				bypass_save_filetypes = nil,
+				close_unsupported_windows = true,
+				args_allow_single_directory = true,
+				args_allow_files_auto_save = false,
+				continue_restore_on_error = true,
+				cwd_change_handling = false,
 				log_level = "error",
-				auto_session_enable_last_session = false,
-				auto_session_root_dir = constants.NVIM_LOCAL .. "/sessions/",
-				auto_session_enabled = true,
-				auto_session_create_enabled = true,
-				auto_session_last_session_dir = "",
 				pre_save_cmds = { close_nvim_tree },
 				post_restore_cmds = { open_nvim_tree },
 				session_lens = {
-					buftypes_to_ignore = {},
-					load_on_setup = true,
-					theme_conf = { border = true, winblend = 0 },
-					previewer = false,
+					load_on_setup = false,
 				},
 			})
 
