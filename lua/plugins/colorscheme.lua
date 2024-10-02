@@ -14,7 +14,7 @@ return {
 				},
 				term_colors = true,
 				no_italic = false,
-				no_bold = true,
+				no_bold = false,
 				styles = {
 					comments = { "italic" },
 					conditionals = {},
