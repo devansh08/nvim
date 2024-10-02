@@ -112,6 +112,10 @@ local leader_keymaps = {
 	},
 
 	["<leader>uu"] = { ":UndotreeToggle<CR>", "Undotree: Toggle Undotree" },
+
+	["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
+	["<leader>nr"] = { ":Neorg return<CR>", "Neorg: Close Neorg Buffers" },
+	["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
 }
 
 local visual_leader_keymaps = {
