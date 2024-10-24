@@ -45,6 +45,8 @@ local options = {
 
 	cmdheight = 0,
 	conceallevel = 0,
+
+  showtabline = 0,
 }
 
 for k, v in pairs(options) do
