@@ -111,6 +111,7 @@ local leader_keymaps = {
 	["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
 	["<leader>nr"] = { ":Neorg return<CR>", "Neorg: Close Neorg Buffers" },
 	["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
+  ["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
 }
 
 local visual_leader_keymaps = {
@@ -225,6 +226,8 @@ local normal_keymaps = {
 	["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 
 	["<A-w>"] = { "<C-w>w", "Go to Next Window" },
+
+  ["gb"] = { "<C-^>", "Jump to Alternate Buffer" },
 }
 
 local normal_expr_keymaps = {
