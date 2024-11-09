@@ -60,10 +60,6 @@ return {
 						scope_color = "",
 						colored_indent_levels = false,
 					},
-					navic = {
-						enabled = true,
-					},
-					ufo = true,
 					fidget = true,
 				},
 				highlight_overrides = {
