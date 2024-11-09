@@ -211,7 +211,7 @@ return {
 			tab = {
 				sync = {
 					open = true,
-					close = true,
+					close = false,
 				},
 			},
 			notify = {
