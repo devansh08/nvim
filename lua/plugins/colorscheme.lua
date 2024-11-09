@@ -1,86 +1,86 @@
 return {
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		tag = "stable",
-		pritority = 1000,
-		config = function()
-			vim.g.catppuccin_flavour = "mocha"
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    tag = "stable",
+    pritority = 1000,
+    config = function()
+      vim.g.catppuccin_flavour = "mocha"
 
-			require("catppuccin").setup({
-				flavour = vim.g.catppuccin_flavour,
-				background = {
-					dark = vim.g.catppuccin_flavour,
-				},
-				term_colors = true,
-				no_italic = false,
-				no_bold = false,
-				styles = {
-					comments = { "italic" },
-					conditionals = {},
-					loops = {},
-					functions = {},
-					keywords = {},
-					strings = {},
-					variables = {},
-					numbers = {},
-					booleans = {},
-					properties = {},
-					types = {},
-					operators = {},
-				},
-				integrations = {
-					nvimtree = true,
-					gitsigns = true,
-					telescope = true,
-					mason = true,
-					treesitter = true,
-					treesitter_context = true,
-					rainbow_delimiters = true,
-					native_lsp = {
-						enabled = true,
-						virtual_text = {
-							errors = { "italic" },
-							hints = { "italic" },
-							warnings = { "italic" },
-							information = { "italic" },
-						},
-						underlines = {
-							errors = { "underline" },
-							hints = { "underline" },
-							warnings = { "underline" },
-							information = { "underline" },
-						},
-						inlay_hints = {
-							background = true,
-						},
-					},
-					indent_blankline = {
-						enabled = true,
-						scope_color = "",
-						colored_indent_levels = false,
-					},
-					fidget = true,
-				},
-				highlight_overrides = {
-					[vim.g.catppuccin_flavour] = function(f)
-						local darken = require("catppuccin.utils.colors").darken
+      require("catppuccin").setup({
+        flavour = vim.g.catppuccin_flavour,
+        background = {
+          dark = vim.g.catppuccin_flavour,
+        },
+        term_colors = true,
+        no_italic = false,
+        no_bold = false,
+        styles = {
+          comments = { "italic" },
+          conditionals = {},
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        integrations = {
+          nvimtree = true,
+          gitsigns = true,
+          telescope = true,
+          mason = true,
+          treesitter = true,
+          treesitter_context = true,
+          rainbow_delimiters = true,
+          native_lsp = {
+            enabled = true,
+            virtual_text = {
+              errors = { "italic" },
+              hints = { "italic" },
+              warnings = { "italic" },
+              information = { "italic" },
+            },
+            underlines = {
+              errors = { "underline" },
+              hints = { "underline" },
+              warnings = { "underline" },
+              information = { "underline" },
+            },
+            inlay_hints = {
+              background = true,
+            },
+          },
+          indent_blankline = {
+            enabled = true,
+            scope_color = "",
+            colored_indent_levels = false,
+          },
+          fidget = true,
+        },
+        highlight_overrides = {
+          [vim.g.catppuccin_flavour] = function(f)
+            local darken = require("catppuccin.utils.colors").darken
 
-						return {
-							LspReferenceRead = { bg = f.surface2 },
-							LspReferenceWrite = { bg = f.surface2 },
-							LspReferenceText = { bg = f.surface2 },
+            return {
+              LspReferenceRead = { bg = f.surface2 },
+              LspReferenceWrite = { bg = f.surface2 },
+              LspReferenceText = { bg = f.surface2 },
 
-							DiffAdd = { bg = darken(f.green, 0.25, f.base) },
-							DiffChange = { bg = darken(f.blue, 0.15, f.base) },
-							DiffDelete = { bg = darken(f.red, 0.25, f.base) },
-							DiffText = { bg = darken(f.blue, 0.30, f.base) },
-						}
-					end,
-				},
-			})
+              DiffAdd = { bg = darken(f.green, 0.25, f.base) },
+              DiffChange = { bg = darken(f.blue, 0.15, f.base) },
+              DiffDelete = { bg = darken(f.red, 0.25, f.base) },
+              DiffText = { bg = darken(f.blue, 0.30, f.base) },
+            }
+          end,
+        },
+      })
 
-			vim.cmd([[ colorscheme catppuccin ]])
-		end,
-	},
+      vim.cmd([[ colorscheme catppuccin ]])
+    end,
+  },
 }

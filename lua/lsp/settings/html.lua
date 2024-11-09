@@ -1,10 +1,10 @@
 return {
-	{
-		configurationSection = { "html", "css" },
-		embeddedLanguages = {
-			css = true,
-			javascript = false,
-		},
-		provideFormatter = false,
-	},
+  {
+    configurationSection = { "html", "css" },
+    embeddedLanguages = {
+      css = true,
+      javascript = false,
+    },
+    provideFormatter = false,
+  },
 }
