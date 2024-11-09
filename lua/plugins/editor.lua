@@ -326,4 +326,24 @@ return {
 			set_keymaps("n", keymaps, cmd_opts)
 		end,
 	},
+	{
+		"leath-dub/snipe.nvim",
+		branch = "main",
+		opts = {
+			ui = {
+				max_width = -1,
+				position = "topleft",
+			},
+			hints = {
+				dictionary = "1234567890",
+			},
+			navigate = {
+				next_page = "J",
+				prev_page = "K",
+				under_cursor = "<CR>",
+				cancel_snipe = "<ESC>",
+			},
+			sort = "last",
+		},
+	},
 }

@@ -110,6 +110,8 @@ local leader_keymaps = {
 	["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
 	["<leader>nr"] = { ":Neorg return<CR>", "Neorg: Close Neorg Buffers" },
 	["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
+
+	["<leader>bb"] = { ":lua require('snipe').open_buffer_menu({ max_path_width = 3 })<CR>", "Snipe: Open Menu" },
 }
 
 local visual_leader_keymaps = {
