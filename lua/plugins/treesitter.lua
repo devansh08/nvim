@@ -103,6 +103,54 @@ return {
 		end,
 	},
 	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "master",
+		lazy = true,
+		config = function()
+			local opts = {
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
+							["as"] = "@block.outer",
+							["is"] = "@block.inner",
+							["ap"] = "@parameter.outer",
+							["ip"] = "@parameter.inner",
+						},
+						include_surrounding_whitespace = true,
+					},
+					move = {
+						enable = true,
+						set_jumps = false,
+						goto_next_start = {
+							["]f"] = "@function.outer",
+							["]s"] = "@block.outer",
+						},
+						goto_next_end = {
+							["]F"] = "@function.outer",
+							["]S"] = "@block.outer",
+						},
+						goto_previous_start = {
+							["[f"] = "@function.outer",
+							["[s"] = "@block.outer",
+						},
+						goto_previous_end = {
+							["[F"] = "@function.outer",
+							["[S"] = "@block.outer",
+						},
+					},
+				},
+			}
+
+			require("nvim-treesitter.configs").setup(opts)
+		end,
+	},
+	{
 		"nvim-treesitter/nvim-treesitter",
 		version = "*",
 		lazy = true,
@@ -111,6 +159,7 @@ return {
 		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 			"hiphish/rainbow-delimiters.nvim",
 			"windwp/nvim-ts-autotag",
 		},
