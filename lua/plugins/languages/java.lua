@@ -10,7 +10,6 @@ return {
 
 			local constants = require("constants")
 
-			local JDK_PATH = os.getenv("JAVA_HOME") .. "/"
 			local WORKSPACE_PATH = constants.NVIM_LOCAL .. "/jdtls-workspace/"
 			local PROJECT_NAME = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 			local WORKSPACE_DIR = WORKSPACE_PATH .. PROJECT_NAME
@@ -54,16 +53,6 @@ return {
 						},
 						configuration = {
 							updateBuildConfiguration = "interactive",
-							runtimes = {
-								{
-									name = "JavaSE-17",
-									path = JDK_PATH,
-								},
-								{
-									name = "JavaSE-21",
-									path = JDK_PATH,
-								},
-							},
 						},
 						maven = {
 							downloadSources = true,
