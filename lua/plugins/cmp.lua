@@ -134,6 +134,7 @@ return {
 					end, { "i", "s" }),
 				},
 				sources = {
+					{ name = "neorg" },
 					{ name = "nvim_lsp" },
 					{ name = "nvim_lua" },
 					{ name = "luasnip" },
@@ -152,6 +153,7 @@ return {
 							path = "[Path]",
 							luasnip = "[LuaSnip]",
 							nvim_lsp_signature_help = "[Signature]",
+ 							neorg = "[Neorg]",
 						},
 					}),
 				},
