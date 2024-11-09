@@ -146,24 +146,4 @@ return {
 			},
 		},
 	},
-	{
-		"SmiteshP/nvim-navic",
-		branch = "master",
-		lazy = true,
-		event = "BufReadPost",
-		opts = {
-			highlight = true,
-			depth_limit = 0,
-			depth_limit_indicator = "…",
-			lazy_update_context = false,
-			safe_output = true,
-			click = false,
-			lsp = {
-				auto_attach = true,
-				preference = {
-					"jedi_language_server",
-				},
-			},
-		},
-	},
 }
