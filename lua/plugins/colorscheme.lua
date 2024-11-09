@@ -5,12 +5,12 @@ return {
 		tag = "stable",
 		pritority = 1000,
 		config = function()
-			local flavour = "mocha"
+			vim.g.catppuccin_flavour = "mocha"
 
 			require("catppuccin").setup({
-				flavour = flavour,
+				flavour = vim.g.catppuccin_flavour,
 				background = {
-					dark = flavour,
+					dark = vim.g.catppuccin_flavour,
 				},
 				term_colors = true,
 				no_italic = false,
@@ -67,7 +67,7 @@ return {
 					fidget = true,
 				},
 				highlight_overrides = {
-					[flavour] = function(f)
+					[vim.g.catppuccin_flavour] = function(f)
 						local darken = require("catppuccin.utils.colors").darken
 
 						return {
