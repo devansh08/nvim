@@ -36,6 +36,9 @@ return {
 				shfmt = {
 					prepend_args = { "-i", "2" },
 				},
+				stylua = {
+					prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+				},
 			},
 		},
 	},
