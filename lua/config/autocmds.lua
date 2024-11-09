@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "help",
 	callback = function()
+		vim.opt["conceallevel"] = 0
 	end,
 	group = vim.api.nvim_create_augroup("HelpNavigation", { clear = true }),
 })
