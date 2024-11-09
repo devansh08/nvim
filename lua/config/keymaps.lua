@@ -58,6 +58,7 @@ local leader_keymaps = {
 
 	["<leader>ff"] = { ":Telescope find_files<CR>", "Telescope: Find Files in Project" },
 	["<leader>fg"] = { ":Telescope live_grep<CR>", "Telescope: Grep in Project" },
+	["<leader>fG"] = { ":Telescope live_grep type_filter=", "Telescope: Grep in Project in Specific Filetypes" },
 	["<leader>fk"] = { ":Telescope keymaps<CR>", "Telescope: Keymaps" },
 	["<leader>fh"] = { ":Telescope help_tags<CR>", "Telescope: Help Tags" },
 	["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
@@ -274,6 +275,8 @@ local visual_keymaps = {
 
 	["<A-S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
 	["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
+
+	["<C-R>"] = { '"hy<Esc>:%s/<C-r>h//gc<Left><Left><Left>', "" },
 
 	["w"] = { "e", "Jump to End of Word" },
 }
