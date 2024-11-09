@@ -254,4 +254,76 @@ return {
 			vim.g.VM_silent_exit = 1
 		end,
 	},
+	{
+		"ghostbuster91/nvim-next",
+		branch = "main",
+		config = function()
+			local utils = require("utils")
+			local cmd_opts = require("constants").CMD_OPTS
+
+			local set_keymaps = utils.set_keymaps
+			local lua_fn = utils.lua_fn
+
+			local builtins = require("nvim-next.builtins")
+
+			local opts = {
+				default_mappings = {
+					repeat_style = "original",
+				},
+				items = {
+					builtins.f,
+					builtins.t,
+				},
+			}
+
+			local next = require("nvim-next").setup(opts)
+
+			local feed_keys_maps = {
+				["n"] = {
+					{ "[(", "])", "Next: Repeat Builtin " },
+					{ "[{", "]}", "Next: Repeat Builtin " },
+				},
+				["v"] = {
+					{ "[(", "])", "Next: Repeat Builtin " },
+					{ "[{", "]}", "Next: Repeat Builtin " },
+				},
+			}
+
+			for k, x in pairs(feed_keys_maps) do
+				local mode = k
+				local keys = x
+				local keymaps = {}
+
+				for _, y in pairs(keys) do
+					local prev_key = y[1]
+					local next_key = y[2]
+					local desc = y[3]
+
+					local prev_func, next_func = next.make_repeatable_pair(function(_)
+						vim.api.nvim_feedkeys(prev_key, "n", true)
+					end, function(_)
+						vim.api.nvim_feedkeys(next_key, "n", true)
+					end)
+
+					keymaps[prev_key] = { lua_fn(prev_func), desc .. prev_key }
+					keymaps[next_key] = { lua_fn(next_func), desc .. next_key }
+				end
+
+				set_keymaps(mode, keymaps, cmd_opts)
+			end
+
+			local gd_prev, gd_next = next.make_repeatable_pair(function(_)
+				vim.cmd("Gitsigns nav_hunk prev wrap=false")
+			end, function(_)
+				vim.cmd("Gitsigns nav_hunk next wrap=false")
+			end)
+
+			local keymaps = {
+				["<leader>g<Up>"] = { lua_fn(gd_prev), "Next|Gitsigns: Jump to Prev Hunk" },
+				["<leader>g<Down>"] = { lua_fn(gd_next), "Next|Gitsigns: Jump to Next Hunk" },
+			}
+
+			set_keymaps("n", keymaps, cmd_opts)
+		end,
+	},
 }
