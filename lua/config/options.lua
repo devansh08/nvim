@@ -1,64 +1,64 @@
 local options = {
-	number = true,
-	relativenumber = true,
-	cursorline = true,
-	numberwidth = 4,
+  number = true,
+  relativenumber = true,
+  cursorline = true,
+  numberwidth = 4,
 
-	signcolumn = "yes",
+  signcolumn = "yes",
 
-	mouse = "",
-	clipboard = "unnamedplus",
+  mouse = "",
+  clipboard = "unnamedplus",
 
-	splitbelow = true,
-	splitright = true,
+  splitbelow = true,
+  splitright = true,
 
-	scrolloff = 8,
-	sidescrolloff = 20,
-	wrap = true,
+  scrolloff = 8,
+  sidescrolloff = 20,
+  wrap = true,
 
-	completeopt = { "menuone", "preview", "noselect" },
-	pumheight = 20,
-	updatetime = 300,
+  completeopt = { "menuone", "preview", "noselect" },
+  pumheight = 20,
+  updatetime = 300,
 
-	hlsearch = true,
-	incsearch = true,
-	ignorecase = true,
-	smartcase = true,
+  hlsearch = true,
+  incsearch = true,
+  ignorecase = true,
+  smartcase = true,
 
-	smartindent = true,
-	autoindent = true,
-	expandtab = true,
-	shiftwidth = 2,
-	tabstop = 2,
+  smartindent = true,
+  autoindent = true,
+  expandtab = true,
+  shiftwidth = 2,
+  tabstop = 2,
 
-	undofile = true,
+  undofile = true,
 
-	termguicolors = true,
+  termguicolors = true,
 
-	showmode = false,
-	shortmess = "filnxtToOFmrwsWcCS",
+  showmode = false,
+  shortmess = "filnxtToOFmrwsWcCS",
 
-	foldenable = true,
-	foldcolumn = "1",
-	foldlevel = 99,
-	foldlevelstart = 99,
+  foldenable = true,
+  foldcolumn = "1",
+  foldlevel = 99,
+  foldlevelstart = 99,
 
-	cmdheight = 0,
-	conceallevel = 0,
+  cmdheight = 0,
+  conceallevel = 0,
 
   showtabline = 0,
 }
 
 for k, v in pairs(options) do
-	vim.opt[k] = v
+  vim.opt[k] = v
 end
 
 vim.opt.iskeyword:remove({ "-", "_" })
 vim.opt.whichwrap:append({
-	["<"] = true,
-	[">"] = true,
-	["["] = true,
-	["]"] = true,
+  ["<"] = true,
+  [">"] = true,
+  ["["] = true,
+  ["]"] = true,
 })
 
 vim.cmd([[ command! Q q ]])
