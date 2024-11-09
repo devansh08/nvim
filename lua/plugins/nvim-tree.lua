@@ -106,7 +106,7 @@ return {
 				keymap("U", api.tree.toggle_custom_filter, opts("Tree: Toggle Hidden"))
 
 				keymap("x", api.fs.cut, opts("Tree: Cut"))
-				keymap("c", api.fs.copy.node, opts("Tree: Copy"))
+				keymap("y", api.fs.copy.node, opts("Tree: Copy"))
 				keymap("d", api.fs.remove, opts("Tree: Delete"))
 				keymap("D", api.fs.trash, opts("Tree: Send to Trash"))
 				keymap("p", api.fs.paste, opts("Tree: Paste"))
@@ -121,7 +121,7 @@ return {
 
 				keymap("gy", api.fs.copy.absolute_path, opts("Tree: Copy Absolute Path"))
 				keymap("Y", api.fs.copy.relative_path, opts("Tree: Copy Relative Path"))
-				keymap("y", api.fs.copy.filename, opts("Tree: Copy Name"))
+				keymap("c", api.fs.copy.filename, opts("Tree: Copy Name"))
 
 				keymap("q", api.tree.close, opts("Tree: Close"))
 
