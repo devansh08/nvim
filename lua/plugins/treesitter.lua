@@ -8,7 +8,7 @@ return {
 			local opts = {
 				enable = true,
 				line_numbers = true,
-				max_lines = 3,
+				max_lines = 2,
 				trim_scope = "outer",
 			}
 
