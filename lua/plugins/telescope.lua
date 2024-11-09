@@ -34,12 +34,12 @@ return {
 			}
 			local custom_keymaps = {
 				i = {
-					["<CR>"] = actions.select_tab_drop,
-					["<C-T>"] = actions.select_default,
+					["<CR>"] = actions.select_default,
+					["<C-T>"] = actions.select_tab_drop,
 				},
 				n = {
-					["<CR>"] = actions.select_tab_drop,
-					["<C-T>"] = actions.select_default,
+					["<CR>"] = actions.select_default,
+					["<C-T>"] = actions.select_tab_drop,
 				},
 			}
 

@@ -44,7 +44,17 @@ return {
 						update_in_insert = true,
 					},
 				},
-				lualine_c = { "filename" },
+				lualine_c = {
+					{
+						"filename",
+						file_status = true,
+						newfile_status = false,
+						path = 0,
+						symbols = {
+							modified = "",
+						},
+					},
+				},
 				lualine_x = {
 					function()
 						local clients = vim.lsp.get_clients()
@@ -79,7 +89,17 @@ return {
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {
+					{
+						"filename",
+						file_status = true,
+						newfile_status = false,
+						path = 0,
+						symbols = {
+							modified = "",
+						},
+					},
+				},
 				lualine_x = { "location" },
 				lualine_y = {},
 				lualine_z = {},
@@ -100,36 +120,20 @@ return {
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
-				lualine_y = {},
-				lualine_z = {},
-			},
-			winbar = {
-				lualine_a = {},
-				lualine_b = {
-					{
-						"filename",
-						file_status = false,
-						path = 1,
-						shorting_target = 40,
-						symbols = {},
-					},
-				},
-				lualine_c = { "navic" },
-				lualine_x = {},
 				lualine_y = { "selectioncount" },
 				lualine_z = { "searchcount" },
 			},
+			winbar = {
+				lualine_a = {},
+				lualine_b = {},
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
+			},
 			inactive_winbar = {
 				lualine_a = {},
-				lualine_b = {
-					{
-						"filename",
-						file_status = false,
-						path = 1,
-						shorting_target = 40,
-						symbols = {},
-					},
-				},
+        lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},

@@ -60,6 +60,7 @@ local leader_keymaps = {
 	["<leader>fg"] = { ":Telescope live_grep<CR>", "Telescope: Grep in Project" },
 	["<leader>fk"] = { ":Telescope keymaps<CR>", "Telescope: Keymaps" },
 	["<leader>fh"] = { ":Telescope help_tags<CR>", "Telescope: Help Tags" },
+	["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
 
 	["<leader>tt"] = { ":TermSelect<CR>", "Terminal: Select from Open Terminals" },
 	["<leader>t1"] = { ":1ToggleTerm direction=float<CR>", "Terminal: Open Terminal 1 (Floating)" },
@@ -109,7 +110,6 @@ local leader_keymaps = {
 	["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
 	["<leader>nr"] = { ":Neorg return<CR>", "Neorg: Close Neorg Buffers" },
 	["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
-  ["<leader>fb"] = { ":Telescope buffers<CR>", "Telescope: List Buffers" },
 }
 
 local visual_leader_keymaps = {
@@ -158,8 +158,8 @@ local normal_keymaps = {
 	["<C-S-Left>"] = { "v" .. LEFT_JUMP, "Select Left by Word" },
 	["<C-S-Right>"] = { "v" .. RIGHT_JUMP, "Select Right by Word" },
 
-	["<C-S-Up>"] = { "gT", "Go to Previous Tab" },
-	["<C-S-Down>"] = { "gt", "Go to Next Tab" },
+	["<C-S-Up>"] = { ":bprevious<CR>", "Go to Previous Buffer" },
+	["<C-S-Down>"] = { ":bnext<CR>", "Go to Next Buffer" },
 	["<C-S-A-Up>"] = { ":tabmove -1<CR>", "Move Tab to Left" },
 	["<C-S-A-Down>"] = { ":tabmove +1<CR>", "Move Tab to Right" },
 
@@ -225,7 +225,7 @@ local normal_keymaps = {
 
 	["<A-w>"] = { "<C-w>w", "Go to Next Window" },
 
-  ["gb"] = { "<C-^>", "Jump to Alternate Buffer" },
+	["gb"] = { "<C-^>", "Jump to Alternate Buffer" },
 }
 
 local normal_expr_keymaps = {

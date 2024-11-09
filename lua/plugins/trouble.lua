@@ -97,7 +97,7 @@ return {
 					action = function(_, ctx)
 						local c = ctx
 						if c and c.item then
-							vim.cmd(":tab drop " .. c.item.filename)
+							vim.cmd(":e " .. c.item.filename)
 						end
 					end,
 					desc = "Toggle Current Buffer Filter",
@@ -146,7 +146,7 @@ return {
 					last = "└╴",
 					fold_open = " ",
 					fold_closed = " ",
-					ws = "  ",
+					ws = "	",
 				},
 				folder_closed = " ",
 				folder_open = " ",
