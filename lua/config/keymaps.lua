@@ -210,7 +210,6 @@ local normal_keymaps = {
 	["cT"] = { '""cT', "Change Back Till without Copy" },
 	["cF"] = { '""cF', "Change Back Till (Inclusive) without Copy" },
 
-	["gx"] = { ":silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>", "Open Link in Browser" },
 	["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
 
 	["<C-F>"] = { "<C-O>", "Jump back in jumplist" },
@@ -280,7 +279,7 @@ local visual_keymaps = {
 }
 
 local insert_keymaps = {
-	["<C-H>"] = { "<C-w>", "Delete Word by Left" }, -- <C-H> maps to Ctrl+Backspace
+	["<C-C>"] = { "<C-w>", "Delete Word by Left" },
 	["<C-Del>"] = { "<C-o>de", "Delete Word by Right" },
 
 	["<C-z>"] = { "<Esc>ui", "Undo Changes" },
@@ -300,6 +299,8 @@ local insert_keymaps = {
 
 	["<A-S-Up>"] = { "<Esc>:m .-2<CR>==gi", "Move Current Line Up" },
 	["<A-S-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move Current Line Down" },
+
+	["<A-w>"] = { "<C-w>p", "Go to Next Window" },
 }
 
 local cmd_keymaps = {
