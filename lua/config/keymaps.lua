@@ -41,8 +41,6 @@ local leader_keymaps = {
 	["<leader>ga"] = { ":Gitsigns stage_hunk<CR>", "Gitsigns: Stage Hunk" },
 	["<leader>gu"] = { ":Gitsigns undo_stage_hunk<cr>", "Gitsigns: Undo Stage Hunk" },
 	["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
-	["<leader>g<Down>"] = { ":Gitsigns nav_hunk next wrap=false<CR>", "Gitsigns: Jump to Next Hunk" },
-	["<leader>g<Up>"] = { ":Gitsigns nav_hunk prev wrap=false<CR>", "Gitsigns: Jump to Prev Hunk" },
 	["<leader>gl"] = { ":Telescope git_commits<CR>", "Telescope(Git): Open Git Log" },
 	["<leader>gbl"] = { ":Telescope git_bcommits<CR>", "Telescope(Git): Open Git Log for Current Buffer" },
 	["<leader>gg"] = {
