@@ -192,6 +192,15 @@ local normal_keymaps = {
 	["dT"] = { '""dT', "Delete Back Till without Copy" },
 	["dF"] = { '""dF', "Delete Back Till (Inclusive) without Copy" },
 
+	["daf"] = { ':TSTextobjectSelect @function.outer<CR>""x', "" },
+	["dif"] = { ':TSTextobjectSelect @function.inner<CR>""x', "" },
+	["dac"] = { ':TSTextobjectSelect @class.outer<CR>""x', "" },
+	["dic"] = { ':TSTextobjectSelect @class.inner<CR>""x', "" },
+	["das"] = { ':TSTextobjectSelect @block.outer<CR>""x', "" },
+	["dis"] = { ':TSTextobjectSelect @block.inner<CR>""x', "" },
+	["dap"] = { ':TSTextobjectSelect @parameter.outer<CR>""x', "" },
+	["dip"] = { ':TSTextobjectSelect @parameter.inner<CR>""x', "" },
+
 	["cc"] = { '""cc', "Change Lines without Copy" },
 	["cw"] = { '""cw', "Change Word without Copy" },
 	["ci"] = { '""ci', "Change In without Copy" },
