@@ -62,10 +62,12 @@ return {
 					key = "__default"
 				end
 
-				return require("ts_context_commentstring.internal").calculate_commentstring({
-					key = key,
-					location = location,
-				})
+				if location then
+					return require("ts_context_commentstring.internal").calculate_commentstring({
+						key = key,
+						location = location,
+					})
+				end
 			end,
 			post_hook = nil,
 		},
