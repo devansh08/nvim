@@ -65,12 +65,6 @@ return {
 		},
 	},
 	{
-		"tpope/vim-fugitive",
-		branch = "master",
-		lazy = "true",
-		event = "VeryLazy",
-	},
-	{
 		"akinsho/git-conflict.nvim",
 		version = "*",
 		event = "VeryLazy",
