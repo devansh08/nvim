@@ -257,6 +257,12 @@ return {
 		end,
 	},
 	{
+		"tommcdo/vim-exchange",
+		branch = "master",
+		lazy = true,
+		event = "BufReadPre",
+	},
+	{
 		"ghostbuster91/nvim-next",
 		branch = "main",
 		config = function()
