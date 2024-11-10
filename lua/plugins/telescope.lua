@@ -87,7 +87,7 @@ return {
             additional_args = function(_)
               return {
                 "--hidden",
-                "--ignore-case",
+                "--smart-case",
                 "--glob=!**/.git/*",
               }
             end,
