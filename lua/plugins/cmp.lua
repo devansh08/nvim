@@ -22,6 +22,9 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load({
         paths = vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
       })
+      require("luasnip.loaders.from_lua").lazy_load({
+        paths = require("constants").NVIM_CONFIG .. "/snippets",
+      })
     end,
   },
   {
