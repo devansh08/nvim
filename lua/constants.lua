@@ -2,6 +2,8 @@ local M = {}
 
 M.HOME = os.getenv("HOME")
 
+M.NVIM_CONFIG = M.HOME .. "/.config/nvim"
+
 M.NVIM_LOCAL = M.HOME .. "/.local/share/nvim"
 M.MASON_PACKAGES = M.NVIM_LOCAL .. "/mason/packages"
 
