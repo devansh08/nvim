@@ -354,4 +354,33 @@ return {
       sort = "last",
     },
   },
+  {
+    "folke/zen-mode.nvim",
+    tag = "stable",
+    opts = {
+      window = {
+        backdrop = 0.95,
+        width = 0.60,
+        height = 1,
+        options = {
+          signcolumn = "no",
+          foldcolumn = "0",
+          list = false,
+        },
+      },
+      plugins = {
+        options = {
+          enabled = true,
+          ruler = false,
+          showcmd = false,
+          laststatus = 0,
+        },
+        twilight = { enabled = false },
+        gitsigns = { enabled = false },
+        tmux = { enabled = false },
+        todo = { enabled = false },
+        wezterm = { enabled = false },
+      },
+    },
+  },
 }

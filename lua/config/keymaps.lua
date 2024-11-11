@@ -113,6 +113,8 @@ local leader_keymaps = {
   ["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
 
   ["<leader>bb"] = { ":lua require('snipe').open_buffer_menu({ max_path_width = 3 })<CR>", "Snipe: Open Menu" },
+
+  ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
 }
 
 local visual_leader_keymaps = {
