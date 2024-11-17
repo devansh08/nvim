@@ -17,16 +17,6 @@ return {
     config = function()
       local constants = require("constants")
 
-      local function close_nvim_tree()
-        local nvim_tree_api = require("nvim-tree.api")
-        nvim_tree_api.tree.close()
-      end
-
-      local function open_nvim_tree()
-        local nvim_tree_api = require("nvim-tree.api")
-        nvim_tree_api.tree.open()
-      end
-
       require("auto-session").setup({
         enabled = true,
         root_dir = constants.NVIM_LOCAL .. "/sessions/",
@@ -44,8 +34,8 @@ return {
         continue_restore_on_error = true,
         cwd_change_handling = false,
         log_level = "error",
-        pre_save_cmds = { close_nvim_tree },
-        post_restore_cmds = { open_nvim_tree },
+        pre_save_cmds = {},
+        post_restore_cmds = {},
         session_lens = {
           load_on_setup = false,
         },
