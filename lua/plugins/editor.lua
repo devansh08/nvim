@@ -359,7 +359,7 @@ return {
     tag = "stable",
     opts = {
       window = {
-        backdrop = 0.95,
+        backdrop = 0.75,
         width = 0.60,
         height = 1,
         options = {
