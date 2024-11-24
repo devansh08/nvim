@@ -118,8 +118,8 @@ local leader_keymaps = {
 }
 
 local visual_leader_keymaps = {
-  ["<leader>ga"] = { ":Gitsigns stage_hunk vim.fn.line('.') vim.fn.line('v')", "Gitsigns: Stage Selected Hunk" },
-  ["<leader>gr"] = { ":Gitsigns reset_hunk vim.fn.line('.') vim.fn.line('v')", "Gitsigns: Reset Selected Hunk" },
+  ["<leader>ga"] = { ":Gitsigns stage_hunk vim.fn.line('.') vim.fn.line('v')<CR>", "Gitsigns: Stage Selected Hunk" },
+  ["<leader>gr"] = { ":Gitsigns reset_hunk vim.fn.line('.') vim.fn.line('v')<CR>", "Gitsigns: Reset Selected Hunk" },
   ["<leader>gbl"] = {
     ":lua require('telescope.builtin').git_bcommits_range({ from = vim.fn.line('.'), to = vim.fn.line('v') })<CR>",
     "Gitsigns: Open Git Log for Selected Range",
