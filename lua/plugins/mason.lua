@@ -4,7 +4,7 @@ return {
     "williamboman/mason.nvim",
     tag = "stable",
     lazy = true,
-    event = "VeryLazy",
+    cmd = "Mason",
     build = ":MasonUpdate",
     config = function()
       local opts = {
