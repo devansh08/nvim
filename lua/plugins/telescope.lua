@@ -91,6 +91,7 @@ return {
                 "--glob=!**/.git/*",
               }
             end,
+            sorting_strategy = "ascending",
           },
           jumplist = {
             show_line = false,
