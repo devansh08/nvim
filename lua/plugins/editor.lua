@@ -383,4 +383,12 @@ return {
       },
     },
   },
+  {
+    "folke/snacks.nvim",
+    version = "*",
+    opts = {
+      bigfile = {},
+      quickfile = {},
+    },
+  },
 }
