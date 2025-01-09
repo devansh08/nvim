@@ -129,4 +129,37 @@ function M.table_extend(cur, new)
   end
 end
 
+---Return count of character in string
+---@param str string
+---@param char string
+---@return integer
+function M.count_of(str, char)
+  local index = str:find(char)
+  if index ~= nil then
+    local count = 1
+    for i = index + 1, #str do
+      if str:sub(i, i) == char then
+        count = count + 1
+      end
+    end
+
+    return count
+  else
+    return 0
+  end
+end
+
+---Return list of split strings based on delimiter
+---@param str string
+---@param delim string
+---@return table<string> splits
+function M.split(str, delim)
+  local splits = {}
+  for x in str:gmatch("([^" .. delim .. "])") do
+    table.insert(splits, x)
+  end
+
+  return splits
+end
+
 return M
