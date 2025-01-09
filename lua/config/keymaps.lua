@@ -186,6 +186,8 @@ local normal_keymaps = {
   ["d"] = { '"_d', "Delete Text without Copy" },
   ["<Del>"] = { '"_d<Right>', "Delete Text without Copy" },
 
+  ["dp"] = { '""p', 'Paste Deleted ("") Content' },
+
   ["dd"] = { '""dd', "Delete Lines without Copy" },
   ["dw"] = { '""dw', "Delete Lines without Copy" },
   ["di"] = { '""di', "Delete Lines without Copy" },
