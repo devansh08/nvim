@@ -15,6 +15,8 @@ return {
         vim.cmd("redrawstatus")
       end)
 
+      local ignoreFileTypes = { "lazy", "mason", "NvimTree", "Trouble", "Telescope.*", "toggleterm" }
+
       local Align = {
         provider = "%=",
       }
@@ -468,6 +470,11 @@ return {
 
       require("heirline").setup({
         statusline = {
+          condition = function()
+            return not conditions.buffer_matches({
+              filetype = ignoreFileTypes,
+            })
+          end,
           StatusLineLeft,
           Align,
           StatusLineRight,
@@ -499,6 +506,11 @@ return {
             yellow = COLORS.yellow,
             sky = COLORS.sky,
           },
+          disable_winbar_cb = function(args)
+            return conditions.buffer_matches({
+              filetype = ignoreFileTypes,
+            }, args.buf)
+          end,
         },
       })
     end,
