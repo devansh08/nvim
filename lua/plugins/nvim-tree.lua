@@ -167,6 +167,11 @@ return {
             git = true,
             modified = true,
           },
+          glyphs = {
+            git = {
+              untracked = "🟅",
+            },
+          },
         },
       },
       filters = {
