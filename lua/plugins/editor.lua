@@ -391,4 +391,14 @@ return {
       quickfile = {},
     },
   },
+  {
+    "devansh08/remembuf.nvim",
+    branch = "main",
+    opts = {
+      silent = true,
+      integrations = {
+        nvim_tree = true,
+      },
+    },
+  },
 }
