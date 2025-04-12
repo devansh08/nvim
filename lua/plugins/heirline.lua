@@ -349,7 +349,32 @@ return {
           end
         end,
         provider = function(self)
-          return " [" .. self.search.current .. "/" .. self.search.total .. "] "
+          local search = self.search
+          return string.format(" [%d/%d] ", search.current, search.total)
+        end,
+        hl = {
+          fg = "base",
+          bg = "blue",
+          bold = true,
+        },
+      }
+
+      local SelectCount = {
+        condition = function()
+          return vim.fn.mode():find("[Vv]") ~= nil
+        end,
+        provider = function()
+          local starts = vim.fn.line("v")
+          local ends = vim.fn.line(".")
+          local lines = starts <= ends and ends - starts + 1 or starts - ends + 1
+          local count = vim.fn.wordcount()
+          return " "
+            .. tostring(lines)
+            .. "L/"
+            .. tostring(count.visual_chars)
+            .. "W/"
+            .. tostring(count.visual_chars)
+            .. "C "
         end,
         hl = {
           fg = "base",
@@ -482,6 +507,7 @@ return {
         winbar = {
           Align,
           SearchCount,
+          SelectCount,
         },
         tabline = {
           TabLineLeft,
