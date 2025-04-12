@@ -374,6 +374,7 @@ return {
           ruler = false,
           showcmd = false,
           laststatus = 0,
+          winborder = "none",
         },
         twilight = { enabled = false },
         gitsigns = { enabled = false },
