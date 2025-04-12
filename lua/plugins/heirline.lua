@@ -507,9 +507,11 @@ return {
             sky = COLORS.sky,
           },
           disable_winbar_cb = function(args)
-            return conditions.buffer_matches({
-              filetype = ignoreFileTypes,
-            }, args.buf)
+            if args.buf ~= 1 then
+              return conditions.buffer_matches({
+                filetype = ignoreFileTypes,
+              }, args.buf)
+            end
           end,
         },
       })
