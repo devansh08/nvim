@@ -81,14 +81,15 @@ function M.string_starts_with(str, pat)
   return str:sub(1, #pat) == pat
 end
 
----Check if file exists in the root directory of open project
----@param file string[]|string Single file name or list of file names to search for in the root directory
----@return boolean _ True, if file is found in the root directory. False, otherwise.
-function M.file_exists_in_root(file)
+---Check if file exists in given directory
+---@param file string[]|string Single file name or list of file names to search for in the `dir` directory
+---@param dir string Directory name in which the `file` needs to be searched in
+---@return boolean _ True, if file is found in the `dir` directory. False, otherwise.
+function M.file_exists_in_dir(file, dir)
   if type(file) == "table" then
     local flag = false
     for _, f in ipairs(file) do
-      if vim.fn.findfile(f, vim.env.PWD) == f then
+      if vim.fn.findfile(f, dir) == f then
         flag = true
       end
       break
@@ -96,8 +97,15 @@ function M.file_exists_in_root(file)
 
     return flag
   else
-    return vim.fn.findfile(file, vim.env.PWD) == file
+    return vim.fn.findfile(file, dir) == file
   end
+end
+
+---Check if file exists in the root directory of open project
+---@param file string[]|string Single file name or list of file names to search for in the root directory
+---@return boolean _ True, if file is found in the root directory. False, otherwise.
+function M.file_exists_in_root(file)
+  return M.file_exists_in_dir(file, vim.env.PWD)
 end
 
 ---Check if table contains given key
