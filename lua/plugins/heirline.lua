@@ -450,14 +450,27 @@ return {
             ---@type table<string, table<string|integer>>
             local tabNames = {}
             for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
-              local origName = GetTabName(tabpage)
+              local name = vim.fn.pathshorten(
+                vim.api
+                  .nvim_buf_get_name(vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage)))
+                  :gsub(vim.loop.cwd() .. "/", ""),
+                2
+              )
 
-              AddToTable(tabNames, origName, tabpage, 1)
+              if name == "" then
+                name = "[No Name]"
+              end
+              tabNames[tabpage] = name
+
+              --[[ local origName = GetTabName(tabpage)
+              AddToTable(tabNames, origName, tabpage, 1) ]]
             end
             self.tabNames = tabNames
           end,
           provider = function(self)
-            return " " .. GetTabShortName(self.tabNames, self.tabpage) .. " "
+            -- return " " .. GetTabShortName(self.tabNames, self.tabpage) .. " "
+
+            return " " .. self.tabNames[self.tabpage] .. " "
           end,
           hl = function(self)
             if self.is_active then
