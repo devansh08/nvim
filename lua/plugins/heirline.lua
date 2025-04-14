@@ -500,6 +500,8 @@ return {
         Lsp,
         FileType,
         Ruler,
+        SearchCount,
+        SelectCount,
       }
 
       local TabLineLeft = {
@@ -516,11 +518,6 @@ return {
           StatusLineLeft,
           Align,
           StatusLineRight,
-        },
-        winbar = {
-          Align,
-          SearchCount,
-          SelectCount,
         },
         tabline = {
           TabLineLeft,
@@ -545,13 +542,6 @@ return {
             yellow = COLORS.yellow,
             sky = COLORS.sky,
           },
-          disable_winbar_cb = function(args)
-            if args.buf ~= 1 then
-              return conditions.buffer_matches({
-                filetype = ignoreFileTypes,
-              }, args.buf)
-            end
-          end,
         },
       })
     end,
