@@ -5,6 +5,7 @@ M.HOME = os.getenv("HOME")
 M.NVIM_CONFIG = M.HOME .. "/.config/nvim"
 
 M.NVIM_LOCAL = M.HOME .. "/.local/share/nvim"
+M.MASON_BIN = M.NVIM_LOCAL .. "/mason/bin"
 M.MASON_PACKAGES = M.NVIM_LOCAL .. "/mason/packages"
 
 M.NVIM_CACHE = M.HOME .. "/.cache/nvim"

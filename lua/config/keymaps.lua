@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 local leader_keymaps = {
-  ["<leader><Esc>"] = { ":noh<CR>", "Remove Highlights" },
+  ["<leader><Esc>"] = { ":noh<CR>:lua vim.lsp.buf.clear_references()<CR>", "Remove Highlights" },
   ["<leader>k"] = { ":tabclose<CR>", "Close Tab/Buffer" },
 
   ["<leader><Left>"] = { "^", "Jump to Start of Line" },

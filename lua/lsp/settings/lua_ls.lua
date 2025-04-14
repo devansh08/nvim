@@ -9,7 +9,11 @@ return {
         unusedLocalExclude = { "_" },
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        library = {
+          vim.api.nvim_get_runtime_file("", true),
+          vim.env.VIMRUNTIME,
+          "${3rd}/luv/library",
+        },
         checkThirdParty = false,
       },
       telemetry = {
