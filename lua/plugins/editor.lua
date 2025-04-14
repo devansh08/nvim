@@ -326,9 +326,17 @@ return {
         vim.cmd("Gitsigns nav_hunk next wrap=false")
       end)
 
+      local d_prev, d_next = next.make_repeatable_pair(function(_)
+        vim.cmd("lua vim.diagnostic.jump({ count = -1, float = false })")
+      end, function(_)
+        vim.cmd("lua vim.diagnostic.jump({ count = 1, float = false })")
+      end)
+
       local keymaps = {
         ["<leader>g<Up>"] = { lua_fn(gd_prev), "Next|Gitsigns: Jump to Prev Hunk" },
         ["<leader>g<Down>"] = { lua_fn(gd_next), "Next|Gitsigns: Jump to Next Hunk" },
+        ["<leader>d<Up>"] = { lua_fn(d_prev), "Next|Diagnostics: Jump to Prev Diagnostic" },
+        ["<leader>d<Down>"] = { lua_fn(d_next), "Next|Diagnostics: Jump to Next Diagnostic" },
       }
 
       set_keymaps("n", keymaps, cmd_opts)

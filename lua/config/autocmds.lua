@@ -34,27 +34,35 @@ vim.api.nvim_create_autocmd("WinLeave", {
   group = vim.api.nvim_create_augroup("AutoSwitchNvimTreeBuffer", { clear = true }),
 })
 
--- Setup LSP keymaps when LSP is attached to buffer
+-- Setup LSP keymaps and capabilities when LSP is attached to buffer
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
+  callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client ~= nil then
+      if client:supports_method("textDocument/documentHighlight") then
+        local lsp_augroup = vim.api.nvim_create_augroup("LspDocHighlight", { clear = true })
+
+        vim.api.nvim_create_autocmd("CursorHold", {
+          callback = function()
+            vim.lsp.buf.document_highlight()
+          end,
+          group = lsp_augroup,
+          buffer = 0,
+        })
+
+        vim.api.nvim_create_autocmd("CursorMoved", {
+          callback = function()
+            vim.lsp.buf.clear_references()
+          end,
+          group = lsp_augroup,
+          buffer = 0,
+        })
+      end
+    end
+
     local keymaps = {
       -- Displays hover information about the symbol under the cursor
       ["<leader>lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: Show Hover Info" },
-
-      -- Jump to definition
-      ["<leader>ldf"] = { "<cmd>lua vim.lsp.buf.definition()<cr>", "LSP: Jump to Definition" },
-
-      -- Jump to declaration
-      ["<leader>ldc"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "LSP: Jump to Declaration" },
-
-      -- Lists all the implementations for the symbol under the cursor
-      ["<leader>li"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "LSP: List Implementations" },
-
-      -- Jumps to the definition of the type symbol
-      ["<leader>lt"] = { "<cmd>lua vim.lsp.buf.type_definition()<cr>", "LSP: Jump to Type Definition" },
-
-      -- Lists all the references
-      ["<leader>lR"] = { "<cmd>lua vim.lsp.buf.references()<cr>", "LSP: List References" },
 
       -- Displays a function's signature information
       ["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP: Show Signature Info" },
@@ -72,16 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       },
 
       -- Show diagnostics in a floating window
-      ["<leader>lg"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "LSP: Show Diagnostics for Current Line" },
-
-      -- Move to the previous diagnostic
-      ["<leader>lp"] = {
-        "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-        "LSP: Jump to Previous Line with Diagnostics",
-      },
-
-      -- Move to the next diagnostic
-      ["<leader>ln"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "LSP: Jump to Next Line with Diagnostics" },
+      ["<leader>ld"] = { "<cmd>lua vim.diagnostic.open_float()<cr>", "LSP: Show Diagnostics for Current Line" },
     }
 
     set_keymaps("n", keymaps, cmd_opts, true)
