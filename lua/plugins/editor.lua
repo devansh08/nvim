@@ -410,4 +410,17 @@ return {
       },
     },
   },
+  {
+    "devansh08/goto-line.nvim",
+    branch = "main",
+    ---@type GotoLineOpts
+    opts = {
+      open_cmd = "drop",
+      pre_jump = function()
+        if vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "toggleterm" then
+          vim.cmd("ToggleTerm")
+        end
+      end,
+    },
+  },
 }
