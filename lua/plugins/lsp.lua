@@ -169,12 +169,7 @@ return {
             [INFO] = "",
             [HINT] = "",
           },
-          linehl = {
-            [ERROR] = "DiagnosticSignError",
-            [WARN] = "DiagnosticSignWarn",
-            [INFO] = "DiagnosticSignInfo",
-            [HINT] = "DiagnosticSignHint",
-          },
+          linehl = {},
         },
         jump = {
           severity = {
