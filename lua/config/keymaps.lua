@@ -69,9 +69,18 @@ local leader_keymaps = {
   ["<leader>t3"] = { ":3ToggleTerm direction=float<CR>", "Terminal: Open Terminal 3 (Floating)" },
   ["<leader>th"] = { ":4ToggleTerm direction=horizontal<CR>", "Terminal: Open Terminal 4 (Horizontal)" },
 
-  ["<leader>fr"] = { ":Telescope lsp_references<CR>", "Telescope: List LSP References" },
-  ["<leader>fi"] = { ":Telescope lsp_implementations<CR>", "Telescope: List LSP Implementations" },
-  ["<leader>fd"] = { ":Telescope lsp_definitions<CR>", "Telescope: List LSP Definitions" },
+  ["<leader>fr"] = {
+    ":lua require('marksman').runCmdAndMark('Telescope lsp_references', true, false)<CR>",
+    "Telescope: List LSP References",
+  },
+  ["<leader>fi"] = {
+    ":lua require('marksman').runCmdAndMark('Telescope lsp_implementations', true, false)<CR>",
+    "Telescope: List LSP Implementations",
+  },
+  ["<leader>fd"] = {
+    ":lua require('marksman').runCmdAndMark('Telescope lsp_definitions', true, false)<CR>",
+    "Telescope: List LSP Definitions",
+  },
   ["<leader>fs"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List LSP Document Symbols" },
   ["<leader>fw"] = { ":Telescope lsp_workspace_symbols<CR>", "Telescope: List LSP Workspace Symbols" },
   ["<leader>ft"] = { ":TodoTelescope<CR>", "Telescope: List Todo Comments" },
@@ -217,8 +226,10 @@ local normal_keymaps = {
 
   ["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
 
-  ["<C-F>"] = { "<C-O>", "Jump back in jumplist" },
-  ["<C-G>"] = { "<C-I>", "Jump forward in jumplist" },
+  ["<C-F>"] = { ":MarksmanPrev<CR>", "Marksman: Jump to Previous Mark" },
+  ["<C-G>"] = { ":MarksmanNext<CR>", "Marksman: Jump to Next Mark" },
+  ["<C-M>"] = { ":MarksmanAdd<CR>", "Marksman: Add to Marks List" },
+  ["<C-S-M>"] = { ":MarksmanRemoveTop<CR>", "Marksman: Add to Marks List" },
 
   ["<Tab>"] = { ">>", "Indent Current Line to Right" },
   ["<S-Tab>"] = { "<<", "Indent Current Line to Left" },
