@@ -423,4 +423,12 @@ return {
       end,
     },
   },
+  {
+    "devansh08/marksman.nvim",
+    branch = "main",
+    ---@type MarksmanOpts
+    opts = {
+      goto_cmd = "drop",
+    },
+  },
 }
