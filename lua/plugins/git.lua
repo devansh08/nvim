@@ -2,6 +2,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     version = "*",
+    lazy = true,
     event = "VeryLazy",
     opts = {
       signs = {
@@ -67,6 +68,7 @@ return {
   {
     "akinsho/git-conflict.nvim",
     version = "*",
+    lazy = true,
     event = "VeryLazy",
     opts = {
       default_mappings = false,
@@ -83,7 +85,7 @@ return {
     "sindrets/diffview.nvim",
     branch = "main",
     lazy = "true",
-    event = "VeryLazy",
+    cmd = "DiffViewOpen",
     config = function()
       local actions = require("diffview.actions")
 

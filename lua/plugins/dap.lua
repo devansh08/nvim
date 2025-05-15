@@ -3,7 +3,7 @@ return {
     "rcarriga/nvim-dap-ui",
     version = "*",
     lazy = true,
-    event = "VeryLazy",
+    cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
     dependencies = { "nvim-neotest/nvim-nio" },
     config = function()
       local dap, dapui = require("dap"), require("dapui")
@@ -128,7 +128,7 @@ return {
     "mfussenegger/nvim-dap",
     version = "*",
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
+    cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
     dependencies = {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
