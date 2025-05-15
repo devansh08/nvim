@@ -18,7 +18,7 @@ local options = {
 
   completeopt = { "menuone", "preview", "noselect" },
   pumheight = 20,
-  updatetime = 300,
+  updatetime = 250,
 
   hlsearch = true,
   incsearch = true,

@@ -121,6 +121,9 @@ local leader_keymaps = {
   ["<leader>bb"] = { ":lua require('snipe').open_buffer_menu({ max_path_width = 3 })<CR>", "Snipe: Open Menu" },
 
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
+
+  ["<leader>nn"] = { ":lua require('neotest').run.run()<CR>", "NeoTest: Run Current Test" },
+  ["<leader>nf"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "NeoTest: Run Current File" },
 }
 
 local visual_leader_keymaps = {
