@@ -5,3 +5,5 @@ cmd("EnableAutoCompletion", function()
   vim.g.enable_auto_completion = true
   vim.cmd("Lazy reload cmp-nvim-lua")
 end, {})
+-- Nop command to lazy start neotest when required
+cmd("EnableNeotest", function() end, {})
