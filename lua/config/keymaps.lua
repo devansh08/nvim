@@ -41,6 +41,7 @@ local leader_keymaps = {
   ["<leader>ga"] = { ":Gitsigns stage_hunk<CR>", "Gitsigns: Stage Hunk" },
   ["<leader>gu"] = { ":Gitsigns undo_stage_hunk<cr>", "Gitsigns: Undo Stage Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
+  ["<leader>gf"] = { ":Telescope git_status<CR>", "Telescope(Git): Open Git Status" },
   ["<leader>gl"] = { ":Telescope git_commits<CR>", "Telescope(Git): Open Git Log" },
   ["<leader>gbl"] = { ":Telescope git_bcommits<CR>", "Telescope(Git): Open Git Log for Current Buffer" },
   ["<leader>gg"] = {
@@ -117,10 +118,6 @@ local leader_keymaps = {
 
   ["<leader>uu"] = { ":UndotreeToggle<CR>", "Undotree: Toggle Undotree" },
 
-  ["<leader>nn"] = { ":Neorg workspace ", "Neorg: Go To Workspace" },
-  ["<leader>nr"] = { ":Neorg return<CR>", "Neorg: Close Neorg Buffers" },
-  ["<leader>nc"] = { ":Neorg toggle-concealer<CR>", "Neorg: Toggle Concealer" },
-
   ["<leader>bb"] = { ":lua require('snipe').open_buffer_menu({ max_path_width = 3 })<CR>", "Snipe: Open Menu" },
 
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
@@ -169,11 +166,6 @@ local visual_leader_keymaps = {
 }
 
 local normal_keymaps = {
-  ["<C-S-Left>"] = { "v" .. LEFT_JUMP, "Select Left by Word" },
-  ["<C-S-Right>"] = { "v" .. RIGHT_JUMP, "Select Right by Word" },
-
-  ["<C-S-Up>"] = { ":bprevious<CR>", "Go to Previous Buffer" },
-  ["<C-S-Down>"] = { ":bnext<CR>", "Go to Next Buffer" },
   ["<C-S-A-Up>"] = { ":tabmove -1<CR>", "Move Tab to Left" },
   ["<C-S-A-Down>"] = { ":tabmove +1<CR>", "Move Tab to Right" },
 
@@ -181,11 +173,6 @@ local normal_keymaps = {
   ["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
   ["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
   ["<C-Down>"] = { LINE_JUMP .. "j", "Jump " .. LINE_JUMP .. " Lines Down" },
-
-  ["<S-Left>"] = { "v<Left>", "Select Left" },
-  ["<S-Right>"] = { "v<Right>", "Select Right" },
-  ["<S-Up>"] = { "v<Up>", "Select Up" },
-  ["<S-Down>"] = { "v<Down>", "Select Down" },
 
   ["<A-Left>"] = { "<C-W><C-H>", "Jump to Left Buffer" },
   ["<A-Right>"] = { "<C-W><C-L>", "Jump to Right Buffer" },
@@ -239,19 +226,22 @@ local normal_keymaps = {
 
   ["<C-p>"] = { "o<Esc>p==", "Paste in Next Line" },
 
-  ["<C-h>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Width by " .. SPLIT_RESIZE },
-  ["<C-l>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
-  ["<C-j>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Height by " .. SPLIT_RESIZE },
-  ["<C-k>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
+  ["<C-S-Left>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Width by " .. SPLIT_RESIZE },
+  ["<C-S-Right>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
+  ["<C-S-Down>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Height by " .. SPLIT_RESIZE },
+  ["<C-S-Up>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
 
-  ["<C-n>"] = { ":lua require('dap').continue()<CR>", "DAP: Continue Execution" },
-  ["<C-m>"] = { ":lua require('dap').step_over()<CR>", "DAP: Step Over" },
+  ["<A-n>"] = { ":lua require('dap').continue()<CR>", "DAP: Continue Execution" },
+  ["<A-m>"] = { ":lua require('dap').step_over()<CR>", "DAP: Step Over" },
   ["<A-.>"] = { ":lua require('dap').step_into()<CR>", "DAP: Step Into" },
   ["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 
   ["<A-w>"] = { "<C-w>w", "Go to Next Window" },
 
   ["gb"] = { "<C-^>", "Jump to Alternate Buffer" },
+  ["gf"] = { ":GotoLine<CR>", "Goto Line and Column" },
+
+  ["<F1>"] = { "<Nop>", "Disable Help" },
 }
 
 local normal_expr_keymaps = {
@@ -267,11 +257,6 @@ local visual_keymaps = {
   ["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
   ["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
   ["<C-Down>"] = { LINE_JUMP .. "j", "Jump " .. LINE_JUMP .. " Lines Down" },
-
-  ["<S-Left>"] = { "<Left>", "Select Left" },
-  ["<S-Right>"] = { "<Right>", "Select Right" },
-  ["<S-Up>"] = { "<Up>", "Select Up" },
-  ["<S-Down>"] = { "<Down>", "Select Down" },
 
   ["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
 
@@ -304,14 +289,6 @@ local insert_keymaps = {
 
   ["<C-Up>"] = { "<Esc>" .. LINE_JUMP .. "ki", "Jump " .. LINE_JUMP .. " Lines Up" },
   ["<C-Down>"] = { "<Esc>" .. LINE_JUMP .. "ji", "Jump " .. LINE_JUMP .. " Lines Down" },
-
-  ["<C-S-Left>"] = { "<Esc>v" .. LEFT_JUMP, "Select Left by Word" },
-  ["<C-S-Right>"] = { "<Esc><Right>v" .. RIGHT_JUMP, "Select Right by Word" },
-
-  ["<S-Left>"] = { "<Esc>v<Left>", "Select Left" },
-  ["<S-Right>"] = { "<Esc>v<Right>", "Select Right" },
-  ["<S-Up>"] = { "<Esc>v<Up>", "Select Up" },
-  ["<S-Down>"] = { "<Esc>v<Down>", "Select Down" },
 
   ["<C-_>"] = { "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
 
