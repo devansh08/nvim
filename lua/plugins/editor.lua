@@ -104,7 +104,7 @@ return {
     "tpope/vim-abolish",
     branch = "master",
     lazy = true,
-    event = "BufReadPre",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "NvChad/nvim-colorizer.lua",
@@ -169,6 +169,9 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    branch = "main",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       signs = true,
@@ -227,6 +230,8 @@ return {
   {
     "mbbill/undotree",
     branch = "master",
+    lazy = true,
+    cmd = "UndoTreeToggle",
     config = function()
       vim.g.undotree_WindowLayout = 3
       vim.g.undotree_ShortIndicators = 1
@@ -237,6 +242,8 @@ return {
   {
     "mg979/vim-visual-multi",
     branch = "master",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     -- https://github.com/mg979/vim-visual-multi/issues/241#issuecomment-1575139717
     init = function()
       vim.g.VM_maps = {
@@ -260,11 +267,13 @@ return {
     "tommcdo/vim-exchange",
     branch = "master",
     lazy = true,
-    event = "BufReadPre",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "ghostbuster91/nvim-next",
     branch = "main",
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       local utils = require("utils")
       local cmd_opts = require("constants").CMD_OPTS
@@ -365,6 +374,8 @@ return {
   {
     "folke/zen-mode.nvim",
     tag = "stable",
+    lazy = true,
+    cmd = "ZenMode",
     opts = {
       window = {
         backdrop = 0.75,

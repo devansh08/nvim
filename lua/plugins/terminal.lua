@@ -1,6 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
-  version = "*",
+  branch = "main",
   config = function()
     local opts = {
       size = function(term)

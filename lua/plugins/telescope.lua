@@ -3,6 +3,7 @@ return {
     "nvim-telescope/telescope-dap.nvim",
     branch = "master",
     lazy = true,
+    cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
   },
   {
     "nvim-telescope/telescope.nvim",

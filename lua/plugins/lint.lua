@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
+    branch = "master",
     lazy = true,
     event = "BufWritePre",
     config = function()
