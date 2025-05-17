@@ -6,12 +6,12 @@ return {
     cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
   },
   {
-    "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-fzf-native.nvim",
     branch = "main",
     build = "make",
   },
   {
+    "nvim-telescope/telescope.nvim",
     branch = "master",
     dependencies = {
       "nvim-telescope/telescope-dap.nvim",
