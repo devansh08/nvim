@@ -383,66 +383,6 @@ return {
         },
       }
 
-      ---Return full path name of the file in the tab (identified by `tabpage`)
-      ---@param tabpage integer
-      ---@return string
-      function GetTabName(tabpage)
-        return vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage)))
-      end
-
-      ---Return "filename segments" from `path` of `count` size
-      ---@param path string File path of file (assumed to start with /)
-      ---@param count integer Number of "filename segments" required (ex. `abc/def/ghi.jkl` has 3 "filename segments")
-      ---@return string
-      function ExtractFilename(path, count)
-        local segments = {}
-        for segment in path:gmatch("([^/]+)") do
-          table.insert(segments, segment)
-        end
-
-        if count > #segments then
-          return path
-        end
-
-        local result = {}
-        for i = #segments - count + 1, #segments do
-          table.insert(result, segments[i])
-        end
-
-        return table.concat(result, "/")
-      end
-
-      ---@param tab table<string, table<string|integer>>
-      ---@param origName string
-      ---@param tp integer
-      ---@param count integer
-      function AddToTable(tab, origName, tp, count)
-        local shortName = ExtractFilename(origName, count)
-
-        if tab[shortName] == nil then
-          tab[shortName] = { origName, tp }
-        else
-          local newVal = tab[shortName]
-          tab[shortName] = nil
-          AddToTable(tab, newVal[1], newVal[2], count + 1)
-          AddToTable(tab, origName, tp, count + 1)
-        end
-      end
-
-      ---Return tab name from the `self.tabNames` table
-      ---@param tab table<string, table<string|integer>>
-      ---@param tp integer
-      ---@return string
-      function GetTabShortName(tab, tp)
-        for name, t in pairs(tab) do
-          if t[2] == tp then
-            return name
-          end
-        end
-
-        return "INVALID"
-      end
-
       local Tabpage = {
         FileFlags,
         {
@@ -450,26 +390,18 @@ return {
             ---@type table<string, table<string|integer>>
             local tabNames = {}
             for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
-              local name = vim.fn.pathshorten(
-                vim.api
-                  .nvim_buf_get_name(vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage)))
-                  :gsub(vim.loop.cwd() .. "/", ""),
-                2
-              )
+              local name = vim.api
+                .nvim_buf_get_name(vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage)))
+                :gsub(vim.loop.cwd() .. "/", "")
 
               if name == "" then
                 name = "[No Name]"
               end
               tabNames[tabpage] = name
-
-              --[[ local origName = GetTabName(tabpage)
-              AddToTable(tabNames, origName, tabpage, 1) ]]
             end
             self.tabNames = tabNames
           end,
           provider = function(self)
-            -- return " " .. GetTabShortName(self.tabNames, self.tabpage) .. " "
-
             return " " .. self.tabNames[self.tabpage] .. " "
           end,
           hl = function(self)
