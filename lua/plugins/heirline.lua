@@ -340,7 +340,7 @@ return {
 
       local SearchCount = {
         condition = function()
-          return vim.v.hlsearch ~= 0
+          return conditions.is_active() and vim.v.hlsearch ~= 0
         end,
         init = function(self)
           local search = vim.fn.searchcount()
