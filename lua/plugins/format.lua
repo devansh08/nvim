@@ -34,7 +34,7 @@ return {
       end,
       formatters = {
         shfmt = {
-          prepend_args = { "-i", "2" },
+          prepend_args = { "-i", "2", "-ln", "bash" },
         },
         stylua = {
           prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
