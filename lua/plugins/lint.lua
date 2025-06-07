@@ -5,7 +5,12 @@ return {
     lazy = true,
     event = "BufWritePre",
     config = function()
-      require("lint").linters_by_ft = {
+      local lint = require("lint")
+
+      table.insert(lint.linters.revive.args, "-config")
+      table.insert(lint.linters.revive.args, "/home/devansh/.config/.revive.toml")
+
+      lint.linters_by_ft = {
         bash = { "bash" },
         c = { "cpplint" },
         cpp = { "cpplint" },
