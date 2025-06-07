@@ -48,7 +48,7 @@ return {
         q = "close",
         o = "jump_close",
         ["<ESC>"] = "cancel",
-        ["<2-leftmouse>"] = "jump",
+        ["<CR>"] = "jump",
         ["<C-x>"] = "jump_split",
         ["<C-v>"] = "jump_vsplit",
         ["}"] = "next",
@@ -92,15 +92,6 @@ return {
             })
           end,
           desc = "Toggle Severity Filter",
-        },
-        ["<CR>"] = {
-          action = function(_, ctx)
-            local c = ctx
-            if c and c.item then
-              vim.cmd(":e " .. c.item.filename)
-            end
-          end,
-          desc = "Toggle Current Buffer Filter",
         },
       },
       modes = {
