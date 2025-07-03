@@ -230,8 +230,6 @@ return {
   {
     "mbbill/undotree",
     branch = "master",
-    lazy = true,
-    cmd = "UndoTreeToggle",
     config = function()
       vim.g.undotree_WindowLayout = 3
       vim.g.undotree_ShortIndicators = 1
