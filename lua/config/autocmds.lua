@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     local keymaps = {
       -- Displays hover information about the symbol under the cursor
-      ["<leader>lh"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: Show Hover Info" },
+      ["<leader>lk"] = { "<cmd>lua vim.lsp.buf.hover()<cr>", "LSP: Show Hover Info" },
 
       -- Displays a function's signature information
       ["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "LSP: Show Signature Info" },

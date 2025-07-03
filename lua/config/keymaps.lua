@@ -83,7 +83,7 @@ local leader_keymaps = {
     "Telescope: List LSP Definitions",
   },
   ["<leader>fs"] = { ":Telescope lsp_document_symbols<CR>", "Telescope: List LSP Document Symbols" },
-  ["<leader>fw"] = { ":Telescope lsp_workspace_symbols<CR>", "Telescope: List LSP Workspace Symbols" },
+  ["<leader>fw"] = { ":Telescope lsp_dynamic_workspace_symbols<CR>", "Telescope: List LSP Workspace Symbols" },
   ["<leader>ft"] = { ":TodoTelescope<CR>", "Telescope: List Todo Comments" },
 
   ["<leader>xx"] = { ":Trouble diagnostics toggle<CR>", "Trouble: Toggle Diagnostics" },
@@ -166,6 +166,9 @@ local visual_leader_keymaps = {
     end),
     "Telescope: Grep Selected Text in Project",
   },
+
+  ["<leader><Left>"] = { "^", "Jump to Start of Line" },
+  ["<leader><Right>"] = { "$", "Jump to End of Line" },
 }
 
 local normal_keymaps = {
@@ -239,12 +242,14 @@ local normal_keymaps = {
   ["<A-.>"] = { ":lua require('dap').step_into()<CR>", "DAP: Step Into" },
   ["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 
-  ["<A-w>"] = { "<C-w>w", "Go to Next Window" },
+  ["<A-w>"] = { ":FocusFloating<CR>", "Focus Floating Window" },
 
   ["gb"] = { "<C-^>", "Jump to Alternate Buffer" },
   ["gf"] = { ":GotoLine<CR>", "Goto Line and Column" },
 
   ["<F1>"] = { "<Nop>", "Disable Help" },
+
+  ["M"] = { "%", "Jump to Bracket Pair" },
 }
 
 local normal_expr_keymaps = {
