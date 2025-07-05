@@ -16,7 +16,7 @@ return {
             package_pending = "➜",
             package_uninstalled = "✗",
           },
-          border = "rounded",
+          border = "single",
           width = 0.8,
           height = 0.8,
         },
@@ -116,7 +116,7 @@ return {
         underline = true,
         severity_sort = true,
         float = {
-          border = "rounded",
+          border = "single",
           scope = "line",
           source = true,
         },
@@ -246,7 +246,7 @@ return {
           window = {
             normal_hl = "Comment",
             winblend = 0,
-            border = "none",
+            border = "single",
             zindex = 45,
             max_width = 0,
             max_height = 0,

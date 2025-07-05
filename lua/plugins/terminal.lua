@@ -14,7 +14,7 @@ return {
       hide_numbers = true,
       direction = "float",
       float_opts = {
-        border = "rounded",
+        border = "single",
         width = function()
           return math.floor(vim.o.columns * 0.9)
         end,

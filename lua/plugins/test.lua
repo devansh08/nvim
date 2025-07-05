@@ -35,7 +35,7 @@ return {
           enabled = true,
         },
         floating = {
-          border = "rounded",
+          border = "single",
           max_height = 0.6,
           max_width = 0.6,
           options = {},

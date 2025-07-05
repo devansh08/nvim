@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd("User", {
     vim.api.nvim_create_autocmd("WinLeave", {
       once = true,
       callback = function()
-        vim.opt_local.winborder = "rounded"
+        vim.opt_local.winborder = "single"
       end,
     })
   end,

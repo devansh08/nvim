@@ -26,7 +26,7 @@ require("lazy").setup({
     { import = "plugins.dap-extensions" },
   },
   ui = {
-    border = "rounded",
+    border = "single",
   },
   change_detection = {
     notify = false,

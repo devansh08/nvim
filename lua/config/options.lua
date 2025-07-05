@@ -48,7 +48,7 @@ local options = {
 
   showtabline = 0,
 
-  winborder = "rounded",
+  winborder = "single",
 }
 
 for k, v in pairs(options) do

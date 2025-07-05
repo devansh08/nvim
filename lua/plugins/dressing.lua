@@ -11,7 +11,7 @@ return {
           default_prompt = "Input:",
           title_pos = "left",
           start_in_insert = true,
-          border = "rounded",
+          border = "single",
           relative = "cursor",
           prefer_width = 40,
           width = 40,
@@ -45,7 +45,7 @@ return {
           telescope = require("telescope.themes").get_dropdown(),
           builtin = {
             show_numbers = true,
-            border = "rounded",
+            border = "single",
             relative = "editor",
             buf_options = {},
             win_options = {
