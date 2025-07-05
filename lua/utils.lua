@@ -170,4 +170,12 @@ function M.split(str, delim)
   return splits
 end
 
+---Create highlight group
+---@param group string
+---@param fg string
+---@param bg string
+function M.highlight(group, fg, bg)
+  vim.cmd("highlight " .. group .. " guifg=" .. fg .. " guibg=" .. bg)
+end
+
 return M

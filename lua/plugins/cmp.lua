@@ -5,23 +5,12 @@ return {
     lazy = true,
   },
   {
-    "saadparwaiz1/cmp_luasnip",
-    branch = "master",
-    lazy = true,
-  },
-  {
     "L3MON4D3/LuaSnip",
     version = "*",
     lazy = true,
     build = "make install_jsregexp",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-      "saadparwaiz1/cmp_luasnip",
-    },
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
-      })
+      -- Lua snippets example: https://github.com/L3MON4D3/LuaSnip/blob/master/Examples/snippets.lua#L190
       require("luasnip.loaders.from_lua").lazy_load({
         paths = require("constants").NVIM_CONFIG .. "/snippets",
       })
@@ -33,139 +22,249 @@ return {
     lazy = true,
   },
   {
-    "hrsh7th/cmp-buffer",
-    branch = "main",
-    lazy = true,
-  },
-  {
-    "hrsh7th/cmp-path",
-    branch = "main",
-    lazy = true,
-  },
-  {
-    "hrsh7th/cmp-nvim-lua",
-    branch = "main",
-    lazy = true,
-  },
-  {
-    "hrsh7th/cmp-nvim-lsp",
-    branch = "main",
-    lazy = true,
-  },
-  {
-    "hrsh7th/nvim-cmp",
-    branch = "main",
+    "saghen/blink.cmp",
+    version = "*",
     lazy = true,
     event = "VeryLazy",
     dependencies = {
+      "rafamadriz/friendly-snippets",
       "L3MON4D3/LuaSnip",
       "onsails/lspkind.nvim",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-nvim-lsp",
-      "windwp/nvim-autopairs",
     },
+    -- https://cmp.saghen.dev/configuration/reference.html
     config = function()
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
-      local lspkind = require("lspkind")
-
-      local file_exists_in_root = require("utils").file_exists_in_root
-
-      local autocomplete_file_check_list = {
-        "pubspec.yaml",
-        "pubspec.yml",
-      }
-
-      cmp.setup({
-        completion = ((vim.g.enable_auto_completion or file_exists_in_root(autocomplete_file_check_list)) and {} or {
-          autocomplete = false,
-        }),
-        preselect = cmp.PreselectMode.None,
-        snippet = {
-          expand = function(args)
-            -- Use LuaSnip as Snippet Engine for nvim-cmp
-            luasnip.lsp_expand(args.body)
-          end,
+      local utils = require("utils")
+      local mocha = require("catppuccin.palettes").get_palette("mocha")
+      utils.highlight("BlinkCmpMenu", mocha["text"], mocha["base"])
+      utils.highlight("BlinkCmpMenuBorder", mocha["blue"], mocha["base"])
+      utils.highlight("BlinkCmpDoc", mocha["text"], mocha["base"])
+      utils.highlight("BlinkCmpDocBorder", mocha["blue"], mocha["base"])
+      utils.highlight("BlinkCmpDocSeparator", mocha["blue"], mocha["base"])
+      utils.highlight("BlinkCmpSignatureHelp", mocha["text"], mocha["base"])
+      utils.highlight("BlinkCmpSignatureHelpBorder", mocha["blue"], mocha["base"])
+      utils.highlight("BlinkCmpSignatureHelpActiveParameter", mocha["text"], mocha["overlay0"])
+      require("blink.cmp").setup({
+        enabled = function()
+          return true
+        end,
+        keymap = {
+          preset = "none",
+          ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+          ["<C-c>"] = { "cancel", "fallback" },
+          ["<Esc>"] = { "cancel", "fallback" },
+          ["<CR>"] = { "select_and_accept", "fallback" },
+          ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+          ["<S-Tab>"] = { "snippet_backward", "fallback" },
+          ["<Up>"] = { "select_prev", "fallback" },
+          ["<Down>"] = { "select_next", "fallback" },
+          ["<Right>"] = { "select_and_accept", "fallback" },
+          ["<C-S-Up>"] = {
+            function(cmp)
+              cmp.scroll_documentation_up(3)
+            end,
+            "fallback",
+          },
+          ["<C-S-Down>"] = {
+            function(cmp)
+              cmp.scroll_documentation_down(3)
+            end,
+            "fallback",
+          },
+          ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
         },
-        mapping = {
-          ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-          ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-          ["<C-Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select, count = 5 }),
-          ["<C-Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select, count = 5 }),
-          ["<S-Up>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-          ["<S-Down>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-
-          -- Open completion menu
-          ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "s" }),
-          ["<Esc>"] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-          }),
-
-          ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-          }),
-
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              if #cmp.get_entries() == 1 then
-                cmp.confirm({ select = true })
-              else
-                cmp.select_next_item()
-              end
-            elseif luasnip.expandable() then
-              luasnip.expand()
-            elseif luasnip.jumpable(1) then
-              luasnip.jump(1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            end
-            if luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+        appearance = {
+          nerd_font_variant = "mono",
         },
-        sources = {
-          { name = "neorg" },
-          { name = "nvim_lsp" },
-          { name = "nvim_lua" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
-          { name = "nvim_lsp_signature_help" },
-          {
-            name = "lazydev",
-            group_index = 0,
+        completion = {
+          keyword = {
+            range = "prefix",
+          },
+          trigger = {
+            show_on_backspace = false,
+            show_on_backspace_in_keyword = false,
+            show_on_backspace_after_accept = true,
+            show_on_backspace_after_insert_enter = true,
+            show_on_trigger_character = true,
+            show_on_insert_on_trigger_character = true,
+            show_on_blocked_trigger_characters = {
+              " ",
+              "\n",
+              "\t",
+            },
+            show_on_x_blocked_trigger_characters = {
+              "'",
+              '"',
+              "(",
+            },
+          },
+          list = {
+            selection = {
+              preselect = false,
+              auto_insert = true,
+            },
+            cycle = {
+              from_bottom = true,
+              from_top = true,
+            },
+          },
+          menu = {
+            enabled = true,
+            min_width = 15,
+            max_height = 12,
+            border = "single",
+            winblend = 0,
+            scrolloff = 2,
+            scrollbar = true,
+            direction_priority = { "s", "n" },
+            auto_show = false,
+            draw = {
+              align_to = "label",
+              padding = 1,
+              gap = 1,
+              columns = {
+                { "kind_icon" },
+                { "label" },
+                { "source_name" },
+              },
+              components = {
+                kind_icon = {
+                  text = function(ctx)
+                    local icon = ctx.kind_icon
+                    if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                      local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                      if dev_icon then
+                        icon = dev_icon
+                      end
+                    else
+                      icon = require("lspkind").symbolic(ctx.kind, {
+                        mode = "symbol",
+                      })
+                    end
+                    return icon .. ctx.icon_gap
+                  end,
+                  highlight = function(ctx)
+                    local hl = ctx.kind_hl
+                    if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                      local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                      if dev_icon then
+                        hl = dev_hl
+                      end
+                    end
+                    return hl
+                  end,
+                },
+              },
+            },
+          },
+          documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 250,
+            treesitter_highlighting = true,
+            window = {
+              min_width = 10,
+              max_width = 80,
+              max_height = 20,
+              border = "single",
+              scrollbar = true,
+              direction_priority = {
+                menu_north = { "e", "w", "n", "s" },
+                menu_south = { "e", "w", "s", "n" },
+              },
+            },
+          },
+          ghost_text = {
+            enabled = GetIcon,
+          },
+          accept = {
+            dot_repeat = true,
+            create_undo_point = true,
+            resolve_timeout_ms = 100,
+            auto_brackets = {
+              enabled = true,
+              default_brackets = { "(", ")" },
+              kind_resolution = {
+                enabled = true,
+                blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
+              },
+              semantic_token_resolution = {
+                enabled = true,
+                blocked_filetypes = { "java" },
+                timeout_ms = 250,
+              },
+            },
           },
         },
-        formatting = {
-          fields = { "kind", "abbr", "menu" },
-          format = lspkind.cmp_format({
-            mode = "symbol",
-            menu = {
-              nvim_lsp = "[LSP]",
-              nvim_lua = "[NeoVim Lua]",
-              buffer = "[Buffer]",
-              path = "[Path]",
-              luasnip = "[LuaSnip]",
-              nvim_lsp_signature_help = "[Signature]",
-              neorg = "[Neorg]",
-            },
-          }),
+        sources = {
+          default = {
+            "lsp",
+            "path",
+            "snippets",
+            "buffer",
+          },
         },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+        snippets = {
+          preset = "luasnip",
+        },
+        fuzzy = {
+          implementation = "prefer_rust_with_warning",
+          use_frecency = true,
+          use_proximity = true,
+          sorts = {
+            "score",
+            "sort_text",
+          },
+        },
+        signature = {
+          enabled = true,
+          trigger = {
+            enabled = true,
+            show_on_keyword = false,
+            show_on_trigger_character = true,
+            show_on_insert = false,
+            show_on_insert_on_trigger_character = true,
+          },
+          window = {
+            min_width = 1,
+            max_width = 100,
+            max_height = 10,
+            border = "single",
+            scrollbar = false,
+            direction_priority = { "n", "s" },
+            treesitter_highlighting = true,
+            show_documentation = false,
+          },
+        },
+        cmdline = {
+          enabled = true,
+          sources = {
+            "cmdline",
+          },
+          keymap = {
+            ["<Tab>"] = { "show_and_insert", "select_next" },
+            ["<S-Tab>"] = { "show_and_insert", "select_prev" },
+            ["<Space>"] = { "hide", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<Up>"] = { "select_prev", "fallback" },
+            ["<CR>"] = { "select_and_accept", "fallback" },
+            ["<C-c>"] = { "cancel", "fallback" },
+          },
+          completion = {
+            list = {
+              selection = {
+                preselect = true,
+                auto_insert = true,
+              },
+            },
+            menu = {
+              auto_show = false,
+            },
+            ghost_text = {
+              enabled = false,
+            },
+          },
+        },
+        term = {
+          enabled = false,
         },
       })
     end,

@@ -127,8 +127,6 @@ return {
         },
       })
 
-      vim.lsp.config("*", { capabilities = vim.lsp.protocol.make_client_capabilities() })
-
       local lsp_servers = {
         "bashls",
         "cssls",
@@ -142,7 +140,11 @@ return {
       }
 
       vim.lsp.config("*", {
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        capabilities = vim.tbl_deep_extend(
+          "force",
+          vim.lsp.protocol.make_client_capabilities(),
+          require("blink.cmp").get_lsp_capabilities({}, false)
+        ),
       })
 
       local lsp_settings_dir = constants.NVIM_CONFIG .. "/lua/lsp/settings/"
