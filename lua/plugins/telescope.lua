@@ -54,7 +54,7 @@ return {
         defaults = {
           layout_strategy = "horizontal",
           layout_config = {
-            scroll_speed = 1,
+            scroll_speed = 5,
             horizontal = {
               height = 0.8,
               width = 0.9,
