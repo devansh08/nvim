@@ -43,6 +43,7 @@ return {
       utils.highlight("BlinkCmpSignatureHelp", mocha["text"], mocha["base"])
       utils.highlight("BlinkCmpSignatureHelpBorder", mocha["blue"], mocha["base"])
       utils.highlight("BlinkCmpSignatureHelpActiveParameter", mocha["text"], mocha["overlay0"])
+
       require("blink.cmp").setup({
         enabled = function()
           return true
@@ -70,7 +71,6 @@ return {
             end,
             "fallback",
           },
-          ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
         },
         appearance = {
           nerd_font_variant = "mono",
@@ -100,7 +100,7 @@ return {
           list = {
             selection = {
               preselect = false,
-              auto_insert = true,
+              auto_insert = false,
             },
             cycle = {
               from_bottom = true,
@@ -245,7 +245,7 @@ return {
             ["<Space>"] = { "hide", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
-            ["<CR>"] = { "select_and_accept", "fallback" },
+            ["<CR>"] = { "select_accept_and_enter", "fallback" },
             ["<C-c>"] = { "cancel", "fallback" },
           },
           completion = {
