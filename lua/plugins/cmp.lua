@@ -242,7 +242,7 @@ return {
           keymap = {
             ["<Tab>"] = { "show_and_insert", "select_next" },
             ["<S-Tab>"] = { "show_and_insert", "select_prev" },
-            ["<Space>"] = { "hide", "fallback" },
+            ["<Space>"] = { "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
             ["<CR>"] = { "select_accept_and_enter", "fallback" },
