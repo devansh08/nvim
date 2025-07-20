@@ -250,6 +250,9 @@ local normal_keymaps = {
   ["<F1>"] = { "<Nop>", "Disable Help" },
 
   ["M"] = { "%", "Jump to Bracket Pair" },
+
+  ["<C-b>"] = { ":BloatCreate<CR>", "Bloat: Create Scratch Buffer" },
+  ["<C-t>"] = { ":BloatToggle<CR>", "Bloat: Toggle Floating Buffer" },
 }
 
 local normal_expr_keymaps = {
