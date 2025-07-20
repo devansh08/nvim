@@ -40,6 +40,7 @@ return {
         ["debugpy"] = { { "python", "pip" } },
         ["dockerfile-language-server"] = { { "docker" }, { "pulumi" } },
         ["eslint_d"] = { { "node", "npm" }, { "bun" } },
+        ["fish-lsp"] = { { "fish" } },
         ["google-java-format"] = { { "java" } },
         ["gopls"] = { { "go" } },
         ["html-lsp"] = {},
