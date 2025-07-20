@@ -402,7 +402,6 @@ return {
   {
     "devansh08/goto-line.nvim",
     branch = "main",
-    ---@type GotoLineOpts
     opts = {
       open_cmd = "drop",
       pre_jump = function()
@@ -415,7 +414,6 @@ return {
   {
     "devansh08/marksman.nvim",
     branch = "main",
-    ---@type MarksmanOpts
     opts = {
       goto_cmd = "drop",
     },
