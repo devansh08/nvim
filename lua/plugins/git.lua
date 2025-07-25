@@ -13,7 +13,7 @@ return {
         changedelete = { text = "~", show_count = true },
         untracked = { text = "┆" },
       },
-      _signs_staged_enable = true,
+      signs_staged_enable = true,
       signcolumn = true,
       numhl = false,
       linehl = false,
@@ -59,9 +59,6 @@ return {
         relative = "cursor",
         row = 0,
         col = 1,
-      },
-      yadm = {
-        enable = false,
       },
     },
   },
