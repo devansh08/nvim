@@ -215,7 +215,7 @@ local normal_keymaps = {
   ["cT"] = { '""cT', "Change Back Till without Copy" },
   ["cF"] = { '""cF', "Change Back Till (Inclusive) without Copy" },
 
-  ["<C-_>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
+  ["<C-/>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" },
 
   ["<C-F>"] = { ":MarksmanPrev<CR>", "Marksman: Jump to Previous Mark" },
   ["<C-G>"] = { ":MarksmanNext<CR>", "Marksman: Jump to Next Mark" },
@@ -277,10 +277,10 @@ local visual_keymaps = {
 
   ["p"] = { '"_dP', "Paste without Copy on Selected Text" },
 
-  ["<C-_>"] = {
+  ["<C-/>"] = {
     ":lua require('Comment.api').toggle.blockwise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
     "Comment Selected Lines",
-  }, -- <C-_> maps to Ctrl+ForwardSlash
+  },
 
   ["<A-S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
   ["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
