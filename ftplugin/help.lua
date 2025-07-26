@@ -8,5 +8,3 @@ local keymaps = {
 }
 
 set_keymaps("n", keymaps, cmd_opts, true)
-
-vim.opt.scrolloff = 2
