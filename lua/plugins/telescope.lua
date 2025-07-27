@@ -1,11 +1,5 @@
 return {
   {
-    "nvim-telescope/telescope-dap.nvim",
-    branch = "master",
-    lazy = true,
-    cmd = { "DapContinue", "DapNew", "DapToggleBreakpoint" },
-  },
-  {
     "nvim-telescope/telescope-fzf-native.nvim",
     branch = "main",
     build = "make",
@@ -14,7 +8,6 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "master",
     dependencies = {
-      "nvim-telescope/telescope-dap.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
     },
     config = function()
@@ -138,7 +131,6 @@ return {
       })
 
       telescope.load_extension("refactoring")
-      telescope.load_extension("dap")
       telescope.load_extension("fzf")
     end,
   },
