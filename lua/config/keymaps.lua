@@ -21,7 +21,6 @@ vim.g.mapleader = " "
 
 local leader_keymaps = {
   ["<leader><Esc>"] = { ":noh<CR>:lua vim.lsp.buf.clear_references()<CR>", "Remove Highlights" },
-  ["<leader>k"] = { ":tabclose<CR>", "Close Tab/Buffer" },
 
   ["<leader><Left>"] = { "^", "Jump to Start of Line" },
   ["<leader><Right>"] = { "$", "Jump to End of Line" },
@@ -35,11 +34,7 @@ local leader_keymaps = {
 
   ["<leader>mm"] = { ":Mason<CR>", "Mason: Open" },
 
-  ["<leader>lss"] = { ":LspStart<CR>", "LSP: Start Server" },
-
   ["<leader>gp"] = { ":Gitsigns preview_hunk<CR>", "Gitsigns: Preview Hunk" },
-  ["<leader>ga"] = { ":Gitsigns stage_hunk<CR>", "Gitsigns: Stage Hunk" },
-  ["<leader>gu"] = { ":Gitsigns undo_stage_hunk<cr>", "Gitsigns: Undo Stage Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
   ["<leader>gf"] = { ":Telescope git_status<CR>", "Telescope(Git): Open Git Status" },
   ["<leader>gl"] = { ":Telescope git_commits<CR>", "Telescope(Git): Open Git Log" },
@@ -49,10 +44,6 @@ local leader_keymaps = {
     "Terminal(Git): Open LazyGit",
   },
 
-  ["<leader>co"] = { ":GitConflictChooseOurs<CR>", "GitConflict: Choose Current (Ours) Changes" },
-  ["<leader>ct"] = { ":GitConflictChooseTheirs<CR>", "GitConflict: Choose Incoming (Theirs) Changes" },
-  ["<leader>cb"] = { ":GitConflictChooseBoth<CR>", "GitConflict: Choose Both Changes" },
-  ["<leader>cn"] = { ":GitConflictChooseNone<CR>", "GitConflict: Choose None of the Changes" },
   ["<leader>cq"] = { ":GitConflictListQf<CR>", "GitConflict: Send Conflicts to QuickFix List" },
   ["<leader>c<Up>"] = { ":GitConflictPrevConflict<CR>", "GitConflict: Jump to Previous Conflict" },
   ["<leader>c<Down>"] = { ":GitConflictNextConflict<CR>", "GitConflict: Jump to Next Conflict" },
@@ -68,7 +59,6 @@ local leader_keymaps = {
   ["<leader>t1"] = { ":1ToggleTerm direction=float<CR>", "Terminal: Open Terminal 1 (Floating)" },
   ["<leader>t2"] = { ":2ToggleTerm direction=float<CR>", "Terminal: Open Terminal 2 (Floating)" },
   ["<leader>t3"] = { ":3ToggleTerm direction=float<CR>", "Terminal: Open Terminal 3 (Floating)" },
-  ["<leader>th"] = { ":4ToggleTerm direction=horizontal<CR>", "Terminal: Open Terminal 4 (Horizontal)" },
 
   ["<leader>fr"] = {
     ":lua require('marksman').runCmdAndMark('Telescope lsp_references', true, false)<CR>",
@@ -87,8 +77,6 @@ local leader_keymaps = {
   ["<leader>ft"] = { ":TodoTelescope<CR>", "Telescope: List Todo Comments" },
 
   ["<leader>xx"] = { ":Trouble diagnostics toggle<CR>", "Trouble: Toggle Diagnostics" },
-  ["<leader>xo"] = { ":Trouble diagnostics open<CR>", "Trouble: Open Diagnostics" },
-  ["<leader>xc"] = { ":Trouble diagnostics close<CR>", "Trouble: Close Diagnostics" },
   ["<leader>xb"] = { ":Trouble diagnostics toggle filter.buf=0<CR>", "Trouble: Toggle Diagnostics for Buffer" },
   ["<leader>xs"] = { ":Trouble symbols toggle<CR>", "Trouble: Toggle Symbols" },
 
@@ -97,35 +85,16 @@ local leader_keymaps = {
     "Refactoring: List Refactoring Actions",
   },
 
-  ["<leader>dd"] = { ":lua require('dap').continue({ new = true })<CR>", "DAP: Start New Debug Session" },
-  ["<leader>dr"] = { ":lua require('dap').restart()<CR>", "DAP: Restart Debug Session" },
-  ["<leader>ds"] = { ":lua require('dap').terminate()<CR>", "DAP: Terminate Debug Session" },
-  ["<leader>dc"] = { ":lua require('dap').clear_breakpoints()<CR>", "DAP: Clear Breakpoints" },
-  ["<leader>dl"] = { ":lua require('dap').run_to_cursor()<CR>", "DAP: Run till Current Line" },
-  ["<leader>db"] = { ":lua require('dap').toggle_breakpoint()<CR>", "DAP: Toggle Breakpoint" },
-  ["<leader>dv"] = { ":DapVirtualTextToggle<CR>", "DAP: Toggle Virtual Text" },
-
-  ["<leader>dtc"] = { ":Telescope dap commands<CR>", "DAP: Telescope - List Commands" },
-  ["<leader>dtC"] = { ":Telescope dap configurations<CR>", "DAP: Telescope - List Configurations" },
-  ["<leader>dtv"] = { ":Telescope dap variables<CR>", "DAP: Telescope - List Variables" },
-  ["<leader>dtb"] = { ":Telescope dap list_breakpoints<CR>", "DAP: Telescope - List Breakpoints" },
-  ["<leader>dtf"] = { ":Telescope dap frames<CR>", "DAP: Telescope - List Frames" },
-
-  ["<leader>ss"] = { ":SessionSave<CR>", "AutoSession: Save Session" },
-  ["<leader>sl"] = { ":SessionRestore<CR>", "AutoSession: Load Session" },
   ["<leader>sd"] = { ":SessionDelete<CR>", "AutoSession: Delete Session" },
-  ["<leader>st"] = { ":Telescope session-lens<CR>", "AutoSession: List Sessions using Telescope" },
 
   ["<leader>uu"] = { ":UndotreeToggle<CR>", "Undotree: Toggle Undotree" },
 
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
 
-  ["<leader>nn"] = { ":lua require('neotest').run.run()<CR>", "NeoTest: Run Current Test" },
-  ["<leader>nf"] = { ":lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "NeoTest: Run Current File" },
+  ["<leader>bb"] = { ":BloatInit<CR>", "Bloat: Initialize Buffers" },
 }
 
 local visual_leader_keymaps = {
-  ["<leader>ga"] = { ":Gitsigns stage_hunk vim.fn.line('.') vim.fn.line('v')<CR>", "Gitsigns: Stage Selected Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk vim.fn.line('.') vim.fn.line('v')<CR>", "Gitsigns: Reset Selected Hunk" },
   ["<leader>gbl"] = {
     ":lua require('telescope.builtin').git_bcommits_range({ from = vim.fn.line('.'), to = vim.fn.line('v') })<CR>",
@@ -136,27 +105,11 @@ local visual_leader_keymaps = {
     ":lua require('jdtls').organize_imports()<CR>",
     "JDTLS(Java): Organize Imports in Selected Code",
   },
-  ["<leader>jv"] = {
-    ":lua require('jdtls').extract_variable()<CR>",
-    "JDTLS(Java): Extract Selected Code to Variable",
-  },
-  ["<leader>jc"] = {
-    ":lua require('jdtls').extract_constant()<CR>",
-    "JDTLS(Java): Extract Selected Code to Constant",
-  },
-  ["<leader>jm"] = {
-    ":lua require('jdtls').extract_method()<CR>",
-    "JDTLS(Java): Extract Selected Code to Method/Function",
-  },
 
   ["<leader>rr"] = {
     ":lua require('telescope').extensions.refactoring.refactors()<CR>",
     "Refactoring: List Refactoring Actions for Selected Code",
   },
-  ["<leader>re"] = { ":Refactor extract<CR>", "Refactoring: Extract Selected Code" },
-  ["<leader>rf"] = { ":Refactor extract_to_file<CR>", "Refactoring: Extract Selected Code to File" },
-  ["<leader>rv"] = { ":Refactor extract_var<CR>", "Refactoring: Extract Selected Code to Variable" },
-  ["<leader>ri"] = { ":Refactor inline_var<CR>", "Refactoring: Extract Selected Code to Inline Variable" },
 
   ["<leader>fg"] = {
     lua_fn(function()
@@ -170,9 +123,6 @@ local visual_leader_keymaps = {
 }
 
 local normal_keymaps = {
-  ["<C-S-A-Up>"] = { ":tabmove -1<CR>", "Move Tab to Left" },
-  ["<C-S-A-Down>"] = { ":tabmove +1<CR>", "Move Tab to Right" },
-
   ["<C-Left>"] = { LEFT_JUMP, "Jump Left by Word" },
   ["<C-Right>"] = { RIGHT_JUMP, "Jump Right by Word" },
   ["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
@@ -217,10 +167,10 @@ local normal_keymaps = {
 
   ["<C-/>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" },
 
-  ["<C-F>"] = { ":MarksmanPrev<CR>", "Marksman: Jump to Previous Mark" },
+  --[[ ["<C-F>"] = { ":MarksmanPrev<CR>", "Marksman: Jump to Previous Mark" },
   ["<C-G>"] = { ":MarksmanNext<CR>", "Marksman: Jump to Next Mark" },
   ["<C-M>"] = { ":MarksmanAdd<CR>", "Marksman: Add to Marks List" },
-  ["<C-S-M>"] = { ":MarksmanRemoveTop<CR>", "Marksman: Add to Marks List" },
+  ["<C-S-M>"] = { ":MarksmanRemoveTop<CR>", "Marksman: Add to Marks List" }, ]]
 
   ["<Tab>"] = { ">>", "Indent Current Line to Right" },
   ["<S-Tab>"] = { "<<", "Indent Current Line to Left" },
@@ -228,17 +178,10 @@ local normal_keymaps = {
   ["<A-S-Up>"] = { ":m .-2<CR>==", "Move Current Line Up" },
   ["<A-S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
 
-  ["<C-p>"] = { "o<Esc>p==", "Paste in Next Line" },
-
   ["<C-S-Left>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Width by " .. SPLIT_RESIZE },
   ["<C-S-Right>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
   ["<C-S-Down>"] = { ":resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Height by " .. SPLIT_RESIZE },
   ["<C-S-Up>"] = { ":resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Height by " .. SPLIT_RESIZE },
-
-  ["<A-n>"] = { ":lua require('dap').continue()<CR>", "DAP: Continue Execution" },
-  ["<A-m>"] = { ":lua require('dap').step_over()<CR>", "DAP: Step Over" },
-  ["<A-.>"] = { ":lua require('dap').step_into()<CR>", "DAP: Step Into" },
-  ["<A-,>"] = { ":lua require('dap').step_out()<CR>", "DAP: Step Out" },
 
   ["<A-w>"] = { ":FocusFloating<CR>", "Focus Floating Window" },
 
@@ -286,25 +229,18 @@ local visual_keymaps = {
   ["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
 
   ["<C-R>"] = { '"hy<Esc>:%s/<C-r>h//gc<Left><Left><Left>', "" },
-
-  ["w"] = { "e", "Jump to End of Word" },
 }
 
 local insert_keymaps = {
   ["<C-C>"] = { "<C-w>", "Delete Word by Left" },
-  ["<C-Del>"] = { "<C-o>de", "Delete Word by Right" },
-
-  ["<C-z>"] = { "<Esc>ui", "Undo Changes" },
 
   ["<C-Up>"] = { "<Esc>" .. LINE_JUMP .. "ki", "Jump " .. LINE_JUMP .. " Lines Up" },
   ["<C-Down>"] = { "<Esc>" .. LINE_JUMP .. "ji", "Jump " .. LINE_JUMP .. " Lines Down" },
 
-  ["<C-_>"] = { "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", "Comment Current Line" }, -- <C-_> maps to Ctrl+ForwardSlash
+  ["<C-/>"] = { "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", "Comment Current Line" },
 
   ["<A-S-Up>"] = { "<Esc>:m .-2<CR>==gi", "Move Current Line Up" },
   ["<A-S-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move Current Line Down" },
-
-  ["<A-w>"] = { "<C-w>p", "Go to Next Window" },
 }
 
 local cmd_keymaps = {
