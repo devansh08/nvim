@@ -65,7 +65,7 @@ return {
         keymap("<2-RightMouse>", api.tree.change_root_to_node, opts("Tree: Change Root Directory to Current Node"))
         keymap("<BS>", api.node.navigate.parent_close, opts("Tree: Close Directory"))
 
-        keymap("<C-t>", api.node.open.edit, opts("Tree: Open in New Tab"))
+        keymap("<C-t>", api.node.open.tab, opts("Tree: Open in New Tab"))
         keymap("<CR>", api.node.open.edit, opts("Tree: Open in Current Buffer"))
         keymap("<C-v>", api.node.open.vertical, opts("Tree: Open in Vertical Split"))
         keymap("<C-x>", api.node.open.horizontal, opts("Tree: Open in Horizontal Split"))
@@ -212,7 +212,7 @@ return {
       tab = {
         sync = {
           open = true,
-          close = false,
+          close = true,
         },
       },
       notify = {
