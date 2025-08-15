@@ -28,7 +28,10 @@ local leader_keymaps = {
 
   ["<leader>e"] = { ":NvimTreeToggle<CR>", "NvimTree: Toggle" },
 
-  ["<leader>qq"] = { ":qa<CR>", "Quit All" },
+  ["<leader>qq"] = {
+    ":lua local b = vim.fn.bufnr('kulala://ui'); if b ~= -1 then vim.api.nvim_buf_delete(b, { force=true }) end; vim.cmd('qa')<CR>",
+    "Quit All",
+  },
   ["<leader>ww"] = { ":lua vim.g.disable_autoformat = true<CR>:w<CR>", "Save without Formatting" },
 
   ["<leader>ll"] = { ":Lazy<CR>", "Lazy: Open" },
