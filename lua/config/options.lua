@@ -49,6 +49,8 @@ local options = {
   showtabline = 0,
 
   winborder = "single",
+
+  swapfile = false,
 }
 
 for k, v in pairs(options) do
