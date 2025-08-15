@@ -30,6 +30,7 @@ return {
         static = {
           modes = {
             n = { str = "NORMAL", fgColor = "base", bgColor = "blue" },
+            no = { str = "O-PNDG", fgColor = "base", bgColor = "blue" },
             v = { str = "VISUAL", fgColor = "base", bgColor = "yellow" },
             V = { str = "V-LINE", fgColor = "base", bgColor = "yellow" },
             ["\22"] = { str = "V-BLCK", fgColor = "base", bgColor = "yellow" },
