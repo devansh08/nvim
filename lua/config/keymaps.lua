@@ -10,6 +10,7 @@ local set_keymaps = utils.set_keymaps
 
 local constants = require("constants")
 local opts = constants.OPTS
+local nowait_opts = constants.NOWAIT_OPTS
 local expr_opts = constants.EXPR_OPTS
 local cmd_opts = constants.CMD_OPTS
 local cmd_expr_opts = constants.CMD_EXPR_OPTS
@@ -196,6 +197,10 @@ local normal_keymaps = {
   ["<C-t>"] = { ":BloatToggle<CR>", "Bloat: Toggle Floating Buffer" },
 }
 
+local normal_nowait_keymaps = {
+  ["gr"] = { ":AltTab<CR>", "Disable Wait for `gr`" },
+}
+
 local normal_expr_keymaps = {
   ["<Down>"] = { "v:count ? 'j' : 'gj'", "Navigate Down in Wrapped Lines" },
   ["<Up>"] = { "v:count ? 'k' : 'gk'", "Navigate Up in Wrapped Lines" },
@@ -262,6 +267,7 @@ set_keymaps("n", leader_keymaps, opts)
 set_keymaps("v", visual_leader_keymaps, opts)
 
 set_keymaps("n", normal_keymaps, opts)
+set_keymaps("n", normal_nowait_keymaps, nowait_opts)
 set_keymaps("n", normal_expr_keymaps, expr_opts)
 set_keymaps("v", visual_keymaps, opts)
 set_keymaps("i", insert_keymaps, opts)

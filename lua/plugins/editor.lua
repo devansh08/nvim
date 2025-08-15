@@ -426,4 +426,9 @@ return {
       })
     end,
   },
+  {
+    "devansh08/alt-tab.nvim",
+    branch = "main",
+    opts = {},
+  },
 }
