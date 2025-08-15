@@ -7,7 +7,7 @@ local options = {
   signcolumn = "yes",
 
   mouse = "",
-  clipboard = "unnamedplus",
+  clipboard = "",
 
   splitbelow = true,
   splitright = true,

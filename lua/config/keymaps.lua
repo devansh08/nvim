@@ -137,37 +137,15 @@ local normal_keymaps = {
   ["<A-Up>"] = { "<C-W><C-K>", "Jump to Up Buffer" },
   ["<A-Down>"] = { "<C-W><C-J>", "Jump to Down Buffer" },
 
-  ["d"] = { '"_d', "Delete Text without Copy" },
-  ["<Del>"] = { '"_d<Right>', "Delete Text without Copy" },
+  ["y"] = { '"+y', "Copy Text to System Clipboard" },
+  ["Y"] = { '"+y$', "Copy Text to System Clipboard" },
 
-  ["dp"] = { '""p', 'Paste Deleted ("") Content' },
+  ["x"] = { '"+x', "Delete and Copy Text to System Clipboard" },
 
-  ["dd"] = { '""dd', "Delete Lines without Copy" },
-  ["dw"] = { '""dw', "Delete Lines without Copy" },
-  ["di"] = { '""di', "Delete Lines without Copy" },
-  ["da"] = { '""da', "Delete Lines without Copy" },
-  ["dt"] = { '""dt', "Delete Till without Copy" },
-  ["df"] = { '""df', "Delete Till (Inclusive) without Copy" },
-  ["dT"] = { '""dT', "Delete Back Till without Copy" },
-  ["dF"] = { '""dF', "Delete Back Till (Inclusive) without Copy" },
-
-  ["daf"] = { ':TSTextobjectSelect @function.outer<CR>""x', "" },
-  ["dif"] = { ':TSTextobjectSelect @function.inner<CR>""x', "" },
-  ["dac"] = { ':TSTextobjectSelect @class.outer<CR>""x', "" },
-  ["dic"] = { ':TSTextobjectSelect @class.inner<CR>""x', "" },
-  ["das"] = { ':TSTextobjectSelect @block.outer<CR>""x', "" },
-  ["dis"] = { ':TSTextobjectSelect @block.inner<CR>""x', "" },
-  ["dap"] = { ':TSTextobjectSelect @parameter.outer<CR>""x', "" },
-  ["dip"] = { ':TSTextobjectSelect @parameter.inner<CR>""x', "" },
-
-  ["cc"] = { '""cc', "Change Lines without Copy" },
-  ["cw"] = { '""cw', "Change Word without Copy" },
-  ["ci"] = { '""ci', "Change In without Copy" },
-  ["ca"] = { '""ca', "Change Around without Copy" },
-  ["ct"] = { '""ct', "Change Till without Copy" },
-  ["cf"] = { '""cf', "Change Till (Inclusive) without Copy" },
-  ["cT"] = { '""cT', "Change Back Till without Copy" },
-  ["cF"] = { '""cF', "Change Back Till (Inclusive) without Copy" },
+  ["dp"] = { '""p', "Paste Deleted Text from Quote Register" },
+  ["p"] = { '"+p', "Paste Text from System Clipboard" },
+  ["dP"] = { '""P', "Paste Deleted Text from Quote Register Before Cursor" },
+  ["P"] = { '"+P', "Paste Deleted Text from System Clipboard Before Cursor" },
 
   ["<C-/>"] = { ":lua require('Comment.api').toggle.linewise.current()<CR>", "Comment Current Line" },
 
@@ -218,15 +196,14 @@ local visual_keymaps = {
   ["<C-Up>"] = { LINE_JUMP .. "k", "Jump " .. LINE_JUMP .. " Lines Up" },
   ["<C-Down>"] = { LINE_JUMP .. "j", "Jump " .. LINE_JUMP .. " Lines Down" },
 
-  ["<Del>"] = { '"_d', "Delete Selected Text without Copy" },
+  ["y"] = { '"+y', "Copy Text to System Clipboard" },
+  ["Y"] = { '"+y', "Copy Text to System Clipboard" },
 
-  ["D"] = { '""D', "Delete Selected Text without Copy" },
-  ["dd"] = { '""x', "Delete Selected Text without Copy" },
+  ["dd"] = { "x", "Delete and Copy Text to System Clipboard" },
+  ["x"] = { '"+x', "Delete and Copy Text to System Clipboard" },
 
-  ["C"] = { '""C', "Change Selected Text without Copy" },
-  ["c"] = { '""c', "Change In Selected Text without Copy" },
-
-  ["p"] = { '"_dP', "Paste without Copy on Selected Text" },
+  ["dp"] = { '""p', "Paste Deleted Text from Quote Register" },
+  ["p"] = { '"+p', "Paste Deleted Text from Quote Register Before Cursor" },
 
   ["<C-/>"] = {
     ":lua require('Comment.api').toggle.blockwise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
