@@ -88,19 +88,13 @@ return {
     "windwp/nvim-ts-autotag",
     branch = "main",
     lazy = true,
-    event = "BufWritePre",
-    config = function()
-      local opts = {
-        autotag = {
-          enable = true,
-          enable_rename = true,
-          enable_close = true,
-          enable_close_on_slash = true,
-        },
-      }
-
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    ft = { "html", "xml", "typescriptreact", "javascriptreact" },
+    opts = {
+      enable_close = true,
+      enable_rename = true,
+      enable_close_on_slash = true,
+    },
+    per_filetype = {},
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
