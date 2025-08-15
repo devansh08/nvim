@@ -2,7 +2,6 @@ return {
   "mxsdev/nvim-dap-vscode-js",
   branch = "main",
   lazy = true,
-  ft = { "javascript", "typescript" },
   config = function()
     local dap = require("dap")
 

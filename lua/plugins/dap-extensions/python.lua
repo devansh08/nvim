@@ -2,7 +2,6 @@ return {
   "mfussenegger/nvim-dap-python",
   branch = "master",
   lazy = true,
-  ft = { "python" },
   config = function()
     local dap_python = require("dap-python")
 

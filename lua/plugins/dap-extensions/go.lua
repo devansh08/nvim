@@ -2,7 +2,6 @@ return {
   "leoluz/nvim-dap-go",
   branch = "main",
   lazy = true,
-  ft = { "go" },
   config = function()
     local dap_go = require("dap-go")
 
