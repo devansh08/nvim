@@ -250,6 +250,41 @@ return {
       vim.g.VM_theme = "sand"
       vim.g.VM_set_statusline = 1
       vim.g.VM_silent_exit = 1
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "visual_multi_exit",
+        callback = function()
+          local keymaps = vim.api.nvim_buf_get_keymap(0, "i")
+          for _, map in ipairs(keymaps) do
+            if map.desc == "blink.cmp" then
+              vim.keymap.del("i", map.lhs, { buffer = 0 })
+            end
+          end
+          require("blink.cmp.keymap.apply").keymap_to_current_buffer({
+            ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+            ["<C-c>"] = { "cancel", "fallback" },
+            ["<Esc>"] = { "cancel", "fallback" },
+            ["<CR>"] = { "select_and_accept", "fallback" },
+            ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+            ["<S-Tab>"] = { "snippet_backward", "fallback" },
+            ["<Up>"] = { "select_prev", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<Right>"] = { "select_and_accept", "fallback" },
+            ["<C-S-Up>"] = {
+              function(cmp)
+                cmp.scroll_documentation_up(3)
+              end,
+              "fallback",
+            },
+            ["<C-S-Down>"] = {
+              function(cmp)
+                cmp.scroll_documentation_down(3)
+              end,
+              "fallback",
+            },
+          })
+        end,
+      })
     end,
   },
   {
