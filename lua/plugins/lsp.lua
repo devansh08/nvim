@@ -84,7 +84,6 @@ return {
     "neovim/nvim-lspconfig",
     branch = "master",
     dependencies = {
-      "hrsh7th/nvim-cmp",
       "j-hui/fidget.nvim",
     },
     config = function()

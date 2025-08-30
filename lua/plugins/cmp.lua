@@ -173,7 +173,7 @@ return {
             },
           },
           ghost_text = {
-            enabled = GetIcon,
+            enabled = false,
           },
           accept = {
             dot_repeat = true,
