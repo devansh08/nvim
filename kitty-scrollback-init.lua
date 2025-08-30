@@ -11,6 +11,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
+vim.opt.swapfile = false
 
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
