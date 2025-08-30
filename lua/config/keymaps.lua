@@ -23,8 +23,8 @@ vim.g.mapleader = " "
 local leader_keymaps = {
   ["<leader><Esc>"] = { ":noh<CR>:lua vim.lsp.buf.clear_references()<CR>", "Remove Highlights" },
 
-  ["<leader><Left>"] = { "^", "Jump to Start of Line" },
-  ["<leader><Right>"] = { "$", "Jump to End of Line" },
+  ["<leader><Left>"] = { "g^", "Jump to Start of Line" },
+  ["<leader><Right>"] = { "g$", "Jump to End of Line" },
 
   ["<leader>e"] = { ":NvimTreeToggle<CR>", "NvimTree: Toggle" },
 
@@ -122,8 +122,8 @@ local visual_leader_keymaps = {
     "Telescope: Grep Selected Text in Project",
   },
 
-  ["<leader><Left>"] = { "^", "Jump to Start of Line" },
-  ["<leader><Right>"] = { "$", "Jump to End of Line" },
+  ["<leader><Left>"] = { "g^", "Jump to Start of Line" },
+  ["<leader><Right>"] = { "g$", "Jump to End of Line" },
 }
 
 local normal_keymaps = {
@@ -157,8 +157,8 @@ local normal_keymaps = {
   ["<Tab>"] = { ">>", "Indent Current Line to Right" },
   ["<S-Tab>"] = { "<<", "Indent Current Line to Left" },
 
-  ["<A-S-Up>"] = { ":m .-2<CR>==", "Move Current Line Up" },
-  ["<A-S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
+  ["<S-Up>"] = { ":m .-2<CR>==", "Move Current Line Up" },
+  ["<S-Down>"] = { ":m .+1<CR>==", "Move Current Line Down" },
 
   ["<C-S-Left>"] = { ":vertical resize -" .. SPLIT_RESIZE .. "<CR>", "Decrease Split Width by " .. SPLIT_RESIZE },
   ["<C-S-Right>"] = { ":vertical resize +" .. SPLIT_RESIZE .. "<CR>", "Increase Split Width by " .. SPLIT_RESIZE },
@@ -210,8 +210,8 @@ local visual_keymaps = {
     "Comment Selected Lines",
   },
 
-  ["<A-S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
-  ["<A-S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
+  ["<S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
+  ["<S-Down>"] = { ":m '>+1<CR><CR>gv=gv", "Move Selected Line Down" },
 
   ["<C-R>"] = { '"hy<Esc>:%s/<C-r>h//gc<Left><Left><Left>', "" },
 }
@@ -224,8 +224,8 @@ local insert_keymaps = {
 
   ["<C-/>"] = { "<Esc>:lua require('Comment.api').toggle.linewise.current()<CR>i", "Comment Current Line" },
 
-  ["<A-S-Up>"] = { "<Esc>:m .-2<CR>==gi", "Move Current Line Up" },
-  ["<A-S-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move Current Line Down" },
+  ["<S-Up>"] = { "<Esc>:m .-2<CR>==gi", "Move Current Line Up" },
+  ["<S-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move Current Line Down" },
 }
 
 local cmd_keymaps = {
