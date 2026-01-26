@@ -24,6 +24,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.api.nvim_set_keymap("t", "q", ":qa!<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "q", ":qa!<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "a", ":qa!<CR>", { noremap = true, silent = true })
@@ -40,7 +43,15 @@ vim.api.nvim_set_keymap("n", "<C-Down>", "5j", { noremap = true, silent = true }
 vim.api.nvim_set_keymap("n", "<C-Left>", "b", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-Right>", "e", { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap("n", "<leader><Left>", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader><Right>", "$", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<leader><Esc>", ":noh<CR>", { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap("v", "<C-Up>", "5k", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-Down>", "5j", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-Left>", "b", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-Right>", "e", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("v", "<leader><Left>", "^", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader><Right>", "$", { noremap = true, silent = true })
