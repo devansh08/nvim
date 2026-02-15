@@ -4,147 +4,117 @@ return {
     branch = "master",
     lazy = true,
     event = "BufReadPost",
-    config = function()
-      local opts = {
-        enable = true,
-        line_numbers = true,
-        max_lines = 2,
-        trim_scope = "outer",
-      }
-
-      require("treesitter-context").setup(opts)
-    end,
+    -- Reference: https://github.com/nvim-treesitter/nvim-treesitter-context?tab=readme-ov-file#configuration
+    opts = {
+      enable = true,
+      max_lines = 2,
+    },
   },
   {
     "hiphish/rainbow-delimiters.nvim",
     branch = "master",
     lazy = true,
     event = "BufReadPost",
-    config = function()
-      local rainbow_delimiters = require("rainbow-delimiters")
-
-      vim.g.rainbow_delimiters = {
-        strategy = {
-          [""] = rainbow_delimiters.strategy["global"],
-          vim = rainbow_delimiters.strategy["local"],
-        },
-        query = {
-          [""] = "rainbow-delimiters",
-          lua = "rainbow-blocks",
-          javascript = "rainbow-delimiters-ract",
-        },
-        highlight = {
-          "RainbowDelimiterRed",
-          "RainbowDelimiterYellow",
-          "RainbowDelimiterBlue",
-          "RainbowDelimiterOrange",
-          "RainbowDelimiterGreen",
-          "RainbowDelimiterViolet",
-          "RainbowDelimiterCyan",
-        },
-      }
-    end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    version = "*",
-    lazy = true,
-    event = "BufReadPost",
-    main = "ibl",
-    config = function()
-      local highlight = {
-        "RainbowDelimiterRed",
-        "RainbowDelimiterYellow",
-        "RainbowDelimiterBlue",
-        "RainbowDelimiterOrange",
-        "RainbowDelimiterGreen",
-        "RainbowDelimiterViolet",
-        "RainbowDelimiterCyan",
-      }
-      local hooks = require("ibl.hooks")
-
-      vim.g.rainbow_delimiters = { highlight = highlight }
-      require("ibl").setup({
-        indent = {
-          char = " ",
-        },
-        scope = {
-          enabled = true,
-          char = "│",
-          show_start = false,
-          show_end = false,
-          show_exact_scope = false,
-          highlight = highlight,
-        },
-        exclude = {
-          filetypes = { "dart" },
-        },
-      })
-
-      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-    end,
   },
   {
     "windwp/nvim-ts-autotag",
     branch = "main",
     lazy = true,
     ft = { "html", "xml", "typescriptreact", "javascriptreact" },
+    -- Reference: https://github.com/windwp/nvim-ts-autotag?tab=readme-ov-file#setup
     opts = {
       opts = {
         enable_close = true,
         enable_rename = true,
         enable_close_on_slash = true,
-      }
+      },
     },
-    per_filetype = {},
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    branch = "master",
+    branch = "main",
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
     config = function()
-      local opts = {
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-              ["as"] = "@block.outer",
-              ["is"] = "@block.inner",
-              ["ap"] = "@parameter.outer",
-              ["ip"] = "@parameter.inner",
-            },
-            include_surrounding_whitespace = true,
-          },
-          move = {
-            enable = true,
-            set_jumps = false,
-            goto_next_start = {
-              ["]f"] = "@function.outer",
-              ["]s"] = "@block.outer",
-            },
-            goto_next_end = {
-              ["]F"] = "@function.outer",
-              ["]S"] = "@block.outer",
-            },
-            goto_previous_start = {
-              ["[f"] = "@function.outer",
-              ["[s"] = "@block.outer",
-            },
-            goto_previous_end = {
-              ["[F"] = "@function.outer",
-              ["[S"] = "@block.outer",
-            },
-          },
-        },
-      }
+      local utils = require("utils")
+      local constants = require("constants")
 
-      require("nvim-treesitter.configs").setup(opts)
+      local set_keymaps = utils.set_keymaps
+      local lua_fn = utils.lua_fn
+      local opts = constants.OPTS
+
+      require("nvim-treesitter-textobjects").setup({})
+
+      -- Reference: https://github.com/nvim-treesitter/nvim-treesitter-textobjects/tree/main?tab=readme-ov-file#text-objects-select
+      ---@param mappings string[][]
+      local select_keymaps = function(mappings)
+        ---@type table<string, string[]>
+        local keymaps = {}
+
+        for _, mapping in ipairs(mappings) do
+          keymaps["i" .. mapping[1]] = {
+            lua_fn(function()
+              require("nvim-treesitter-textobjects.select").select_textobject(
+                "@" .. mapping[2] .. ".inner",
+                "textobjects"
+              )
+            end),
+            "TreesitterTextobjects: Select Inside " .. mapping[3],
+          }
+          keymaps["a" .. mapping[1]] = {
+            lua_fn(function()
+              require("nvim-treesitter-textobjects.select").select_textobject(
+                "@" .. mapping[2] .. ".outer",
+                "textobjects"
+              )
+            end),
+            "TreesitterTextobjects: Select Outside " .. mapping[3],
+          }
+        end
+
+        set_keymaps("o", keymaps, opts)
+        set_keymaps("x", keymaps, opts)
+      end
+
+      select_keymaps({
+        { "f", "function", "Function" },
+        { "c", "class", "Class" },
+        { "C", "conditional", "Conditional" },
+        { "l", "loop", "Loop" },
+      })
+
+      -- Reference: https://github.com/nvim-treesitter/nvim-treesitter-textobjects/tree/main?tab=readme-ov-file#text-objects-move
+      ---@param mappings string[][]
+      local move_keymaps = function(mappings)
+        ---@type table<string, string[]>
+        local keymaps = {}
+
+        for _, mapping in ipairs(mappings) do
+          keymaps["[" .. mapping[1]] = {
+            lua_fn(function()
+              require("nvim-treesitter-textobjects.move").goto_previous("@" .. mapping[2] .. ".outer", "textobjects")
+            end),
+            "TreesitterTextobjects: Move to Prev " .. mapping[3],
+          }
+          keymaps["]" .. mapping[1]] = {
+            lua_fn(function()
+              require("nvim-treesitter-textobjects.move").goto_next("@" .. mapping[2] .. ".outer", "textobjects")
+            end),
+            "TreesitterTextobjects: Move to Next " .. mapping[3],
+          }
+        end
+
+        set_keymaps("n", keymaps, opts)
+        set_keymaps("o", keymaps, opts)
+        set_keymaps("x", keymaps, opts)
+      end
+
+      move_keymaps({
+        { "f", "function", "Function" },
+        { "c", "class", "Class" },
+        { "C", "conditional", "Conditional" },
+        { "l", "loop", "Loop" },
+      })
     end,
   },
   {
@@ -164,13 +134,12 @@ return {
       local utils = require("utils")
       local check_executable = utils.check_executable
 
-      local opts = {
+      require("nvim-treesitter.configs").setup({
         ensure_installed = check_executable({
           ["bash"] = { { "bash" } },
           ["c"] = { { "gcc" } },
           ["cpp"] = { { "g++" } },
           ["css"] = {},
-          ["dart"] = { { "dart" } },
           ["dockerfile"] = { { "docker" }, { "pulumi" } },
           ["fish"] = { { "fish" } },
           ["go"] = { { "go" } },
@@ -198,24 +167,12 @@ return {
         }),
         highlight = {
           enable = true,
+          additional_vim_regex_highlighting = false,
         },
         indent = {
           enable = true,
-          -- HACK: https://github.com/nvim-treesitter/nvim-treesitter/issues/4945
-          -- https://github.com/UserNobody14/tree-sitter-dart/issues/60#issuecomment-1867049690
-          disable = { "dart" },
         },
-        autopairs = {
-          enable = true,
-          disable = { "dart" },
-        },
-        context_commentstring = {
-          enable = true,
-          disable = { "dart" },
-        },
-      }
-
-      require("nvim-treesitter.configs").setup(opts)
+      })
     end,
   },
   {

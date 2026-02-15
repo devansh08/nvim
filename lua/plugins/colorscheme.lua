@@ -4,6 +4,7 @@ return {
     name = "catppuccin",
     tag = "stable",
     pritority = 1000,
+    -- Reference: https://github.com/catppuccin/nvim?tab=readme-ov-file#configuration
     config = function()
       vim.g.catppuccin_flavour = "mocha"
 
@@ -13,21 +14,8 @@ return {
           dark = vim.g.catppuccin_flavour,
         },
         term_colors = true,
-        no_italic = false,
-        no_bold = false,
         styles = {
-          comments = { "italic" },
           conditionals = {},
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
         },
         integrations = {
           nvimtree = true,
@@ -37,30 +25,11 @@ return {
           treesitter = true,
           treesitter_context = true,
           rainbow_delimiters = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-              errors = { "italic" },
-              hints = { "italic" },
-              warnings = { "italic" },
-              information = { "italic" },
-            },
-            underlines = {
-              errors = { "underline" },
-              hints = { "underline" },
-              warnings = { "underline" },
-              information = { "underline" },
-            },
-            inlay_hints = {
-              background = true,
-            },
-          },
-          indent_blankline = {
-            enabled = true,
-            scope_color = "",
-            colored_indent_levels = false,
-          },
           fidget = true,
+          lsp_trouble = true,
+          snacks = {
+            enabled = true,
+          },
         },
         highlight_overrides = {
           [vim.g.catppuccin_flavour] = function(f)

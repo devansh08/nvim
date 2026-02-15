@@ -73,14 +73,6 @@ function M.check_executable(t)
   return list
 end
 
----Check if string starts with pattern
----@param str string Input string
----@param pat string Pattern to check at start of `str`
----@return boolean _ True, if `str` starts with `pat`. False, otherwise.
-function M.string_starts_with(str, pat)
-  return str:sub(1, #pat) == pat
-end
-
 ---Check if file exists in given directory
 ---@param file string[]|string Single file name or list of file names to search for in the `dir` directory
 ---@param dir string Directory name in which the `file` needs to be searched in
@@ -135,39 +127,6 @@ function M.table_extend(cur, new)
   for _, v in ipairs(new) do
     table.insert(cur, v)
   end
-end
-
----Return count of character in string
----@param str string
----@param char string
----@return integer
-function M.count_of(str, char)
-  local index = str:find(char)
-  if index ~= nil then
-    local count = 1
-    for i = index + 1, #str do
-      if str:sub(i, i) == char then
-        count = count + 1
-      end
-    end
-
-    return count
-  else
-    return 0
-  end
-end
-
----Return list of split strings based on delimiter
----@param str string
----@param delim string
----@return table<string> splits
-function M.split(str, delim)
-  local splits = {}
-  for x in str:gmatch("([^" .. delim .. "])") do
-    table.insert(splits, x)
-  end
-
-  return splits
 end
 
 ---Create highlight group

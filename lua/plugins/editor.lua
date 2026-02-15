@@ -1,39 +1,11 @@
 return {
   {
-    "windwp/nvim-autopairs",
-    branch = "master",
-    lazy = true,
-    event = "BufWritePre",
-    opts = {
-      disable_filetype = { "TelescopePrompt" },
-      enable_check_bracket_line = false,
-      check_ts = true,
-      ts_config = {
-        lua = { "string", "source", "string_content" },
-        javascript = { "string", "template_string" },
-      },
-      fast_wrap = {
-        map = "<C-f>",
-        chars = { "{", "[", "(", '"', "'" },
-        pattern = [=[[%'%"%>%]%)%}%,]]=],
-        end_key = "$",
-        keys = "qwertyuiopzxcvbnmasdfghjkl",
-        check_comma = true,
-        manual_position = true,
-        highlight = "Search",
-        highlight_grey = "Comment",
-      },
-    },
-  },
-  {
     "numToStr/Comment.nvim",
     branch = "master",
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
+    -- Reference: https://github.com/numToStr/Comment.nvim?tab=readme-ov-file#configuration-optional
     opts = {
-      padding = true,
-      sticky = true,
-      ignore = nil,
       mappings = {
         basic = false,
         extra = false,
@@ -60,35 +32,6 @@ return {
           })
         end
       end,
-      post_hook = nil,
-    },
-  },
-  {
-    "ThePrimeagen/refactoring.nvim",
-    branch = "master",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      prompt_func_return_type = {
-        go = false,
-        java = true,
-        cpp = false,
-        c = true,
-        h = false,
-        hpp = false,
-        cxx = false,
-      },
-      prompt_func_param_type = {
-        go = false,
-        java = true,
-        cpp = false,
-        c = true,
-        h = false,
-        hpp = false,
-        cxx = false,
-      },
-      printf_statements = {},
-      print_var_statements = {},
     },
   },
   {
@@ -98,64 +41,43 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     branch = "master",
     lazy = true,
     ft = { "css", "scss", "html" },
-    config = function()
-      require("colorizer").setup({
-        filetypes = { "css", "scss", "html" },
-        user_default_options = {
-          css = true,
-          css_fn = true,
-          mode = "background",
-          tailwind = true,
-          sass = { enable = true, parsers = { "css" } },
-          virtualtext = "■",
-          always_update = true,
-        },
-        buftypes = {},
-      })
-    end,
+    -- Reference: https://github.com/catgoose/nvim-colorizer.lua?tab=readme-ov-file#customization
+    opts = {
+      filetypes = { "css", "scss", "html" },
+      user_default_options = {
+        mode = "virtualtext",
+        always_update = true,
+        css = true,
+        css_fn = true,
+        tailwind = true,
+        sass = { enable = true, parsers = { "css" } },
+      },
+    },
   },
   {
     "axelvc/template-string.nvim",
     branch = "main",
     lazy = true,
     ft = { "html", "typescript", "javascript", "typescriptreact", "javascriptreact", "python" },
-    config = function()
-      require("template-string").setup({
-        filetypes = {
-          "html",
-          "typescript",
-          "javascript",
-          "typescriptreact",
-          "javascriptreact",
-          "python",
-        },
-        jsx_brackets = true,
-        remove_template_string = true,
-        restore_quotes = {
-          normal = [["]],
-          jsx = [["]],
-        },
-      })
-    end,
-  },
-  {
-    "yorickpeterse/nvim-pqf",
-    branch = "main",
-    lazy = true,
-    ft = { "qf" },
+    -- Reference: https://github.com/axelvc/template-string.nvim?tab=readme-ov-file#configuration
     opts = {
-      signs = {
-        error = "",
-        warning = "",
-        info = "",
-        hint = "",
+      filetypes = {
+        "html",
+        "typescript",
+        "javascript",
+        "typescriptreact",
+        "javascriptreact",
+        "python",
       },
-      show_multiple_lines = false,
-      max_filename_length = 0,
+      remove_template_string = true,
+      restore_quotes = {
+        normal = [["]],
+        jsx = [["]],
+      },
     },
   },
   {
@@ -164,9 +86,8 @@ return {
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
+    -- Reference: https://github.com/folke/todo-comments.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
     opts = {
-      signs = true,
-      sign_priority = 8,
       keywords = {
         FIX = {
           icon = " ",
@@ -179,42 +100,6 @@ return {
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "󰤑 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      },
-      gui_style = {
-        fg = "NONE",
-        bg = "BOLD",
-      },
-      merge_keywords = true,
-      highlight = {
-        multiline = true,
-        multiline_pattern = "^.",
-        multiline_context = 10,
-        before = "",
-        keyword = "wide",
-        after = "fg",
-        pattern = [[.*<(KEYWORDS)\s*:]],
-        comments_only = true,
-        max_line_len = 400,
-        exclude = {},
-      },
-      colors = {
-        error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-        warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-        info = { "DiagnosticInfo", "#2563EB" },
-        hint = { "DiagnosticHint", "#10B981" },
-        default = { "Identifier", "#7C3AED" },
-        test = { "Identifier", "#FF00FF" },
-      },
-      search = {
-        command = "rg",
-        args = {
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-        },
-        pattern = [[\b(KEYWORDS):]],
       },
     },
   },
@@ -254,14 +139,15 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "visual_multi_exit",
         callback = function()
+          local apply = require("blink.cmp.keymap.apply")
           local keymaps = vim.api.nvim_buf_get_keymap(0, "i")
           for _, map in ipairs(keymaps) do
-            if map.desc == "blink.cmp" then
+            if vim.startswith(map.desc, apply.DESC_PREFIX) then
               vim.keymap.del("i", map.lhs, { buffer = 0 })
             end
           end
-          require("blink.cmp.keymap.apply").keymap_to_current_buffer({
-            ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+          apply.keymap_to_current_buffer({
+            ["<C-Space>"] = { "show" },
             ["<C-c>"] = { "cancel", "fallback" },
             ["<Esc>"] = { "cancel", "fallback" },
             ["<CR>"] = { "select_and_accept", "fallback" },
@@ -269,14 +155,13 @@ return {
             ["<S-Tab>"] = { "snippet_backward", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
-            ["<Right>"] = { "select_and_accept", "fallback" },
-            ["<C-S-Up>"] = {
+            ["<S-Up>"] = {
               function(cmp)
                 cmp.scroll_documentation_up(3)
               end,
               "fallback",
             },
-            ["<C-S-Down>"] = {
+            ["<S-Down>"] = {
               function(cmp)
                 cmp.scroll_documentation_down(3)
               end,
@@ -307,7 +192,7 @@ return {
 
       local builtins = require("nvim-next.builtins")
 
-      local opts = {
+      local next = require("nvim-next").setup({
         default_mappings = {
           repeat_style = "original",
         },
@@ -315,9 +200,7 @@ return {
           builtins.f,
           builtins.t,
         },
-      }
-
-      local next = require("nvim-next").setup(opts)
+      })
 
       local feed_keys_maps = {
         ["n"] = {
@@ -365,11 +248,19 @@ return {
         vim.cmd("lua vim.diagnostic.jump({ count = 1, float = false })")
       end)
 
+      local q_prev, q_next = next.make_repeatable_pair(function(_)
+        vim.cmd("lua require('trouble').prev({ skip_groups = true, jump = true })")
+      end, function(_)
+        vim.cmd("lua require('trouble').next({ skip_groups = true, jump = true })")
+      end)
+
       local keymaps = {
-        ["<leader>g<Up>"] = { lua_fn(gd_prev), "Next|Gitsigns: Jump to Prev Hunk" },
-        ["<leader>g<Down>"] = { lua_fn(gd_next), "Next|Gitsigns: Jump to Next Hunk" },
-        ["<leader>d<Up>"] = { lua_fn(d_prev), "Next|Diagnostics: Jump to Prev Diagnostic" },
-        ["<leader>d<Down>"] = { lua_fn(d_next), "Next|Diagnostics: Jump to Next Diagnostic" },
+        ["[g"] = { lua_fn(gd_prev), "Next|Gitsigns: Jump to Prev Hunk" },
+        ["]g"] = { lua_fn(gd_next), "Next|Gitsigns: Jump to Next Hunk" },
+        ["[d"] = { lua_fn(d_prev), "Next|Diagnostics: Jump to Prev Diagnostic" },
+        ["]d"] = { lua_fn(d_next), "Next|Diagnostics: Jump to Next Diagnostic" },
+        ["[q"] = { lua_fn(q_prev), "Next|Trouble: Jump to Prev Trouble Diagnostic" },
+        ["]q"] = { lua_fn(q_next), "Next|Trouble: Jump to Next Trouble Diagnostic" },
       }
 
       set_keymaps("n", keymaps, cmd_opts)
@@ -380,6 +271,7 @@ return {
     tag = "stable",
     lazy = true,
     cmd = "ZenMode",
+    -- Reference: https://github.com/folke/zen-mode.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
     opts = {
       window = {
         backdrop = 0.75,
@@ -401,19 +293,6 @@ return {
         },
         twilight = { enabled = false },
         gitsigns = { enabled = true },
-        tmux = { enabled = false },
-        todo = { enabled = false },
-        wezterm = { enabled = false },
-      },
-    },
-  },
-  {
-    "devansh08/remembuf.nvim",
-    branch = "main",
-    opts = {
-      silent = true,
-      integrations = {
-        nvim_tree = true,
       },
     },
   },
@@ -427,13 +306,6 @@ return {
           vim.cmd("ToggleTerm")
         end
       end,
-    },
-  },
-  {
-    "devansh08/marksman.nvim",
-    branch = "main",
-    opts = {
-      goto_cmd = "drop",
     },
   },
   {

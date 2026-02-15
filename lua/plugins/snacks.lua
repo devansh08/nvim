@@ -1,7 +1,8 @@
 return {
   {
     "folke/snacks.nvim",
-    version = "*",
+    branch = "main",
+    -- Reference: https://github.com/folke/snacks.nvim?tab=readme-ov-file#-usage
     opts = {
       bigfile = {},
       quickfile = {},

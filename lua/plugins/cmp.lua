@@ -44,13 +44,15 @@ return {
       utils.highlight("BlinkCmpSignatureHelpBorder", mocha["blue"], mocha["base"])
       utils.highlight("BlinkCmpSignatureHelpActiveParameter", mocha["text"], mocha["overlay0"])
 
+      -- Reference: https://cmp.saghen.dev/configuration/reference.html
       require("blink.cmp").setup({
         enabled = function()
           return true
         end,
+        -- Any change needs to be reflected in vim-visual-multi as well
         keymap = {
           preset = "none",
-          ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
+          ["<C-Space>"] = { "show" },
           ["<C-c>"] = { "cancel", "fallback" },
           ["<Esc>"] = { "cancel", "fallback" },
           ["<CR>"] = { "select_and_accept", "fallback" },
@@ -58,69 +60,32 @@ return {
           ["<S-Tab>"] = { "snippet_backward", "fallback" },
           ["<Up>"] = { "select_prev", "fallback" },
           ["<Down>"] = { "select_next", "fallback" },
-          ["<Right>"] = { "select_and_accept", "fallback" },
-          ["<C-S-Up>"] = {
+          ["<S-Up>"] = {
             function(cmp)
               cmp.scroll_documentation_up(3)
             end,
             "fallback",
           },
-          ["<C-S-Down>"] = {
+          ["<S-Down>"] = {
             function(cmp)
               cmp.scroll_documentation_down(3)
             end,
             "fallback",
           },
         },
-        appearance = {
-          nerd_font_variant = "mono",
-        },
         completion = {
-          keyword = {
-            range = "prefix",
-          },
-          trigger = {
-            show_on_backspace = false,
-            show_on_backspace_in_keyword = false,
-            show_on_backspace_after_accept = true,
-            show_on_backspace_after_insert_enter = true,
-            show_on_trigger_character = true,
-            show_on_insert_on_trigger_character = true,
-            show_on_blocked_trigger_characters = {
-              " ",
-              "\n",
-              "\t",
-            },
-            show_on_x_blocked_trigger_characters = {
-              "'",
-              '"',
-              "(",
-            },
-          },
           list = {
             selection = {
               preselect = false,
               auto_insert = false,
             },
-            cycle = {
-              from_bottom = true,
-              from_top = true,
-            },
           },
           menu = {
             enabled = true,
-            min_width = 15,
             max_height = 12,
             border = "single",
-            winblend = 0,
-            scrolloff = 2,
-            scrollbar = true,
-            direction_priority = { "s", "n" },
             auto_show = false,
             draw = {
-              align_to = "label",
-              padding = 1,
-              gap = 1,
               columns = {
                 { "kind_icon" },
                 { "label" },
@@ -158,40 +123,13 @@ return {
           },
           documentation = {
             auto_show = true,
-            auto_show_delay_ms = 250,
-            treesitter_highlighting = true,
+            auto_show_delay_ms = 100,
             window = {
-              min_width = 10,
-              max_width = 80,
-              max_height = 20,
               border = "single",
-              scrollbar = true,
-              direction_priority = {
-                menu_north = { "e", "w", "n", "s" },
-                menu_south = { "e", "w", "s", "n" },
-              },
             },
           },
           ghost_text = {
             enabled = false,
-          },
-          accept = {
-            dot_repeat = true,
-            create_undo_point = true,
-            resolve_timeout_ms = 100,
-            auto_brackets = {
-              enabled = true,
-              default_brackets = { "(", ")" },
-              kind_resolution = {
-                enabled = true,
-                blocked_filetypes = { "typescriptreact", "javascriptreact", "vue" },
-              },
-              semantic_token_resolution = {
-                enabled = true,
-                blocked_filetypes = { "java" },
-                timeout_ms = 250,
-              },
-            },
           },
         },
         sources = {
@@ -210,29 +148,14 @@ return {
           frecency = {
             enabled = true,
           },
-          use_proximity = true,
-          sorts = {
-            "score",
-            "sort_text",
-          },
         },
         signature = {
           enabled = true,
           trigger = {
             enabled = true,
-            show_on_keyword = false,
-            show_on_trigger_character = true,
-            show_on_insert = false,
-            show_on_insert_on_trigger_character = true,
+            show_on_insert = true,
           },
           window = {
-            min_width = 1,
-            max_width = 100,
-            max_height = 10,
-            border = "single",
-            scrollbar = false,
-            direction_priority = { "n", "s" },
-            treesitter_highlighting = true,
             show_documentation = false,
           },
         },
@@ -242,22 +165,30 @@ return {
             "cmdline",
           },
           keymap = {
-            ["<Tab>"] = { "show_and_insert" },
-            ["<Space>"] = { "select_and_accept", "fallback" },
-            ["<Down>"] = { "select_next", "fallback" },
+            preset = "none",
+            ["<Tab>"] = { "show", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
-            ["<CR>"] = { "select_accept_and_enter", "fallback" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<C-Up>"] = {
+              function(cmp)
+                return cmp.select_prev({ count = 3 })
+              end,
+            },
+            ["<C-Down>"] = {
+              function(cmp)
+                return cmp.select_next({ count = 3 })
+              end,
+            },
+            ["<CR>"] = { "accept", "fallback" },
+            ["<Esc>"] = { "cancel", "fallback" },
             ["<C-c>"] = { "cancel", "fallback" },
           },
           completion = {
             list = {
               selection = {
-                preselect = true,
-                auto_insert = true,
+                preselect = false,
+                auto_insert = false,
               },
-            },
-            menu = {
-              auto_show = false,
             },
             ghost_text = {
               enabled = false,

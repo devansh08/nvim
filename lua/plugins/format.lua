@@ -3,6 +3,7 @@ return {
     "stevearc/conform.nvim",
     lazy = true,
     event = "BufWritePre",
+    -- Reference: https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
     opts = {
       formatters_by_ft = {
         c = { "clang_format" },
