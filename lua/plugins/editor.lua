@@ -408,14 +408,6 @@ return {
     },
   },
   {
-    "folke/snacks.nvim",
-    version = "*",
-    opts = {
-      bigfile = {},
-      quickfile = {},
-    },
-  },
-  {
     "devansh08/remembuf.nvim",
     branch = "main",
     opts = {

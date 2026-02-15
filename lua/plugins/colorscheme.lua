@@ -75,6 +75,9 @@ return {
               DiffChange = { bg = darken(f.blue, 0.15, f.base) },
               DiffDelete = { bg = darken(f.red, 0.25, f.base) },
               DiffText = { bg = darken(f.blue, 0.30, f.base) },
+
+              SnacksInputBorder = { fg = f.blue },
+              SnacksInputTitle = { fg = f.blue, style = {} },
             }
           end,
         },
