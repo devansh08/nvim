@@ -1,38 +1,29 @@
 return {
   {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    branch = "main",
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
     "numToStr/Comment.nvim",
     branch = "master",
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
+    dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     -- Reference: https://github.com/numToStr/Comment.nvim?tab=readme-ov-file#configuration-optional
-    opts = {
-      mappings = {
-        basic = false,
-        extra = false,
-      },
-      pre_hook = function(ctx)
-        local U = require("Comment.utils")
-
-        local location = nil
-        if ctx.ctype == U.ctype.blockwise then
-          location = require("ts_context_commentstring.utils").get_cursor_location()
-        elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-          location = require("ts_context_commentstring.utils").get_visual_start_location()
-        end
-
-        local key = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
-        if vim.bo.filetype == "lua" then
-          key = "__default"
-        end
-
-        if location then
-          return require("ts_context_commentstring.internal").calculate_commentstring({
-            key = key,
-            location = location,
-          })
-        end
-      end,
-    },
+    config = function()
+      -- Config instead of opts required to correctly handle plugin load order: https://github.com/JoosepAlviste/nvim-ts-context-commentstring/issues/58#issuecomment-1589505282
+      require("Comment").setup({
+        mappings = {
+          basic = false,
+          extra = false,
+        },
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
   },
   {
     "tpope/vim-abolish",

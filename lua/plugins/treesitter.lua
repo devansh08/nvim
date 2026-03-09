@@ -175,10 +175,4 @@ return {
       })
     end,
   },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    branch = "main",
-    lazy = true,
-    event = "BufWritePre",
-  },
 }
