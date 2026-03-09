@@ -5,6 +5,7 @@ local LEFT_JUMP = "b"
 local RIGHT_JUMP = "e"
 
 local utils = require("utils")
+local lua_fn = utils.lua_fn
 local set_keymaps = utils.set_keymaps
 
 local constants = require("constants")
@@ -36,12 +37,23 @@ local leader_keymaps = {
 
   ["<leader>mm"] = { ":Mason<CR>", "Mason: Open" },
 
+  ["<leader>ff"] = { ":lua Snacks.picker.files()<CR>", "Snacks: Find Files" },
+  ["<leader>fg"] = { ":lua Snacks.picker.grep()<CR>", "Snacks: Grep in Files" },
+  ["<leader>fb"] = { ":lua Snacks.picker.buffers()<CR>", "Snacks: List Buffers" },
+  ["<leader>fk"] = { ":lua Snacks.picker.keymaps()<CR>", "Snacks: List Keymaps" },
+  ["<leader>fh"] = { ":lua Snacks.picker.help()<CR>", "Snacks: Help Tags" },
+
+  ["<leader>fd"] = { ":lua Snacks.picker.lsp_definitions()<CR>", "Snacks: LSP Definitions" },
+  ["<leader>fi"] = { ":lua Snacks.picker.lsp_implementations()<CR>", "Snacks: LSP Implementations" },
+  ["<leader>fr"] = { ":lua Snacks.picker.lsp_references()<CR>", "Snacks: LSP References" },
+
   ["<leader>gp"] = { ":Gitsigns preview_hunk<CR>", "Gitsigns: Preview Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
   ["<leader>gg"] = {
     ":9TermExec cmd='lazygit && exit' direction=float name='lazygit'<CR>",
     "Terminal(Git): Open LazyGit",
   },
+  ["<leader>gf"] = { ":lua Snacks.picker.git_status()<CR>", "Snacks: Git Status Files" },
 
   ["<leader>cq"] = { ":GitConflictListQf<CR>", "GitConflict: Send Conflicts to QuickFix List" },
   ["<leader>c<Up>"] = { ":GitConflictPrevConflict<CR>", "GitConflict: Jump to Previous Conflict" },
@@ -66,6 +78,13 @@ local leader_keymaps = {
 }
 
 local visual_leader_keymaps = {
+  ["<leader>fg"] = {
+    lua_fn(function()
+      Snacks.picker.grep({ search = utils.get_visual_selection() })
+    end),
+    "Snacks: Grep Selected Text in Files",
+  },
+
   ["<leader>gr"] = { ":Gitsigns reset_hunk vim.fn.line('.') vim.fn.line('v')<CR>", "Gitsigns: Reset Selected Hunk" },
 
   ["<leader>jo"] = {

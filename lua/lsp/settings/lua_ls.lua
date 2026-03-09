@@ -5,7 +5,7 @@ return {
         version = "Lua 5.1",
       },
       diagnostics = {
-        globals = { "vim" },
+        globals = { "vim", "Snacks" },
         unusedLocalExclude = { "_" },
       },
       workspace = {
