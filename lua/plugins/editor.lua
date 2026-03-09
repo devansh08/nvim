@@ -240,9 +240,17 @@ return {
       end)
 
       local q_prev, q_next = next.make_repeatable_pair(function(_)
-        vim.cmd("lua require('trouble').prev({ skip_groups = true, jump = true })")
+        if require("trouble").is_open() then
+          vim.cmd("lua require('trouble').prev({ skip_groups = true, jump = true })")
+        else
+          vim.cmd("cprevious")
+        end
       end, function(_)
-        vim.cmd("lua require('trouble').next({ skip_groups = true, jump = true })")
+        if require("trouble").is_open() then
+          vim.cmd("lua require('trouble').next({ skip_groups = true, jump = true })")
+        else
+          vim.cmd("cnext")
+        end
       end)
 
       local keymaps = {
