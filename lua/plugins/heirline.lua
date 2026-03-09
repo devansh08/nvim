@@ -11,6 +11,8 @@ return {
       local conditions = require("heirline.conditions")
       local utils = require("heirline.utils")
 
+      local localUtils = require("utils")
+
       local redrawCallback = vim.schedule_wrap(function()
         vim.cmd("redrawstatus")
       end)
@@ -393,7 +395,7 @@ return {
             for _, tabpage in ipairs(vim.api.nvim_list_tabpages()) do
               local name = vim.api
                 .nvim_buf_get_name(vim.api.nvim_win_get_buf(vim.api.nvim_tabpage_get_win(tabpage)))
-                :gsub(vim.loop.cwd() .. "/", "")
+                :gsub(localUtils.escape(vim.loop.cwd() .. "/"), "")
 
               if name == "" then
                 name = "[No Name]"

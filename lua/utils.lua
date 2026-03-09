@@ -137,4 +137,12 @@ function M.highlight(group, fg, bg)
   vim.cmd("highlight " .. group .. " guifg=" .. fg .. " guibg=" .. bg)
 end
 
+---Escape special characters
+---@param text string
+---@return string escapedText
+function M.escape(text)
+  local escapedText, _ = text:gsub("([%-%^%$%(%)%%%.%[%]%*%+%-%?])", "%%%1")
+  return escapedText
+end
+
 return M
