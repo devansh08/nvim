@@ -166,7 +166,7 @@ return {
           },
           keymap = {
             preset = "none",
-            ["<Tab>"] = { "show", "fallback" },
+            ["<Tab>"] = { "show", "select_and_accept", "fallback" },
             ["<Up>"] = { "select_prev", "fallback" },
             ["<Down>"] = { "select_next", "fallback" },
             ["<C-Up>"] = {
