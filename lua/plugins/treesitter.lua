@@ -119,10 +119,8 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    version = "*",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSUpdateSync" },
+    branch = "main",
+    lazy = false,
     build = ":TSUpdate",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-context",
@@ -131,47 +129,59 @@ return {
       "windwp/nvim-ts-autotag",
     },
     config = function()
+      local constants = require("constants")
       local utils = require("utils")
       local check_executable = utils.check_executable
 
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = check_executable({
-          ["bash"] = { { "bash" } },
-          ["c"] = { { "gcc" } },
-          ["cpp"] = { { "g++" } },
-          ["css"] = {},
-          ["dockerfile"] = { { "docker" }, { "pulumi" } },
-          ["fish"] = { { "fish" } },
-          ["go"] = { { "go" } },
-          ["html"] = {},
-          ["java"] = { { "java" } },
-          ["javascript"] = { { "node", "npm" }, { "bun" } },
-          ["jsdoc"] = { { "node", "npm" }, { "bun" } },
-          ["json"] = {},
-          ["json5"] = {},
-          ["jsonc"] = {},
-          ["kotlin"] = { { "kotlin" } },
-          ["lua"] = { { "lua" } },
-          ["markdown"] = {},
-          ["python"] = { { "python", "pip" } },
-          ["rust"] = { { "rustc" } },
-          ["scss"] = {},
-          ["sql"] = { { "mysql" } },
-          ["toml"] = {},
-          ["tsx"] = { { "node", "npm" }, { "bun" } },
-          ["typescript"] = { { "node", "npm" }, { "bun" } },
-          ["vim"] = {},
-          ["vimdoc"] = {},
-          ["yaml"] = {},
-          ["zig"] = { { "zig" } },
-        }),
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = {
-          enable = true,
-        },
+      local treesitter = require("nvim-treesitter")
+
+      treesitter.setup({
+        install_dir = constants.NVIM_LOCAL .. "/treesitter",
+      })
+
+      local ensureInstalled = check_executable({
+        ["bash"] = { { "bash" } },
+        ["c"] = { { "gcc" } },
+        ["cpp"] = { { "g++" } },
+        ["css"] = {},
+        ["dockerfile"] = { { "docker" }, { "pulumi" } },
+        ["fish"] = { { "fish" } },
+        ["go"] = { { "go" } },
+        ["html"] = {},
+        ["java"] = { { "java" } },
+        ["javascript"] = { { "node", "npm" }, { "bun" } },
+        ["jsdoc"] = { { "node", "npm" }, { "bun" } },
+        ["json"] = {},
+        ["json5"] = {},
+        ["jsonc"] = {},
+        ["kotlin"] = { { "kotlin" } },
+        ["lua"] = { { "lua" } },
+        ["markdown"] = {},
+        ["python"] = { { "python", "pip" } },
+        ["rust"] = { { "rustc" } },
+        ["scss"] = {},
+        ["sql"] = { { "mysql" } },
+        ["toml"] = {},
+        ["tsx"] = { { "node", "npm" }, { "bun" } },
+        ["typescript"] = { { "node", "npm" }, { "bun" } },
+        ["vim"] = {},
+        ["vimdoc"] = {},
+        ["yaml"] = {},
+        ["zig"] = { { "zig" } },
+      })
+      local alreadyInstalled = require("nvim-treesitter.config").get_installed()
+      local installParsers = vim
+        .iter(ensureInstalled)
+        :filter(function(parser)
+          return not vim.tbl_contains(alreadyInstalled, parser)
+        end)
+        :totable()
+      treesitter.install(installParsers)
+
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
       })
     end,
   },
