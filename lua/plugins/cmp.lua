@@ -31,6 +31,22 @@ return {
       "L3MON4D3/LuaSnip",
       "onsails/lspkind.nvim",
     },
+    build = function()
+      local constants = require("constants")
+      local blink = require("blink.cmp")
+
+      local lspCapabilitiesFilePath = constants.NVIM_LOCAL .. "/blink/lsp_capabilities.lua"
+      local lspCapabilitiesFile = io.open(lspCapabilitiesFilePath, "w")
+
+      local capabilities = blink.get_lsp_capabilities({}, false)
+
+      if lspCapabilitiesFile ~= nil then
+        lspCapabilitiesFile:write("return " .. vim.inspect(capabilities))
+        lspCapabilitiesFile:close()
+      else
+        print("[blink.cmp] Failed to save capabilities to " .. lspCapabilitiesFilePath)
+      end
+    end,
     -- https://cmp.saghen.dev/configuration/reference.html
     config = function()
       local utils = require("utils")
