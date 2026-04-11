@@ -62,13 +62,25 @@ vim.lsp.config("*", {
 
 local lsp_settings_dir = constants.NVIM_CONFIG .. "/lua/lsp/settings/"
 local lsp_settings_files = vim.fn.readdir(lsp_settings_dir)
+local server_configs = {}
 for _, file in ipairs(lsp_settings_files) do
   local ok, settings = pcall(require, "lsp.settings." .. file:gsub("%.lua$", ""))
   if ok then
     local server_name = file:gsub("%.lua$", "")
-    vim.lsp.config(server_name, settings)
+    -- Contains server specific settings/preferences
+    server_configs[server_name] = settings
   else
     print("[config.lsp] Error loading settings for " .. file .. ": " .. vim.inspect(settings))
+  end
+end
+
+for _, server in ipairs(lsp_servers) do
+  -- Extracted from nvim-lspconfig (contains root_dir and filetypes for nvim to attach to buf)
+  local defaultServerConfig = vim.lsp.config[server]
+  if server_configs[server] ~= nil then
+    vim.lsp.config(server, vim.tbl_deep_extend("force", defaultServerConfig, server_configs[server]))
+  else
+    vim.lsp.config(server, defaultServerConfig)
   end
 end
 
