@@ -66,7 +66,7 @@ return {
     "sindrets/diffview.nvim",
     branch = "main",
     lazy = "true",
-    cmd = "DiffViewOpen",
+    cmd = "DiffviewOpen",
     -- Reference: https://github.com/sindrets/diffview.nvim?tab=readme-ov-file#configuration
     opts = {
       view = {

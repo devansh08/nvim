@@ -75,6 +75,9 @@ local leader_keymaps = {
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
 
   ["<leader>bb"] = { ":BloatInit<CR>", "Bloat: Initialize Buffers" },
+
+  ["<leader>do"] = { ":DiffviewOpen<CR>", "DiffView: Open" },
+  ["<leader>dc"] = { ":DiffviewClose<CR>", "DiffView: Close" },
 }
 
 local visual_leader_keymaps = {
