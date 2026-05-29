@@ -296,6 +296,30 @@ return {
     },
   },
   {
+    "stevearc/quicker.nvim",
+    version = "*",
+    lazy = true,
+    ft = "qf",
+    opts = {
+      keys = {
+        {
+          ">",
+          function()
+            require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
+          end,
+          desc = "Quicker: Expand Context",
+        },
+        {
+          "<",
+          function()
+            require("quicker").collapse()
+          end,
+          desc = "Quicker: Collapse Context",
+        },
+      },
+    },
+  },
+  {
     "devansh08/goto-line.nvim",
     branch = "main",
     opts = {
