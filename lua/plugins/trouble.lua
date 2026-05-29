@@ -1,7 +1,7 @@
 return {
   {
     "folke/trouble.nvim",
-    tag = "stable",
+    branch = "main",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
