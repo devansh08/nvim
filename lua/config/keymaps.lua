@@ -78,6 +78,18 @@ local leader_keymaps = {
 
   ["<leader>bb"] = { ":BloatInit<CR>", "Bloat: Initialize Buffers" },
 
+  ["<leader>yy"] = {
+    lua_fn(function()
+      local line = vim.fn.line(".")
+      local file = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+      if file == "" then
+        file = "[No Name]"
+      end
+      vim.fn.setreg("+", file .. ":" .. line)
+    end),
+    "Copy File:Line to Clipboard",
+  },
+
   ["<leader>do"] = { ":DiffviewOpen<CR>", "DiffView: Open" },
   ["<leader>dc"] = { ":DiffviewClose<CR>", "DiffView: Close" },
 }
@@ -101,6 +113,21 @@ local visual_leader_keymaps = {
   ["<leader>jo"] = {
     ":lua require('jdtls').organize_imports()<CR>",
     "JDTLS(Java): Organize Imports in Selected Code",
+  },
+
+  ["<leader>yy"] = {
+    lua_fn(function()
+      local start_pos = vim.fn.getpos("v")
+      local end_pos = vim.fn.getpos(".")
+      local start_line = start_pos[2]
+      local end_line = end_pos[2]
+      local file = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+      if file == "" then
+        file = "[No Name]"
+      end
+      vim.fn.setreg("+", file .. ":" .. start_line .. "-" .. end_line)
+    end),
+    "Copy File:LineRange to Clipboard",
   },
 
   ["<leader><Left>"] = { "g^", "Jump to Start of Line" },
