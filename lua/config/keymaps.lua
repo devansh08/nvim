@@ -277,6 +277,11 @@ local visual_keymaps = {
   ["<C-R>"] = { '"hy<Esc>:%s/<C-r>h//gc<Left><Left><Left>', "" },
 }
 
+local visual_expr_keymaps = {
+  ["<Down>"] = { "v:count ? 'j' : 'gj'", "Navigate Down in Wrapped Lines" },
+  ["<Up>"] = { "v:count ? 'k' : 'gk'", "Navigate Up in Wrapped Lines" },
+}
+
 local insert_keymaps = {
   ["<C-C>"] = { "<C-w>", "Delete Word by Left" },
 
@@ -303,6 +308,7 @@ set_keymaps("v", visual_leader_keymaps, opts)
 set_keymaps("n", normal_keymaps, opts)
 set_keymaps("n", normal_nowait_keymaps, nowait_opts)
 set_keymaps("n", normal_expr_keymaps, expr_opts)
+set_keymaps("v", visual_expr_keymaps, expr_opts)
 set_keymaps("v", visual_keymaps, opts)
 set_keymaps("i", insert_keymaps, opts)
 set_keymaps("c", cmd_keymaps, cmd_opts)
