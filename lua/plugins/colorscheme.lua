@@ -31,6 +31,7 @@ return {
             enabled = true,
           },
           render_markdown = true,
+          neogit = true,
         },
         highlight_overrides = {
           [vim.g.catppuccin_flavour] = function(f)

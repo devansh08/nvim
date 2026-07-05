@@ -50,8 +50,8 @@ local leader_keymaps = {
   ["<leader>gp"] = { ":Gitsigns preview_hunk<CR>", "Gitsigns: Preview Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
   ["<leader>gg"] = {
-    ":9TermExec cmd='lazygit && exit' direction=float name='lazygit'<CR>",
-    "Terminal(Git): Open LazyGit",
+    ":Neogit<CR>",
+    "Git: Open NeoGit",
   },
   ["<leader>gf"] = { ":lua Snacks.picker.git_status()<CR>", "Snacks: Git Status Files" },
 

@@ -88,4 +88,47 @@ return {
       },
     },
   },
+  {
+    "NeogitOrg/neogit",
+    branch = "master",
+    lazy = true,
+    cmd = "Neogit",
+    opts = {
+      disable_insert_on_commit = true,
+      graph_style = "kitty",
+      git_services = {
+        ["github.com"] = {
+          pull_request = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
+          commit = "https://github.com/${owner}/${repository}/commit/${oid}",
+          tree = "https://${host}/${owner}/${repository}/tree/${branch_name}",
+        },
+      },
+      remember_settings = false,
+      use_per_project_settings = false,
+      kind = "tab",
+      commit_editor = {
+        spell_check = false,
+      },
+      signs = {
+        hunk = { "", "" },
+        item = { "", "" },
+        section = { "", "" },
+      },
+      mappings = {
+        commit_editor = {
+          ["<c-c><c-c>"] = false,
+          ["<c-c><c-k>"] = false,
+        },
+        commit_editor_I = {
+          ["<c-c><c-c>"] = false,
+          ["<c-c><c-k>"] = false,
+        },
+        status = {
+          ["<cr>"] = "Toggle",
+          ["<s-cr>"] = "GoToFile",
+          ["o"] = false,
+        },
+      },
+    },
+  },
 }
