@@ -30,6 +30,7 @@ return {
           snacks = {
             enabled = true,
           },
+          render_markdown = true,
         },
         highlight_overrides = {
           [vim.g.catppuccin_flavour] = function(f)

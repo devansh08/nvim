@@ -106,6 +106,8 @@ local leader_keymaps = {
     ":15split | set scrolloff=0 | term pi --tools read,edit,write,bash,grep,find,ls,web_fetch<CR>:lua vim.api.nvim_buf_set_name(0, '[TERM] Pi')<CR>a",
     "Pi: Open Pi Agent in Horizontal Split",
   },
+
+  ["<leader>mp"] = { ":RenderMarkdown toggle<CR>", "Markdown: Toggle Renderer" },
 }
 
 local visual_leader_keymaps = {
