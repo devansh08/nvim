@@ -49,6 +49,7 @@ return {
       end,
       preview_config = {
         border = "single",
+        focusable = true,
       },
     },
   },
@@ -65,7 +66,7 @@ return {
   {
     "sindrets/diffview.nvim",
     branch = "main",
-    lazy = "true",
+    lazy = true,
     cmd = "DiffviewOpen",
     -- Reference: https://github.com/sindrets/diffview.nvim?tab=readme-ov-file#configuration
     opts = {
