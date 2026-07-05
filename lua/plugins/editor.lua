@@ -332,23 +332,6 @@ return {
     },
   },
   {
-    "devansh08/bloat.nvim",
-    branch = "main",
-    config = function()
-      local COLORS = require("catppuccin.palettes.mocha")
-      require("bloat").setup({
-        width = 0.75,
-        height = 0.75,
-        highlight = {
-          fg = COLORS.base,
-          bg = COLORS.blue,
-        },
-        border = "single",
-        name_prefix = "Scratch",
-      })
-    end,
-  },
-  {
     "devansh08/alt-tab.nvim",
     branch = "main",
     opts = {},

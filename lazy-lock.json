@@ -4,7 +4,6 @@
   "alt-tab.nvim": { "branch": "main", "commit": "99c01173fa59c86df9a858029d72b1209e37e43b" },
   "auto-session": { "branch": "main", "commit": "3e145ee9af42eb6764908a1a481f53fe7f0bdbe5" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
-  "bloat.nvim": { "branch": "main", "commit": "c4afb9c3eaf6dd864c50e08b468c55d4cd89ad1e" },
   "catppuccin": { "branch": "main", "commit": "605b4603797de970e9f3a4238c199c850da03186" },
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },

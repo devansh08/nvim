@@ -76,7 +76,6 @@ local leader_keymaps = {
 
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
 
-  ["<leader>bb"] = { ":BloatInit<CR>", "Bloat: Initialize Buffers" },
 
   ["<leader>yy"] = {
     lua_fn(function()
