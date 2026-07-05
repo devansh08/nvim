@@ -44,13 +44,12 @@ vim.diagnostic.config({
 local lsp_servers = {
   "bashls",
   "cssls",
-  "dockerls",
   "gopls",
   "html",
   "lua_ls",
-  "marksman",
   "taplo",
   "ts_ls",
+  "zls",
 }
 
 local lspCapabilitiesFile = constants.NVIM_LOCAL .. "/blink/lsp_capabilities.lua"

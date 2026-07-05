@@ -153,7 +153,6 @@ return {
         ["jsdoc"] = { { "node", "npm" }, { "bun" } },
         ["json"] = {},
         ["json5"] = {},
-        ["jsonc"] = {},
         ["kotlin"] = { { "kotlin" } },
         ["lua"] = { { "lua" } },
         ["markdown"] = {},

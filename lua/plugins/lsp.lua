@@ -35,8 +35,6 @@ return {
         ["clangd"] = { { "gcc" }, { "g++" } },
         ["cpplint"] = { { "g++" } },
         ["css-lsp"] = {},
-        ["debugpy"] = { { "python", "pip" } },
-        ["dockerfile-language-server"] = { { "docker" }, { "pulumi" } },
         ["eslint_d"] = { { "node", "npm" }, { "bun" } },
         ["fish-lsp"] = { { "fish" } },
         ["google-java-format"] = { { "java" } },
@@ -44,12 +42,9 @@ return {
         ["html-lsp"] = {},
         ["jdtls"] = { { "java" } },
         ["jedi-language-server"] = { { "python", "pip" } },
-        ["js-debug-adapter"] = { { "node", "npm" }, { "bun" } },
-        ["json-lsp"] = {},
         ["kotlin-language-server"] = { { "kotlin", "kotlinc" } },
         ["ktlint"] = { { "kotlin", "kotlinc" } },
         ["lua-language-server"] = { { "lua" } },
-        ["marksman"] = {},
         ["prettierd"] = { { "node", "npm" }, { "bun" } },
         ["pyright"] = { { "python", "pip" } },
         ["revive"] = { { "go" } },
@@ -58,7 +53,7 @@ return {
         ["stylua"] = { { "lua" } },
         ["taplo"] = {},
         ["typescript-language-server"] = { { "node", "npm" }, { "bun" } },
-        ["yaml-language-server"] = {},
+        ["zls"] = { { "zig" } },
       })
 
       local Package = require("mason-core.package")

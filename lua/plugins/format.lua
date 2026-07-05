@@ -9,7 +9,6 @@ return {
         c = { "clang_format" },
         cpp = { "clang_format" },
         fish = { "fish_indent" },
-        go = { "goimports" },
         java = { "google_java_format" },
         json = { "jq" },
         kotlin = { "ktlint" },
@@ -23,6 +22,7 @@ return {
         lua = { "stylua" },
         toml = { "taplo" },
         python = { "black" },
+        zig = { "zigfmt" },
       },
       format_on_save = function()
         if vim.g.disable_autoformat then
