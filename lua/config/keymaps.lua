@@ -74,6 +74,13 @@ local leader_keymaps = {
 
   ["<leader>zz"] = { ":ZenMode<CR>", "ZenMode: Toggle Mode" },
 
+  ["<leader>ha"] = {
+    lua_fn(function()
+      require("harpoon"):list():add()
+      vim.cmd('echo "Added " .. expand("%") .. " to Harpoon list"')
+    end),
+    "Harpoon: Add to List",
+  },
 
   ["<leader>yy"] = {
     lua_fn(function()
@@ -181,6 +188,50 @@ local normal_keymaps = {
 
   ["<C-b>"] = { ":BloatCreate<CR>", "Bloat: Create Scratch Buffer" },
   ["<C-t>"] = { ":BloatToggle<CR>", "Bloat: Toggle Floating Buffer" },
+
+  ["<C-z>"] = {
+    lua_fn(function()
+      local harpoon = require("harpoon")
+      harpoon.ui:toggle_quick_menu(harpoon:list())
+    end),
+    "Harpoon: Open List",
+  },
+  ["<C-h>"] = {
+    lua_fn(function()
+      require("harpoon"):list():select(1)
+    end),
+    "Harpoon: Select First Item",
+  },
+  ["<C-j>"] = {
+    lua_fn(function()
+      require("harpoon"):list():select(2)
+    end),
+    "Harpoon: Select First Item",
+  },
+  ["<C-k>"] = {
+    lua_fn(function()
+      require("harpoon"):list():select(3)
+    end),
+    "Harpoon: Select First Item",
+  },
+  ["<C-l>"] = {
+    lua_fn(function()
+      require("harpoon"):list():select(4)
+    end),
+    "Harpoon: Select First Item",
+  },
+  ["gH"] = {
+    lua_fn(function()
+      require("harpoon"):list():prev()
+    end),
+    "Harpoon: Select Prev Item",
+  },
+  ["gh"] = {
+    lua_fn(function()
+      require("harpoon"):list():next()
+    end),
+    "Harpoon: Select Next Item",
+  },
 }
 
 local normal_nowait_keymaps = {
