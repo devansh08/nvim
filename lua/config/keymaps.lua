@@ -86,12 +86,22 @@ local leader_keymaps = {
         file = "[No Name]"
       end
       vim.fn.setreg("+", file .. ":" .. line)
-    end),
+      print("Code reference yanked!")
+    end) .. "<Esc>",
     "Copy File:Line to Clipboard",
   },
 
   ["<leader>do"] = { ":DiffviewOpen<CR>", "DiffView: Open" },
   ["<leader>dc"] = { ":DiffviewClose<CR>", "DiffView: Close" },
+
+  ["<leader>pp"] = {
+    ":80vsplit | set sidescrolloff=0 | term pi --tools read,edit,write,bash,grep,find,ls,web_fetch<CR>:lua vim.api.nvim_buf_set_name(0, '[TERM] Pi')<CR>a",
+    "Pi: Open Pi Agent in Vertical Split",
+  },
+  ["<leader>ph"] = {
+    ":15split | set scrolloff=0 | term pi --tools read,edit,write,bash,grep,find,ls,web_fetch<CR>:lua vim.api.nvim_buf_set_name(0, '[TERM] Pi')<CR>a",
+    "Pi: Open Pi Agent in Horizontal Split",
+  },
 }
 
 local visual_leader_keymaps = {
@@ -126,7 +136,8 @@ local visual_leader_keymaps = {
         file = "[No Name]"
       end
       vim.fn.setreg("+", file .. ":" .. start_line .. "-" .. end_line)
-    end),
+      print("Code reference yanked!")
+    end) .. "<Esc>",
     "Copy File:LineRange to Clipboard",
   },
 
