@@ -46,6 +46,8 @@ local leader_keymaps = {
   ["<leader>fd"] = { ":lua Snacks.picker.lsp_definitions()<CR>", "Snacks: LSP Definitions" },
   ["<leader>fi"] = { ":lua Snacks.picker.lsp_implementations()<CR>", "Snacks: LSP Implementations" },
   ["<leader>fr"] = { ":lua Snacks.picker.lsp_references()<CR>", "Snacks: LSP References" },
+  ["<leader>fy"] = { ":lua Snacks.picker.lsp_symbols()<CR>", "Snacks: LSP Document Symbols" },
+  ["<leader>fY"] = { ":lua Snacks.picker.lsp_workspace_symbols()<CR>", "Snacks: LSP Workspace Symbols" },
 
   ["<leader>gp"] = { ":Gitsigns preview_hunk<CR>", "Gitsigns: Preview Hunk" },
   ["<leader>gr"] = { ":Gitsigns reset_hunk<CR>", "Gitsigns: Reset Hunk" },
