@@ -11,6 +11,7 @@ local options = {
 
   splitbelow = true,
   splitright = true,
+  equalalways = false,
 
   scrolloff = 8,
   sidescrolloff = 20,
