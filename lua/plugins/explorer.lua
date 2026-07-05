@@ -62,6 +62,7 @@ return {
       end,
       select_prompts = true,
       view = {
+        preserve_window_proportions = true,
         width = 30,
         float = {
           enable = false,

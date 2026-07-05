@@ -1,13 +1,5 @@
 return {
   {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    branch = "main",
-    lazy = true,
-    opts = {
-      enable_autocmd = false,
-    },
-  },
-  {
     "numToStr/Comment.nvim",
     branch = "master",
     lazy = true,
@@ -30,69 +22,6 @@ return {
     branch = "master",
     lazy = true,
     event = { "BufReadPost", "BufNewFile" },
-  },
-  {
-    "catgoose/nvim-colorizer.lua",
-    branch = "master",
-    lazy = true,
-    ft = { "css", "scss", "html" },
-    -- Reference: https://github.com/catgoose/nvim-colorizer.lua?tab=readme-ov-file#customization
-    opts = {
-      filetypes = { "css", "scss", "html" },
-      user_default_options = {
-        mode = "virtualtext",
-        always_update = true,
-        css = true,
-        css_fn = true,
-        tailwind = true,
-        sass = { enable = true, parsers = { "css" } },
-      },
-    },
-  },
-  {
-    "axelvc/template-string.nvim",
-    branch = "main",
-    lazy = true,
-    ft = { "html", "typescript", "javascript", "typescriptreact", "javascriptreact", "python" },
-    -- Reference: https://github.com/axelvc/template-string.nvim?tab=readme-ov-file#configuration
-    opts = {
-      filetypes = {
-        "html",
-        "typescript",
-        "javascript",
-        "typescriptreact",
-        "javascriptreact",
-        "python",
-      },
-      remove_template_string = true,
-      restore_quotes = {
-        normal = [["]],
-        jsx = [["]],
-      },
-    },
-  },
-  {
-    "folke/todo-comments.nvim",
-    branch = "main",
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
-    dependencies = { "nvim-lua/plenary.nvim" },
-    -- Reference: https://github.com/folke/todo-comments.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
-    opts = {
-      keywords = {
-        FIX = {
-          icon = " ",
-          color = "error",
-          alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-        },
-        TODO = { icon = " ", color = "info", alt = { "TRY", "EXPLORE" } },
-        HACK = { icon = " ", color = "warning" },
-        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
-        TEST = { icon = "󰤑 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-      },
-    },
   },
   {
     "mbbill/undotree",
@@ -266,58 +195,6 @@ return {
     end,
   },
   {
-    "folke/zen-mode.nvim",
-    tag = "stable",
-    lazy = true,
-    cmd = "ZenMode",
-    -- Reference: https://github.com/folke/zen-mode.nvim?tab=readme-ov-file#%EF%B8%8F-configuration
-    opts = {
-      window = {
-        backdrop = 0.75,
-        width = 0.60,
-        height = 1,
-        options = {
-          signcolumn = "yes",
-          foldcolumn = "0",
-          list = false,
-        },
-      },
-      plugins = {
-        options = {
-          enabled = true,
-          ruler = false,
-          showcmd = false,
-          laststatus = 0,
-          winborder = "single",
-        },
-        twilight = { enabled = false },
-        gitsigns = { enabled = true },
-      },
-    },
-  },
-  {
-    "stevearc/quicker.nvim",
-    version = "*",
-    lazy = true,
-    ft = "qf",
-    opts = {
-      keys = {
-        {
-          ">",
-          function()
-            require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
-          end,
-          desc = "Quicker: Expand Context",
-        },
-        {
-          "<",
-          function()
-            require("quicker").collapse()
-          end,
-          desc = "Quicker: Collapse Context",
-        },
-      },
-    },
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },

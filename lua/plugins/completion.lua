@@ -76,13 +76,13 @@ return {
           ["<S-Tab>"] = { "snippet_backward", "fallback" },
           ["<Up>"] = { "select_prev", "fallback" },
           ["<Down>"] = { "select_next", "fallback" },
-          ["<S-Up>"] = {
+          ["<C-S-Up>"] = {
             function(cmp)
               cmp.scroll_documentation_up(3)
             end,
             "fallback",
           },
-          ["<S-Down>"] = {
+          ["<C-S-Down>"] = {
             function(cmp)
               cmp.scroll_documentation_down(3)
             end,
