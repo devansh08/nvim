@@ -20,7 +20,6 @@ return {
         integrations = {
           nvimtree = true,
           gitsigns = true,
-          telescope = true,
           mason = true,
           treesitter = true,
           treesitter_context = true,
