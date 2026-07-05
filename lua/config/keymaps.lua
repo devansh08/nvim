@@ -263,8 +263,12 @@ local visual_keymaps = {
   ["p"] = { '"+p', "Paste Deleted Text from Quote Register Before Cursor" },
 
   ["<C-/>"] = {
-    ":lua require('Comment.api').toggle.blockwise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
+    ":lua require('Comment.api').toggle.linewise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
     "Comment Selected Lines",
+  },
+  ["<C-\\>"] = {
+    ":lua require('Comment.api').toggle.blockwise(vim.fn.visualmode(), { ignore = '^$', padding = true })<CR>",
+    "Comment Selected Lines in Blockwise Mode",
   },
 
   ["<S-Up>"] = { ":m '<-2<CR><CR>gv=gv", "Move Selected Line Up" },
