@@ -88,6 +88,7 @@ return {
             end,
             "fallback",
           },
+          ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
         },
         completion = {
           list = {
