@@ -37,10 +37,8 @@ local leader_keymaps = {
 
   ["<leader>mm"] = { ":Mason<CR>", "Mason: Open" },
 
-  ["<leader>ff"] = { ":lua require('fff').find_files()<CR>", "FFF: Find Files" },
-  ["<leader>fg"] = { ":lua require('fff').live_grep()<CR>", "FFF: Grep in Files" },
-  ["<leader>fF"] = { ":lua Snacks.picker.files()<CR>", "Snacks: Find Files" },
-  ["<leader>fG"] = { ":lua Snacks.picker.grep()<CR>", "Snacks: Grep in Files" },
+  ["<leader>ff"] = { ":lua Snacks.picker.files()<CR>", "Snacks: Find Files" },
+  ["<leader>fg"] = { ":lua Snacks.picker.grep()<CR>", "Snacks: Grep in Files" },
   ["<leader>fb"] = { ":lua Snacks.picker.buffers()<CR>", "Snacks: List Buffers" },
   ["<leader>fk"] = { ":lua Snacks.picker.keymaps()<CR>", "Snacks: List Keymaps" },
   ["<leader>fh"] = { ":lua Snacks.picker.help()<CR>", "Snacks: Help Tags" },
@@ -105,12 +103,6 @@ local leader_keymaps = {
 
 local visual_leader_keymaps = {
   ["<leader>fg"] = {
-    lua_fn(function()
-      require("fff").live_grep({ query = utils.get_visual_selection() })
-    end),
-    "FFF: Grep Selected Text in Files",
-  },
-  ["<leader>fG"] = {
     lua_fn(function()
       Snacks.picker.grep({ search = utils.get_visual_selection() })
     end),
