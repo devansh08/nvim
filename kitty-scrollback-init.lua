@@ -54,4 +54,4 @@ vim.api.nvim_set_keymap("v", "<C-Left>", "b", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-Right>", "e", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("v", "<leader><Left>", "^", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<leader><Right>", "$", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<leader><Right>", "$h", { noremap = true, silent = true })

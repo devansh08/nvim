@@ -131,7 +131,7 @@ local visual_leader_keymaps = {
   },
 
   ["<leader><Left>"] = { "g^", "Jump to Start of Line" },
-  ["<leader><Right>"] = { "g$", "Jump to End of Line" },
+  ["<leader><Right>"] = { "g$h", "Jump to End of Line" },
 }
 
 local normal_keymaps = {
