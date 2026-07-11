@@ -79,7 +79,6 @@ return {
           extendedClientCapabilities = extended_capabilities,
         },
         on_attach = function(client)
-          vim.lsp.codelens.refresh()
           lsp_defaults.on_attach(client)
         end,
       }
