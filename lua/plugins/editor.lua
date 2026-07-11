@@ -59,6 +59,7 @@ return {
       vim.api.nvim_create_autocmd("User", {
         pattern = "visual_multi_exit",
         callback = function()
+          local constants = require("constants")
           local apply = require("blink.cmp.keymap.apply")
           local keymaps = vim.api.nvim_buf_get_keymap(0, "i")
           for _, map in ipairs(keymaps) do
@@ -66,28 +67,8 @@ return {
               vim.keymap.del("i", map.lhs, { buffer = 0 })
             end
           end
-          apply.keymap_to_current_buffer({
-            ["<C-Space>"] = { "show" },
-            ["<C-c>"] = { "cancel", "fallback" },
-            ["<Esc>"] = { "cancel", "fallback" },
-            ["<CR>"] = { "select_and_accept", "fallback" },
-            ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
-            ["<S-Tab>"] = { "snippet_backward", "fallback" },
-            ["<Up>"] = { "select_prev", "fallback" },
-            ["<Down>"] = { "select_next", "fallback" },
-            ["<S-Up>"] = {
-              function(cmp)
-                cmp.scroll_documentation_up(3)
-              end,
-              "fallback",
-            },
-            ["<S-Down>"] = {
-              function(cmp)
-                cmp.scroll_documentation_down(3)
-              end,
-              "fallback",
-            },
-          })
+          -- Re-apply blink.cmp keymaps
+          apply.keymap_to_current_buffer(constants.BLINK_KEYMAPS)
         end,
       })
     end,

@@ -49,6 +49,7 @@ return {
     end,
     -- https://cmp.saghen.dev/configuration/reference.html
     config = function()
+      local constants = require("constants")
       local utils = require("utils")
       local mocha = require("catppuccin.palettes").get_palette("mocha")
       utils.highlight("BlinkCmpMenu", mocha["text"], mocha["base"])
@@ -65,31 +66,7 @@ return {
         enabled = function()
           return true
         end,
-        -- Any change needs to be reflected in vim-visual-multi as well
-        keymap = {
-          preset = "none",
-          ["<C-Space>"] = { "show" },
-          ["<C-c>"] = { "cancel", "fallback" },
-          ["<Esc>"] = { "cancel", "fallback" },
-          ["<CR>"] = { "select_and_accept", "fallback" },
-          ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
-          ["<S-Tab>"] = { "snippet_backward", "fallback" },
-          ["<Up>"] = { "select_prev", "fallback" },
-          ["<Down>"] = { "select_next", "fallback" },
-          ["<C-S-Up>"] = {
-            function(cmp)
-              cmp.scroll_documentation_up(3)
-            end,
-            "fallback",
-          },
-          ["<C-S-Down>"] = {
-            function(cmp)
-              cmp.scroll_documentation_down(3)
-            end,
-            "fallback",
-          },
-          ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
-        },
+        keymap = vim.tbl_deep_extend("force", { preset = "none" }, constants.BLINK_KEYMAPS),
         completion = {
           list = {
             selection = {
@@ -169,8 +146,8 @@ return {
         signature = {
           enabled = true,
           trigger = {
-            enabled = true,
-            show_on_insert = true,
+            enabled = false,
+            show_on_insert = false,
           },
           window = {
             show_documentation = false,
