@@ -94,42 +94,57 @@ return {
     branch = "master",
     lazy = true,
     cmd = "Neogit",
-    opts = {
-      disable_insert_on_commit = true,
-      graph_style = "kitty",
-      git_services = {
-        ["github.com"] = {
-          pull_request = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
-          commit = "https://github.com/${owner}/${repository}/commit/${oid}",
-          tree = "https://${host}/${owner}/${repository}/tree/${branch_name}",
+    config = function()
+      require("neogit").setup({
+        disable_insert_on_commit = true,
+        graph_style = "kitty",
+        git_services = {
+          ["github.com"] = {
+            pull_request = "https://github.com/${owner}/${repository}/compare/${branch_name}?expand=1",
+            commit = "https://github.com/${owner}/${repository}/commit/${oid}",
+            tree = "https://${host}/${owner}/${repository}/tree/${branch_name}",
+          },
         },
-      },
-      remember_settings = false,
-      use_per_project_settings = false,
-      kind = "tab",
-      commit_editor = {
-        spell_check = false,
-      },
-      signs = {
-        hunk = { "", "" },
-        item = { "", "" },
-        section = { "", "" },
-      },
-      mappings = {
+        remember_settings = false,
+        use_per_project_settings = false,
+        kind = "tab",
         commit_editor = {
-          ["<c-c><c-c>"] = false,
-          ["<c-c><c-k>"] = false,
+          spell_check = false,
         },
-        commit_editor_I = {
-          ["<c-c><c-c>"] = false,
-          ["<c-c><c-k>"] = false,
+        signs = {
+          hunk = { "", "" },
+          item = { "", "" },
+          section = { "", "" },
         },
-        status = {
-          ["<cr>"] = "Toggle",
-          ["<s-cr>"] = "GoToFile",
-          ["o"] = false,
+        mappings = {
+          commit_editor = {
+            ["<c-c><c-c>"] = false,
+            ["<c-c><c-k>"] = false,
+          },
+          commit_editor_I = {
+            ["<c-c><c-c>"] = false,
+            ["<c-c><c-k>"] = false,
+          },
+          status = {
+            ["<cr>"] = "Toggle",
+            ["<s-cr>"] = "GoToFile",
+            ["o"] = false,
+          },
         },
-      },
-    },
+      })
+
+      if vim.g.active_colorscheme_variant == "terafox" then
+        vim.api.nvim_set_hl(0, "NeogitDiffAdd", {
+          fg = "#8eB2AF",
+          bg = "#0f1c1e",
+        })
+        vim.api.nvim_set_hl(0, "NeogitDiffAddHighlight", {
+          bg = "#1d3337",
+        })
+        vim.api.nvim_set_hl(0, "NeogitDiffContextHighlight", {
+          bg = "#0f1c1e",
+        })
+      end
+    end,
   },
 }

@@ -5,7 +5,8 @@ return {
     config = function()
       vim.opt.showtabline = 2
 
-      local COLORS = require("catppuccin.palettes.mocha")
+      local colors = require("colors")
+
       local ICONS = require("nvim-web-devicons")
 
       local conditions = require("heirline.conditions")
@@ -31,15 +32,15 @@ return {
         condition = conditions.is_active,
         static = {
           modes = {
-            n = { str = "NORMAL", fgColor = "base", bgColor = "blue" },
-            no = { str = "O-PNDG", fgColor = "base", bgColor = "blue" },
-            v = { str = "VISUAL", fgColor = "base", bgColor = "yellow" },
-            V = { str = "V-LINE", fgColor = "base", bgColor = "yellow" },
-            ["\22"] = { str = "V-BLCK", fgColor = "base", bgColor = "yellow" },
-            i = { str = "INSERT", fgColor = "base", bgColor = "green" },
-            c = { str = "C-LINE", fgColor = "base", bgColor = "red" },
-            t = { str = "TERMNL", fgColor = "base", bgColor = "sky" },
-            nt = { str = "TERMNL", fgColor = "base", bgColor = "sky" },
+            n = { str = "NORMAL", fgColor = "bg_main", bgColor = "accent_primary" },
+            no = { str = "O-PNDG", fgColor = "bg_main", bgColor = "accent_primary" },
+            v = { str = "VISUAL", fgColor = "bg_main", bgColor = "status_warning" },
+            V = { str = "V-LINE", fgColor = "bg_main", bgColor = "status_warning" },
+            ["\22"] = { str = "V-BLCK", fgColor = "bg_main", bgColor = "status_warning" },
+            i = { str = "INSERT", fgColor = "bg_main", bgColor = "accent_secondary" },
+            c = { str = "C-LINE", fgColor = "bg_main", bgColor = "accent_tertiary" },
+            t = { str = "TERMNL", fgColor = "bg_main", bgColor = "status_info" },
+            nt = { str = "TERMNL", fgColor = "bg_main", bgColor = "status_info" },
           },
         },
         provider = function(self)
@@ -58,8 +59,8 @@ return {
             }
           else
             return {
-              fg = "base",
-              bg = "red",
+              fg = "bg_main",
+              bg = "accent_tertiary",
               bold = true,
             }
           end
@@ -80,14 +81,14 @@ return {
           self.hasChanges = self.status.added ~= 0 or self.status.removed ~= 0 or self.status.changed ~= 0
         end,
         hl = {
-          bg = "surface0",
+          bg = "bg_surface",
         },
         {
           provider = function(self)
             return "  " .. self.status.head .. " "
           end,
           hl = {
-            fg = "blue",
+            fg = "accent_primary",
           },
         },
         {
@@ -98,7 +99,7 @@ return {
             return "+" .. self.status.added .. " "
           end,
           hl = {
-            fg = "green",
+            fg = "accent_secondary",
           },
         },
         {
@@ -109,7 +110,7 @@ return {
             return "~" .. self.status.changed .. " "
           end,
           hl = {
-            fg = "yellow",
+            fg = "status_warning",
           },
         },
         {
@@ -120,7 +121,7 @@ return {
             return "-" .. self.status.removed .. " "
           end,
           hl = {
-            fg = "red",
+            fg = "accent_tertiary",
           },
         },
         update = {
@@ -158,7 +159,7 @@ return {
             return self.icons.ERROR .. " " .. self.counts[self.severity.ERROR] .. " "
           end,
           hl = {
-            fg = "red",
+            fg = "accent_tertiary",
           },
         },
         {
@@ -169,11 +170,11 @@ return {
             return self.icons.WARN .. " " .. self.counts[self.severity.WARN] .. " "
           end,
           hl = {
-            fg = "yellow",
+            fg = "status_warning",
           },
         },
         hl = {
-          bg = "base",
+          bg = "bg_main",
         },
         update = {
           "BufWritePost",
@@ -199,15 +200,15 @@ return {
             return self.is_active ~= nil and " ●" or "● "
           end,
           hl = function(self)
-            local fg = "green"
-            local bg = "mantle"
+            local fg = "accent_secondary"
+            local bg = "bg_main"
             if self.is_active ~= nil then
               if self.is_active == true then
-                fg = "base"
-                bg = "blue"
+                fg = "bg_main"
+                bg = "accent_primary"
               else
-                fg = "blue"
-                bg = "base"
+                fg = "accent_primary"
+                bg = "bg_main"
               end
             end
             return {
@@ -224,7 +225,7 @@ return {
             return self.is_active == nil and " "
           end,
           hl = {
-            fg = "yellow",
+            fg = "status_warning",
           },
         },
       }
@@ -240,14 +241,14 @@ return {
           return " " .. self.fname .. " "
         end,
         hl = function()
-          local fg = "text"
+          local fg = "fg_main"
           if conditions.is_not_active() then
-            fg = "surface2"
+            fg = fg
           end
 
           return {
             fg = fg,
-            bg = "mantle",
+            bg = "bg_main",
           }
         end,
         FileFlags,
@@ -283,11 +284,11 @@ return {
             return " " .. vim.bo.filetype .. " "
           end,
           hl = {
-            fg = "text",
+            fg = "fg_main",
           },
         },
         hl = {
-          bg = "surface0",
+          bg = "bg_surface",
         },
       }
 
@@ -295,8 +296,8 @@ return {
         provider = " %P %l:%c ",
         condition = conditions.is_active,
         hl = {
-          fg = "base",
-          bg = "blue",
+          fg = "bg_main",
+          bg = "accent_primary",
           bold = true,
         },
       }
@@ -314,11 +315,11 @@ return {
             table.insert(names, v.name)
           end
 
-          return "󰒋 " .. table.concat(names, "|") .. " "
+          return " 󰒋 " .. table.concat(names, "|") .. " "
         end,
         hl = {
-          fg = "text",
-          bg = "mantle",
+          fg = "fg_main",
+          bg = "bg_main",
         },
       }
 
@@ -330,8 +331,8 @@ return {
           return "  " .. vim.fn.reg_recording() .. " "
         end,
         hl = {
-          fg = "red",
-          bg = "mantle",
+          fg = "accent_tertiary",
+          bg = "bg_main",
         },
         update = {
           "RecordingEnter",
@@ -358,8 +359,8 @@ return {
           end
         end,
         hl = {
-          fg = "base",
-          bg = "blue",
+          fg = "bg_main",
+          bg = "accent_primary",
           bold = true,
         },
       }
@@ -382,8 +383,8 @@ return {
             .. "C "
         end,
         hl = {
-          fg = "base",
-          bg = "blue",
+          fg = "bg_main",
+          bg = "accent_primary",
           bold = true,
         },
       }
@@ -412,13 +413,13 @@ return {
           hl = function(self)
             if self.is_active then
               return {
-                fg = "crust",
-                bg = "blue",
+                fg = "fg_selection",
+                bg = "accent_primary",
                 bold = true,
               }
             else
               return {
-                fg = "blue",
+                fg = "accent_primary",
               }
             end
           end,
@@ -460,25 +461,7 @@ return {
           TabLineLeft,
         },
         opts = {
-          colors = {
-            base = COLORS.base,
-            crust = COLORS.crust,
-            mantle = COLORS.mantle,
-            surface0 = COLORS.surface0,
-            surface1 = COLORS.surface1,
-            surface2 = COLORS.surface2,
-            overlay0 = COLORS.overlay0,
-            overlay1 = COLORS.overlay1,
-            overlay2 = COLORS.overlay2,
-            text = COLORS.text,
-            subtext1 = COLORS.subtext1,
-            subtext0 = COLORS.subtext0,
-            red = COLORS.red,
-            green = COLORS.green,
-            blue = COLORS.blue,
-            yellow = COLORS.yellow,
-            sky = COLORS.sky,
-          },
+          colors = colors,
         },
       })
     end,

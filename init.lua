@@ -20,6 +20,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+local theme = dofile(vim.env.HOME .. "/.active_theme/nvim.lua")
+vim.g.active_colorscheme = theme["colorscheme"]
+vim.g.active_colorscheme_variant = theme["variant"]
+vim.g.active_colorscheme_accent = theme["accent"]
+
 -- Load plugins from lua/plugins/*.lua files
 require("lazy").setup({
   spec = {
@@ -33,3 +38,5 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+vim.cmd("colorscheme " .. vim.g.active_colorscheme)
