@@ -5,7 +5,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    -- Reference: |nvim-tree-default-config|
+    -- Reference: |nvim-tree-config-default|
     opts = {
       disable_netrw = true,
       respect_buf_cwd = true,
@@ -73,6 +73,15 @@ return {
         highlight_git = true,
         indent_markers = {
           enable = true,
+        },
+        icons = {
+          glyphs = {
+            git = {
+              unstaged = "±",
+              staged = "✓",
+              untracked = "◆",
+            },
+          },
         },
       },
       filters = {
