@@ -16,6 +16,15 @@ return {
       },
       picker = {
         enabled = true,
+        sources = {
+          files = {
+            cmd = "fd",
+            args = { "--hidden" },
+          },
+          grep = {
+            args = { "--glob-case-insensitive" },
+          },
+        },
       },
       image = {
         enabled = true,
