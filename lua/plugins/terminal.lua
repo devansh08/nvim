@@ -22,6 +22,7 @@ return {
           return math.floor(vim.o.lines * 0.8)
         end,
       },
+      auto_scroll = false,
       winbar = {
         enabled = false,
       },
