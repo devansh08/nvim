@@ -8,7 +8,7 @@ return {
   ["bg_overlay"] = "#2d4f56",
   ["bg_selection"] = "#7aa4a1",
   ["fg_main"] = "#ebebeb",
-  ["fg_muted"] = "#cbd9d8",
+  ["fg_muted"] = "#c8c8c8",
   ["fg_selection"] = "#254147",
   ["accent_primary"] = "#7aa4a1",
   ["accent_secondary"] = "#5a93aa",
