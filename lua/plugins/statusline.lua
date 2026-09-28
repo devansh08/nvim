@@ -22,6 +22,9 @@ return {
 
       local Align = {
         provider = "%=",
+        hl = {
+          bg = "bg_main",
+        },
       }
 
       local ViMode = {
