@@ -31,6 +31,9 @@ return {
       modified = {
         enable = true,
       },
+      notify = {
+        threshold = vim.log.levels.WARN,
+      },
       filesystem_watchers = {
         enable = true,
       },
